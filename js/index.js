@@ -10,7 +10,7 @@ function setupPeerJS(){
     peer = new Peer({key : '2wa2nwzh865pzaor'});
     
     peer.on('open', function(id){
-        $(".id-class").empty();
-        $(".id-class").append(id);
+        $(".p-span-id-class").empty();
+        $(".p-span-id-class").append(id);
     }); // end peer.on('open', function(id){});
 } // end setupPeerJS
