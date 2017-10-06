@@ -54,6 +54,7 @@ function setupWebRTC(){
         });
         session.ended(function(session){
             $(".session-list-tbody").remove(".the-tbody-"+ session.number);
+            
         });
     });
     
