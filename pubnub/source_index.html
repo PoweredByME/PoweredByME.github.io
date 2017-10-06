@@ -33,10 +33,84 @@
             </p>
             
             
+            <div class="waiting-for-connection-div">
+                <p><strong>Setting up connection</strong></p>
+                <div class="preloader-wrapper small active">
+                    <div class="spinner-layer spinner-green-only">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div><div class="gap-patch">
+                            <div class="circle"></div>
+                        </div><div class="circle-clipper right">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             
+            <div class="container hide success-connection" style="padding-top: 20px;">
+                <div class=" col l4 m12 s12">
+                    <div class="card" style="text-align:left !important">
+                        <table class="striped">                            
+                          <tbody>
+                            <tr>
+                              <td class="center red-text">Connection Status</td>
+                              <td class="center connection-status-cell">Eclair</td>
+                            </tr>
+                            <tr>
+                              <td class="center red-text">Connection ID</td>
+                              <td class="center connection-id-cell">Jellybean</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
     
+    <div class="container hide success-connection " style="padding-top: 20px;">
+        <div class="center">
+            <h5>Local Video Feed</h5>
+        </div>
+        <div class="center my-video-div" style="transform : rotateY(-180deg)">
+        </div>
+        <div class="center" style="margin-top:20px;">
+            <div>
+                <button class="btn red black-text" onclick="webRTCDisconnect()">End All Connections</button>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="container hide success-connection" style="padding-top: 20px;">
+        <div class="center">
+            <h5>Remote Clients (Sessions) Connected</h5>
+        </div>
+        <div class="container">
+            <div class="card">
+                <table class="striped">                            
+                    <thead>
+                        <tr>
+                            <td class="center"><strong>Sr. No.</strong></td>
+                            <td class="center"><strong>Remote Id</strong></td>
+                        </tr>
+                    </thead>
+                          <tbody class="session-list-tbody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <!--<div class="container hide success-connection" style="padding-top: 20px;">
+        <div class="center">
+            <p>Disconnect Remote Client</p>
+            <form name="callForm" id="call" action="#" onsubmit="return makeCall(this);">
+                <input type="text" name="sessionId" >
+            </form>
+        </div>
+    </div>-->
     
     <script src="theWebAPI/jQuery.min.js"></script>
     <script src="https://cdn.pubnub.com/pubnub-3.7.10.js"></script>
