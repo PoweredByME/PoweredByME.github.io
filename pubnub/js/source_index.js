@@ -26,15 +26,17 @@ function setupWebRTC(){
     //PHONE.disconnect(function(){ var v = $(".connection-status-cell");v.empty();v.append("DISCONNECTED");});
     //PHONE.reconnect(function(){  var v = $(".connection-status-cell");v.empty();v.append("RECONNECTED"); })
     
-    phone.unable(function(details){
-        var v = $(".connection-status-cell");v.empty();v.append("UNABLE : " + details); 
-    });
-    
-    phone.debug(function(details){
-        console.log("Debug Information : " + details);
-    });
-    
     phone.ready(function(){
+        
+        phone.unable(function(details){
+            var v = $(".connection-status-cell");v.empty();v.append("UNABLE : " + details); 
+        });
+    
+        phone.debug(function(details){
+            console.log("Debug Information : " + details);
+        });
+    
+        
         $(".waiting-for-connection-div").addClass("hide");
         $(".success-connection").removeClass("hide");
         var v = $(".connection-status-cell");v.empty();v.append("CONNECTED"); 
