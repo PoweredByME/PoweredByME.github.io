@@ -5,6 +5,12 @@
     <body>
         
         <p class="id-class">The new id = <span class="p-span-id-class"></span></p>
+        <form name = "remote-id">
+            id : <input type="text" size="10" name="boxes">
+            <input type="button" value="Click Here>>"
+                onclick="connectToRemotePeer(document.test.boxes.value)">
+        </form>
+        <p class="recv-class">Data Recieved = <span class="recv-span-id-class"></span></p>
         
         <script src="theWebAPI/jQuery.min.js"></script>
         <script src="js/peer.min.js"></script>
