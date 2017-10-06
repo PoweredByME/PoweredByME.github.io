@@ -5,10 +5,10 @@
     <body>
         
         <p class="id-class">The new id = <span class="p-span-id-class"></span></p>
-        <form name = "remote-id">
-            id : <input type="text" size="10" name="boxes">
+        <form id = "remote-id">
+            id : <input type="text" size="100" name="id">
             <input type="button" value="Click Here>>"
-                onclick="connectToRemotePeer(document.test.boxes.value)">
+                onclick="connectToRemotePeer(document.getElementById('remote-id').elements.namedItem('id').value)">
         </form>
         <p class="recv-class">Data Recieved = <span class="recv-span-id-class"></span></p>
         

@@ -14,8 +14,9 @@ function setupPeerJS(){
         $(".p-span-id-class").append(id);
     }); // end peer.on('open', function(id){});
     
-    peer.on('connection', function(){
-       peer.on('data', function(data){
+    peer.on('connection', function(conn){
+       conn.on('data', function(data){
+           console.log("recved data = " + data);
            $(".recv-span-id-class").empty();
            $(".recv-span-id-class").append(data);
        });
@@ -24,9 +25,11 @@ function setupPeerJS(){
 } // end setupPeerJS
 
 function connectToRemotePeer(peerId){
-    peerConn =  peer.connect('another-peers-id');
+    console.log("peerId = " + peerId)
+    peerConn =  peer.connect(peerId);
     peerConn.on('open', function(){
-        conn.send('hi!');
+        console.log("connection Opened");
+        peerConn.send('hi!');
     });
 }
 
