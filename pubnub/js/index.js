@@ -40,7 +40,7 @@ function login(form) {
             video_out.appendChild(session.video); 
             $("#vid-box").removeClass("hide");
             currentSession = session;
-            $(". input-box hide").removeClass("hide");
+            $(".input-box").removeClass("hide");
             
         });
 	    session.ended(function(session) {
