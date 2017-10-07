@@ -59,30 +59,26 @@ function setupWebRTC(){
         $(".my-video-div").append(phone.video);
     });
     
+    
+    
+    
     phone.receive(function(session){
         session.connected(function(session){
             numberOfSessions++;
-            listOfSessions.push({
-                key:   "_" + numberOfSessions,
-                value: session
+            listOfSessions.push(session);
+            showAudience();
+            mutePage();
+            // The MESSAGE Handler
+            session.message(function(session, msg){
+                var m = msg.text;
+                console.log(msg);
+                $(".msg").empty();
+                $(".msg").append(m);
             });
-            var HTML = "<tr class=\"the-tbody-"+ session.number +"\"><td>"+numberOfSessions+"</td><td>"+session.number+"</td></tr>";
-            $(".session-list-tbody").append(HTML);
-            
-            
-    phone.message(function(session, msg){
-        var m = msg.text;
-        console.log(msg);
-        $(".msg").empty();
-        $(".msg").append(m);
-    });
-    
-            
-            
         });
         session.ended(function(session){
-            $(".session-list-tbody").remove(".the-tbody-"+ session.number);
-            
+            listOfSessions.splice(listOfSessions.indexOf(session), 1);
+            showAudience();
         });
     });
     
@@ -96,6 +92,16 @@ function makeId(lenght){
 function webRTCDisconnect(){
     phone.hangup();
 }
+
+function showAudience(){
+    var ele = $(".session-list-tbody");
+    ele.empty();
+    listOfSessions.forEach(function(session, index){
+        var HTML = "<tr class=\"the-tbody-"+ session.number +"\"><td class= \"center\">"+index+"</td><td class= \"center\">"+session.number+"</td></tr>";
+        ele.append(HTML);
+    });
+}
+
 
 function disconnectSession(form){
     

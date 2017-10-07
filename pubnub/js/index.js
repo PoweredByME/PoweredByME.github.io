@@ -1,4 +1,4 @@
-var video_out;
+var video_out, currentSession;
 
 function indexJS_onWindowLoad(){
     console.log("Hello World");
@@ -30,6 +30,7 @@ function login(form) {
 	    publish_key   : 'pub-c-c904a156-f71f-4800-a8ac-500c05061cc5',
 	    subscribe_key : 'sub-c-eeeb0938-aa9b-11e7-9eb5-def16b84ebc1',
         ssl : true,
+        media : {video : true, audio : false}
 	});	
     
     phone.ready(function(){ form.username.style.background="#55ff5b"; });
@@ -38,10 +39,12 @@ function login(form) {
             $(".login-div").addClass("hide");
             video_out.appendChild(session.video); 
             $("#vid-box").removeClass("hide");
+            currentSession = session;
             
         });
 	    session.ended(function(session) {
             video_out.innerHTML=''; 
+            currentSession = null;
         });
         mutePage();
         
@@ -71,7 +74,7 @@ function makeCall(form){
 
 function sendMsg(form){
     var m = form.msg.value;
-    phone.send({ text : m});
+    currentSession.send({ text : m});
     return false;
 }
 
