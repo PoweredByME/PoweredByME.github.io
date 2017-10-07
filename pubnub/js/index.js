@@ -40,9 +40,23 @@ function login(form) {
             $("#vid-box").removeClass("hide");
             
         });
-	    session.ended(function(session) { video_out.innerHTML=''; });
+	    session.ended(function(session) {
+            video_out.innerHTML=''; 
+        });
         mutePage();
+        
+        
+        $(".the-slider").mousemove(function (){
+           console.log(this.value) ;
+	       phone.send({text : this.value});
+        });
+        
 	});
+    
+    phone.connect(function(){    console.log('network LIVE.') })
+    phone.disconnect(function(){ console.log('network GONE.') })
+    phone.reconnect(function(){  console.log('network BACK!') })
+    
     return false; 	// So the form does not submit.
 }
 
@@ -54,6 +68,12 @@ function makeCall(form){
 }
 
 
+
+function sendMsg(form){
+    var m = form.msg.value;
+    phone.send({ text : m});
+    return false;
+}
 
 
 

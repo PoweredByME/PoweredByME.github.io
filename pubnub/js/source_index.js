@@ -38,8 +38,6 @@ function setupWebRTC(){
         media : {audio : false, video : true},
     });
     
-    
-    
     //PHONE.disconnect(function(){ var v = $(".connection-status-cell");v.empty();v.append("DISCONNECTED");});
     //PHONE.reconnect(function(){  var v = $(".connection-status-cell");v.empty();v.append("RECONNECTED"); })
     
@@ -70,6 +68,17 @@ function setupWebRTC(){
             });
             var HTML = "<tr class=\"the-tbody-"+ session.number +"\"><td>"+numberOfSessions+"</td><td>"+session.number+"</td></tr>";
             $(".session-list-tbody").append(HTML);
+            
+            
+    phone.message(function(session, msg){
+        var m = msg.text;
+        console.log(msg);
+        $(".msg").empty();
+        $(".msg").append(m);
+    });
+    
+            
+            
         });
         session.ended(function(session){
             $(".session-list-tbody").remove(".the-tbody-"+ session.number);
