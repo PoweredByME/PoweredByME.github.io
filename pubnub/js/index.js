@@ -4,6 +4,22 @@ function indexJS_onWindowLoad(){
     console.log("Hello World");
     video_out = document.getElementById("vid-box");
     //setupWebRTC();
+
+}
+
+// Mute a singular HTML5 element
+function muteMe(elem) {
+    elem.muted = true;
+    elem.pause();
+}
+
+// Try to mute all video and audio elements on the page
+function mutePage() {
+    var videos = document.querySelectorAll("video"),
+        audios = document.querySelectorAll("audio");
+
+    [].forEach.call(videos, function(video) { muteMe(video); });
+    [].forEach.call(audios, function(audio) { muteMe(audio); });
 }
 
 
@@ -13,12 +29,19 @@ function login(form) {
 	    number        : form.username.value || "Anonymous", // listen on username line else Anonymous
 	    publish_key   : 'pub-c-c904a156-f71f-4800-a8ac-500c05061cc5',
 	    subscribe_key : 'sub-c-eeeb0938-aa9b-11e7-9eb5-def16b84ebc1',
-        ssl : true
+        ssl : true,
 	});	
-	phone.ready(function(){ form.username.style.background="#55ff5b"; });
+    
+    phone.ready(function(){ form.username.style.background="#55ff5b"; });
 	phone.receive(function(session){
-	    session.connected(function(session) { video_out.appendChild(session.video); });
+	    session.connected(function(session) { 
+            $(".login-div").addClass("hide");
+            video_out.appendChild(session.video); 
+            $("#vid-box").removeClass("hide");
+            
+        });
 	    session.ended(function(session) { video_out.innerHTML=''; });
+        mutePage();
 	});
     return false; 	// So the form does not submit.
 }
@@ -26,9 +49,22 @@ function login(form) {
 
 function makeCall(form){
 	if (!window.phone) alert("Login First!");
-	else phone.dial(form.number.value);
-	return false;
+    else phone.dial(form.number.value);
+    return false;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*function setupWebRTC(){
@@ -73,6 +109,4 @@ function makeCall(form){
     SkylinkLogs.printAllLogs();
     
 } // end setupWebRTC
-
-
 */

@@ -7,7 +7,24 @@ function indexJS_onWindowLoad(){
     console.log("Hello World");
     video_out = document.getElementById("vid-box");
     setupWebRTC();
+    mutePage();
 }
+
+// Mute a singular HTML5 element
+function muteMe(elem) {
+    elem.muted = true;
+    elem.pause();
+}
+
+// Try to mute all video and audio elements on the page
+function mutePage() {
+    var videos = document.querySelectorAll("video"),
+        audios = document.querySelectorAll("audio");
+
+    [].forEach.call(videos, function(video) { muteMe(video); });
+    [].forEach.call(audios, function(audio) { muteMe(audio); });
+}
+
 
 function setupWebRTC(){
     // making the phone object to make the computer available for 
@@ -18,7 +35,7 @@ function setupWebRTC(){
         publish_key : 'pub-c-c904a156-f71f-4800-a8ac-500c05061cc5',
         subscribe_key : 'sub-c-eeeb0938-aa9b-11e7-9eb5-def16b84ebc1',
         ssl : true,
-        media : {audio : false, video : true} 
+        media : {audio : false, video : true},
     });
     
     
@@ -33,7 +50,7 @@ function setupWebRTC(){
         });
     
         phone.debug(function(details){
-            console.log("Debug Information : " + details);
+            console.log(details);
         });
     
         
@@ -74,6 +91,9 @@ function webRTCDisconnect(){
 function disconnectSession(form){
     
 }
+
+
+
 
 
 /*

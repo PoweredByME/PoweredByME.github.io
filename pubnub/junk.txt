@@ -1,0 +1,340 @@
+// FROM INDEX.HTML
+
+
+<!--<html>
+<head>
+    <title>NUST | (CLIENT) Micro-cell Injection System</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="discription" content="NUST Fine Arts Club (NFAC) main Website">
+    <link rel="icon" href="assets/img/nust_logo.png">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="theWebAPI/materialize/css/materialize.min.css">
+</head>
+<body class="grey lighten-4">
+    <!--
+    <div class="container" style="padding-top: 30px;">
+        <div class="card center" style="padding:15px;">
+            <h3>CLIENT</h3>
+            <h4>Micro-cell Injection System</h4>
+            <p>This system and its code is property of Conneckt Labs, 
+                <a href="http://www.nust.edu.pk/Pages/Default.aspx">NUST</a>, Pakistan.</p>
+                <p style="font-size:10px;">
+                    <a href="https://poweredbyme.github.io/pubnub/LICENCE">Copyright ©2017</a>
+                    Connekt Labs, NUST, Pakistan. <br>All Rights Reserved
+                </p>
+        </div>
+    </div>
+    
+    <div class="container" style="padding-top: 20px;">
+        <div class="center" style="padding:15px;">
+            <p>
+                This page is the client page from which the 
+                the video and control feed of the source can be
+                accessed.
+            </p>
+        </div></div>
+    
+    <div class="container login-div" style="padding-top: 30px;">
+        <div class="container">
+            <div class="card center" style="padding:25px;padding-left:30px; padding-right:30px">
+                <p>Login to the WebRTC System by picking up a unique username and to connect to the
+                source enter the source connection ID and click <strong>CONNECT</strong> button.</p>
+                <form name="loginForm" id="login" action="#" onsubmit="return login(this);">
+                    <input type="text" name="username" id="username" placeholder="Pick a username!" />
+                    <input type="submit" name="login_submit" value="Log In" class="btn">
+                </form>
+            
+                <form name="callForm" id="call" action="#" onsubmit="return makeCall(this);">
+	               <input type="text" name="number" placeholder="Enter source connection ID" />
+	               <input type="submit" value="Connect" class="btn"/>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    
+    <div id="vid-box" class="center hide"></div>
+    
+    
+        <form name="loginForm" id="login" action="#" onsubmit="return login(this);">
+                    <input type="text" name="username" id="username" placeholder="Pick a username!" />
+                    <input type="submit" name="login_submit" value="Log In" class="btn">
+                </form>
+            
+    
+    
+    <div id="vid-box"></div>
+
+<form name="watchForm" id="watch" action="#" onsubmit="return watch(this);">
+	<input type="text" name="number" placeholder="Enter stream to join!" />
+	<input type="submit" value="Watch"/>
+</form>
+
+<div id="inStream">
+	<button id="end" onclick="end()">Done</button> <br>
+	Generate Embed: <button onclick="genEmbed(400,600)">Tall</button><button onclick="genEmbed(600,400)">Wide</button><button onclick="genEmbed(500,500)">Square</button><br>
+	<div id="embed-code"></div>
+</div>
+
+    <script src="https://cdn.pubnub.com/pubnub-3.7.10.js"></script>
+    <script src="https://cdn.pubnub.com/webrtc/webrtc.js"></script>
+    <script src="https://cdn.pubnub.com/webrtc/rtc-controller.js"></script>
+    <script src="js/index.js"></script>
+    <script src="theWebAPI/jQuery.min.js"></script>
+    <script>
+        window.onload = function(){
+            indexJS_onWindowLoad();
+        };
+    </script>
+</body>
+</html>-->
+
+
+// FROM INDEX.HTML
+
+
+// FROM INDEX.JS
+
+
+var video_out;
+var phone, phoneCTRL;
+function indexJS_onWindowLoad(){
+    console.log("Hello World");
+    video_out = document.getElementById("vid-box");
+    //setupWebRTC();
+}
+
+function login(form) {
+    console.log("login");
+	phone = window.phone = PHONE({
+	    number        : form.username.value || "Anonymous", // listen on username line else Anonymous
+	    publish_key   : 'pub-c-c904a156-f71f-4800-a8ac-500c05061cc5',
+	    subscribe_key : 'sub-c-eeeb0938-aa9b-11e7-9eb5-def16b84ebc1',
+        ssl : true,
+        oneway : true
+	});	
+    
+    phoneCTRL = window.ctrl = CONTROLLER(phone, true);
+    
+	phoneCTRL.ready(function(){ 
+        form.username.style.background="#55ff5b"; 
+        phone.debug(function(details){
+            console.log(details);
+        })
+    });
+    
+    phoneCTRL.streamPresence(function(m){
+        console.log(m);
+    })
+    
+    
+	phoneCTRL.receive(function(session){
+	    session.connected(function(session) {
+            $(".login-div").addClass("hide");
+            video_out.appendChild(session.video);
+            $("#vid-box").removeClass("hide");
+        });
+	    session.ended(function(session) { video_out.innerHTML=''; });
+	});
+    return false; 	// So the form does not submit.
+}
+
+
+function wat(form){
+	if (!window.phone) alert("Login First!");
+    var num = form.number.value;
+	/*else phone.dial(form.number.value);*/
+    phoneCTRL.isStreaming(num, function(isOn){
+			if (isOn) phoneCTRL.joinStream(num);
+			else alert("User is not streaming!");
+    });
+    
+	return false;
+}
+
+
+/*function setupWebRTC(){
+    skylink = new Skylink();
+    
+    skylink.on('peerJoined', function(peerId, peerInfo, isSelf) {
+        console.log("Peer joined = " + peerInfo);
+        if(isSelf) return; // We already have a video element for our video and don't need to create a new one.
+        var vid = document.createElement('video');
+        vid.autoplay = true;
+        vid.muted = true; // Added to avoid feedback when testing locally
+        vid.id = peerId;
+        document.body.appendChild(vid);
+    });
+    
+    skylink.on('incomingStream', function(peerId, stream, isSelf) {
+        if(isSelf) return;
+        var vid = document.getElementById(peerId);
+        attachMediaStream(vid, stream);
+    });
+    
+    skylink.on('peerLeft', function(peerId, peerInfo, isSelf) {
+        var vid = document.getElementById(peerId);
+        document.body.removeChild(vid);
+    });
+    
+    skylink.on('mediaAccessSuccess', function(stream) {
+        var vid = document.getElementById('myvideo');
+        attachMediaStream(vid, stream);
+    });
+    
+    skylink.init({
+        apiKey: '3e850fd6-c814-4610-b1d1-81f0b1dd1841',
+        defaultRoom: 'room12'
+        }, function() {
+            skylink.joinRoom({
+                audio: true,
+                video: true
+        });
+    });
+    
+    SkylinkLogs.printAllLogs();
+    
+} // end setupWebRTC
+
+
+*/
+
+// FROM INDEX.JS
+
+
+
+// FROM SOURCE_INDEX.HTML
+
+<html>
+<head>
+    <title>NUST | (SOURCE) Micro-cell Injection System</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="discription" content="NUST Fine Arts Club (NFAC) main Website">
+    <link rel="icon" href="assets/img/nust_logo.png">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="theWebAPI/materialize/css/materialize.min.css">
+</head>
+<body class="grey lighten-4">
+    
+    <div class="container" style="padding-top: 30px;">
+        
+        <div class="card center" style="padding:15px;">
+            <h3>SOURCE</h3>
+            <h4>Micro-cell Injection System</h4>
+            <p>This system and its code is property of Conneckt Labs, 
+                <a href="http://www.nust.edu.pk/Pages/Default.aspx">NUST</a>, Pakistan.</p>
+                <p style="font-size:10px;">
+                    <a href="https://poweredbyme.github.io/pubnub/LICENCE">Copyright ©2017</a>
+                    Connekt Labs, NUST, Pakistan. <br>All Rights Reserved
+                </p>
+        </div>
+    </div>
+    
+    <div class="container" style="padding-top: 20px;">
+        <div class="center" style="padding:15px;">
+            <p>
+                This page is the source of the video feed of the system. Here the video feed of the 
+                system  as well as the controls of the system, are accessed from the computer and made available 
+                remotely.
+            </p>
+            
+            
+            <div class="waiting-for-connection-div">
+                <p><strong>Setting up connection</strong></p>
+                <div class="preloader-wrapper small active">
+                    <div class="spinner-layer spinner-green-only">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div><div class="gap-patch">
+                            <div class="circle"></div>
+                        </div><div class="circle-clipper right">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="container hide success-connection" style="padding-top: 20px;">
+                <div class=" col l4 m12 s12">
+                    <div class="card" style="text-align:left !important">
+                        <table class="striped">                            
+                          <tbody>
+                            <tr>
+                              <td class="center red-text">Connection Status</td>
+                              <td class="center connection-status-cell">Eclair</td>
+                            </tr>
+                            <tr>
+                              <td class="center red-text">Connection ID</td>
+                              <td class="center connection-id-cell">Jellybean</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <div class="container hide success-connection " style="padding-top: 20px;">
+        <div class="center">
+            <h5>Local Video Feed</h5>
+        </div>
+        <div class="center my-video-div" style="transform : rotateY(-180deg)">
+        </div>
+        <div class="center" style="margin-top:20px;">
+            <div>
+                <button class="btn red black-text hoverable" onclick="webRTCDisconnect()">End All Connections</button>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="container hide success-connection" style="padding-top: 20px;">
+        <div class="center">
+            <h5>Remote Clients (Sessions) Connected</h5>
+        </div>
+        <div class="container">
+            <div class="card">
+                <table class="striped">                            
+                    <thead>
+                        <tr>
+                            <td class="center"><strong>Sr. No.</strong></td>
+                            <td class="center"><strong>Remote Id</strong></td>
+                        </tr>
+                    </thead>
+                          <tbody class="session-list-tbody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <!--<div class="container hide success-connection" style="padding-top: 20px;">
+        <div class="center">
+            <p>Disconnect Remote Client</p>
+            <form name="callForm" id="call" action="#" onsubmit="return makeCall(this);">
+                <input type="text" name="sessionId" >
+            </form>
+        </div>
+    </div>-->
+    
+    <script src="theWebAPI/jQuery.min.js"></script>
+    <script src="https://cdn.pubnub.com/pubnub-3.7.10.js"></script>
+    <script src="https://cdn.pubnub.com/webrtc/webrtc.js"></script>
+    <script src="https://cdn.pubnub.com/webrtc/rtc-controller.js"></script>
+    <script src="js/source_index.js"></script>
+    <script>
+        window.onload = function(){
+            indexJS_onWindowLoad();
+        };
+    </script>
+</body>
+</html>
+
+// FROM SOURCE_INDEX.HTML
+
+
