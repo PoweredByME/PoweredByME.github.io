@@ -48,10 +48,16 @@ function login(form) {
         });
         mutePage();
         
+        // This functions send the 
+        // value of slider via webRTC (JSON formate)
+        // on the position changing of the 
+        // slider.
         
         $(".the-slider").mousemove(function (){
-           console.log(this.value) ;
-	       phone.send({text : this.value});
+            console.log(this.value) ;
+	        currentSession.send({text : this.value});
+            $(".the-slider-reading").empty();
+            $(".the-slider-reading").append(this.value);
         });
         
 	});
