@@ -47,6 +47,8 @@ function login(form) {
                 console.log(event.data);
             }
             
+            console.log(dataChannel);
+            
             $("#vid-box").removeClass("hide");
             currentSession = session;
             $(".input-box").removeClass("hide");

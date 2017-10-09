@@ -76,6 +76,8 @@ function setupWebRTC(){
                 console.log(event.data);
             }
             
+            console.log(dataChannel);
+            
             // The MESSAGE Handler
             session.message(function(session, msg){
                 var m = msg.text;
