@@ -41,7 +41,6 @@ function login(form) {
             $("#vid-box").removeClass("hide");
             currentSession = session;
             $(".input-box").removeClass("hide");
-            
         });
 	    session.ended(function(session) {
             video_out.innerHTML=''; 
