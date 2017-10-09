@@ -38,6 +38,7 @@ function login(form) {
 	    session.connected(function(session) { 
             $(".login-div").addClass("hide");
             video_out.appendChild(session.video); 
+            console.log(session.pc);
             $("#vid-box").removeClass("hide");
             currentSession = session;
             $(".input-box").removeClass("hide");

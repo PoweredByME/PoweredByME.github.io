@@ -68,6 +68,7 @@ function setupWebRTC(){
             listOfSessions.push(session);
             showAudience();
             mutePage();
+            console.log(session.pc);
             // The MESSAGE Handler
             session.message(function(session, msg){
                 var m = msg.text;
