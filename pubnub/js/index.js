@@ -39,17 +39,16 @@ function login(form) {
             $(".login-div").addClass("hide");
             video_out.appendChild(session.video); 
             console.log(session.pc);
-            var dataChannel = session.pc.createDataChannel("chat");
-            dataChannel.onopen = function(){
-                dataChannel.send("Hi! from Data channel _ index");
-                console.log(dataChannel);
+            var pc = new RTCPeerConnection(options);
+            pc.ondatachannel = function(event) {
+                var channel = event.channel;
+                channel.onopen = function(event) {
+                    channel.send('Hi back!');
+                }
+                channel.onmessage = function(event) {
+                    console.log(event.data);
+                }
             }
-            dataChannel.onmessage = function(event){
-                console.log(event.data);
-            }
-            
-            console.log(dataChannel);
-            
             $("#vid-box").removeClass("hide");
             currentSession = session;
             $(".input-box").removeClass("hide");
