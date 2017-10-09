@@ -42,6 +42,7 @@ function login(form) {
             var dataChannel = session.pc.createDataChannel("chat");
             dataChannel.onopen = function(){
                 dataChannel.send("Hi! from Data channel _ index");
+                console.log(dataChannel);
             }
             dataChannel.onmessage = function(event){
                 console.log(event.data);
