@@ -68,17 +68,6 @@ function setupWebRTC(){
             listOfSessions.push(session);
             showAudience();
             mutePage();
-            var dataChannel = session.pc.createDataChannel("chat");
-            dataChannel.onopen = function(){
-                dataChannel.send("Hi! from Data channel _ source_index");
-                console.log(dataChannel);
-            }
-            dataChannel.onmessage = function(event){
-                console.log(event.data);
-            }
-            
-            console.log(dataChannel);
-            
             // The MESSAGE Handler
             session.message(function(session, msg){
                 var m = msg.text;

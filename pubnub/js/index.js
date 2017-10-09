@@ -38,17 +38,6 @@ function login(form) {
 	    session.connected(function(session) { 
             $(".login-div").addClass("hide");
             video_out.appendChild(session.video); 
-            console.log(session.pc);
-            
-            session.pc.ondatachannel = function(event) {
-                var channel = event.channel;
-                channel.onopen = function(event) {
-                    channel.send('Hi back!');
-                }
-                channel.onmessage = function(event) {
-                    console.log(event.data);
-                }
-            }
             $("#vid-box").removeClass("hide");
             currentSession = session;
             $(".input-box").removeClass("hide");
