@@ -39,8 +39,8 @@ function login(form) {
             $(".login-div").addClass("hide");
             video_out.appendChild(session.video); 
             console.log(session.pc);
-            var pc = new RTCPeerConnection(options);
-            pc.ondatachannel = function(event) {
+            
+            session.pc.ondatachannel = function(event) {
                 var channel = event.channel;
                 channel.onopen = function(event) {
                     channel.send('Hi back!');
