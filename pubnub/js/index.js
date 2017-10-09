@@ -39,6 +39,14 @@ function login(form) {
             $(".login-div").addClass("hide");
             video_out.appendChild(session.video); 
             console.log(session.pc);
+            var dataChannel = session.pc.createDataChannel("chat");
+            dataChannel.onopen = function(){
+                dataChannel.send("Hi! from Data channel _ index");
+            }
+            dataChannel.onmessage = function(event){
+                console.log(event.data);
+            }
+            
             $("#vid-box").removeClass("hide");
             currentSession = session;
             $(".input-box").removeClass("hide");
