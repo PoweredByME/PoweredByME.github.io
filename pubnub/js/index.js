@@ -30,7 +30,7 @@ function login(form) {
 	    publish_key   : 'pub-c-c904a156-f71f-4800-a8ac-500c05061cc5',
 	    subscribe_key : 'sub-c-eeeb0938-aa9b-11e7-9eb5-def16b84ebc1',
         ssl : true,
-        media : {video : true, audio : false}
+        oneway : true
 	});	
     
     phone.ready(function(){ form.username.style.background="#55ff5b"; });
@@ -41,6 +41,10 @@ function login(form) {
             $("#vid-box").removeClass("hide");
             currentSession = session;
             $(".input-box").removeClass("hide");
+
+	        getStats(session.pc, function(result){
+                console.log(result.video.rtt);
+            }, 500);
         });
 	    session.ended(function(session) {
             video_out.innerHTML=''; 

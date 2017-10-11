@@ -79,9 +79,7 @@ function setupWebRTC(){
 
 		var pc = session.pc;
 		setInterval(function(){
- 			pc.getStats().then(function(stt){
-                                console.log(stt.roundTripTime);
-                        });
+			console.log(pc.getStats());	
 		}, 500);
 
         });
