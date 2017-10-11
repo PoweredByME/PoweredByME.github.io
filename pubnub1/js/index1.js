@@ -45,7 +45,6 @@ function stream(form){
         publish_key   : 'pub-c-c904a156-f71f-4800-a8ac-500c05061cc5',
         subscribe_key : 'sub-c-eeeb0938-aa9b-11e7-9eb5-def16b84ebc1',
         oneway        : true,
-        ssl           : true
     });
     var ctrl = window.ctrl = CONTROLLER(phone, true);
     ctrl.ready(function(){
