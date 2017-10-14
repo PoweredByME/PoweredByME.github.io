@@ -89,6 +89,9 @@ function watch(form){
 	    session.connected(function(session){ 
             video_out.appendChild(session.video); 
         });
+        session.ended(function(session){
+            console.log(session);
+        })
 	});
 	ctrl.streamPresence(function(m){ 
         here_now.innerHTML=m.occupancy; 
