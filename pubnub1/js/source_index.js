@@ -86,7 +86,7 @@ function showAllSession(){
     t.empty();
     console.log(sessionsList);
     sessionsList.forEach(function(item, index){
-        var str = "<tr><td class=\"center\"> ID : "+item.theSession.number+"</td><td class=\"center\">"+timeConverter(item.startTime)+"</td><td class=\"center\"><button class=\"red btn\" onclick=\"onclick_endSession("+index+")\">End</button></td></tr>"    
+        var str = "<tr><td class=\"center\">"+item.theSession.number+"</td><td class=\"center\">"+timeConverter(item.startTime)+"</td><td class=\"center\"><button class=\"red btn\" onclick=\"onclick_endSession("+index+")\">End</button></td></tr>"    
         t.append(str);
     })
 }
