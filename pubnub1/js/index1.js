@@ -19,6 +19,9 @@ function watch(form){
     $(".connection-id").append("My ID : " + myID);
     
 	var ctrl = window.ctrl = CONTROLLER(phone, true);
+    
+    $(".waiting-for-connection-div").removeClass("hide");
+    $(".watch-form").addClass("hide");
 	ctrl.ready(function(){
         console.log("num -> " + num);
 		ctrl.isStreaming(num, function(isOn){
@@ -34,7 +37,7 @@ function watch(form){
 	    session.connected(function(session){ 
             video_out.appendChild(session.video); 
             $(".vid-container").removeClass("hide");
-            $(".watch-form").addClass("hide");
+            $(".waiting-for-connection-div").addClass("hide");
             $(".vid-cont-1").removeClass("hide");
             $(".vid-cont-2").removeClass("hide");
         });
