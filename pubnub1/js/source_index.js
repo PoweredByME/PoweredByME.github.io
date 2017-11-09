@@ -131,7 +131,7 @@ function endSession(session){
 function setupControlDataChannal(id){
     messengerChannel = id + "msg";
     console.log(messengerChannel);
-    messenger = PUBNUB.init({ publish_key: pubnub_publish_key, subscribe_key: pubnub_subscribe_key });
+    messenger = PUBNUB.init({ publish_key: pubnub_publish_key, subscribe_key: pubnub_subscribe_key, ssl: true });
     messenger.subscribe({channel : messengerChannel, message : onMsg_messenger})
 }
 
