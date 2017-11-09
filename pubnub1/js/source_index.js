@@ -1,10 +1,16 @@
+var servername = "";  // To be set when the ajax call to a server via this script 
+                     // is to be made.
+
+var pubnub_publish_key = 'pub-c-c904a156-f71f-4800-a8ac-500c05061cc5';  // The two API keys
+var pubnub_subscribe_key = 'sub-c-eeeb0938-aa9b-11e7-9eb5-def16b84ebc1';
 var video_out = document.getElementById("vid-box");//local video box
 var streamname;
-var pubnub_publish_key = 'pub-c-c904a156-f71f-4800-a8ac-500c05061cc5';
-var pubnub_subscribe_key = 'sub-c-eeeb0938-aa9b-11e7-9eb5-def16b84ebc1';
 var sessionsList = [];
 var ctrl;
-var phone;
+var phone,messenger, messengerChannel,id;
+
+// This function gets called whenever the page is 
+// loaded in the browser.
 function onLoad(){
     stream();
 }
@@ -12,7 +18,7 @@ function onLoad(){
 // this function sets up the stream for broadcasting
 function stream(){
     console.log("setting up the stream");
-    var id = "source_" + makeId(10);
+    id = "source_" + makeId(10);
     streamname = id;
     
     // Setting up the phone object for oneway broadcast
@@ -31,7 +37,6 @@ function stream(){
     
     // When the controller gets ready for streaming via webRTC
     ctrl.ready(function(){
-        
         ctrl.addLocalStream(video_out);
         ctrl.stream();
         $(".waiting-for-connection-div").addClass("hide");
@@ -40,16 +45,16 @@ function stream(){
         $(".connection-status-cell").append("Connected");
         $(".connection-id-cell").empty();
         $(".connection-id-cell").append(streamname);
+        setupControlDataChannal(id);
         phone.debug(function(details){
             console.log(details);
         });
-        
-        
     });
     
     // when the ctrl will receive request for connection 
     // or disconnect.
     ctrl.receive(function(session){
+        
         session.ended(function(session) { 
             console.log(session.number + " -> end");
             onSessionDisconnect(session);
@@ -59,6 +64,9 @@ function stream(){
         if(session.status != "routing"){
             onAddSession(session);
         }
+        
+        
+        
     });
     
     ctrl.streamPresence(function(m){
@@ -86,7 +94,7 @@ function showAllSession(){
     t.empty();
     console.log(sessionsList);
     sessionsList.forEach(function(item, index){
-        var str = "<tr><td class=\"center\">"+item.theSession.number+"</td><td class=\"center\">"+timeConverter(item.startTime)+"</td><td class=\"center\"><button class=\"red btn\" onclick=\"onclick_endSession("+index+")\">End</button></td></tr>"    
+        var str = "<tr><td class=\"center\">"+item.theSession.number+"</td><td class=\"center\">"+timeConverter(item.startTime)+"</td><td class=\"center\"><button class=\"red btn\" onclick=\"onclick_endSession("+index+")\">End</button></td><td class=\""+item.theSession.number+"-class center\"></td></tr>"    
         t.append(str);
     })
 }
@@ -118,6 +126,66 @@ function onclick_endSession(index){
 function endSession(session){
     session.hangup();
 }
+
+// This function is used to set up the controller data channel
+function setupControlDataChannal(id){
+    messengerChannel = id + "msg";
+    console.log(messengerChannel);
+    messenger = PUBNUB.init({ publish_key: pubnub_publish_key, subscribe_key: pubnub_subscribe_key });
+    messenger.subscribe({channel : messengerChannel, message : onMsg_messenger})
+}
+
+
+// When a message is received via the control data stream
+function onMsg_messenger(msg){
+    if(msg.text == "requestToConnect_MSG"){
+        var sessionFound = false;
+        sessionsList.forEach(function(item, index){
+           if(item.theSession.number == msg.id) {
+               sessionFound = true;
+               return;
+           }
+        });
+        if(sessionFound){
+            pnPublish(messenger, messengerChannel, {id:id, text:"acceptToConnect_MSG"});
+        }
+    }else{
+        console.log(msg);
+        $("."+msg.id+"-class").empty();
+        $("."+msg.id+"-class").append(msg.text);
+    }
+    
+    
+    
+}
+
+function messangerIsConnected(){
+    console.log("Messager Is CONNECTD");
+}
+
+
+
+
+
+
+// For messenger
+// --------------------------------
+//  This function publishes the 
+//  message to the given channel
+//  and connection.
+//  INPUT : 
+//  ... 1. connection -> the pubnub 
+//  .................... connection
+//  ... 2. channel
+//  ... 3. message -> key/value pair.
+// --------------------------------
+function pnPublish(connection, theChannel, msg) {
+    connection.publish({ channel: theChannel, message: msg });
+}
+
+
+
+
 
 
 
