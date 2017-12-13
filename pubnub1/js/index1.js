@@ -7,7 +7,7 @@ var video_out = document.getElementById("vid-box");
 var phone;
 var messenger,messengerChannel, myID, num;
 var MSG_connection_interval;
-
+var videoLatancyMS = 0;
 // This function gets called whenever the page is 
 // loaded in the browser.
 function onLoad(){
@@ -61,6 +61,9 @@ function watch(form){
             $(".vid-cont-1").removeClass("hide");
             $(".vid-cont-2").removeClass("hide");
             setupControlDataChannal(num);
+            
+            
+            
         });
         
         // When broadcaster disconnects from the viewer
@@ -114,6 +117,11 @@ function tryToCreatMsgConnection(){
 function startControlFeed(){
     clearInterval(MSG_connection_interval);
     $(".control-input").removeClass("hide");
+    getStats(ses.pc, function(result){
+                videoLatancyMS = result;
+                console.log(videoLatancyMS);
+            },250);
+            
 }
 
 
