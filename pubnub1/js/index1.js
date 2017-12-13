@@ -94,6 +94,7 @@ function setupControlDataChannal(id){
 // This is used to autheticate that broadcaster has 
 // setup the control messenger.
 function onMsg_messenger(msg){
+    console.log("I got msg = " + msg.text);
     if(msg.id == num && msg.text == "acceptToConnect_MSG"){
         startControlFeed();
     }
@@ -118,7 +119,13 @@ function startControlFeed(){
 
 // This function send the message to the broadcaster
 function sendMessage(val){
-    pnPublish(messenger, messengerChannel, {id:myID, text: val});
+    pnPublish(messenger, messengerChannel, {id:myID, text: val, dispatchTime: getUnixTimeStamp()});
+}
+
+
+function getUnixTimeStamp(){
+    var now = new moment();
+    return now.unix();
 }
 
 

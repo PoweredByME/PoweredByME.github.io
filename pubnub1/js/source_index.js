@@ -46,6 +46,8 @@ function stream(){
         $(".connection-id-cell").empty();
         $(".connection-id-cell").append(streamname);
         setupControlDataChannal(id);
+        console.log(phone);
+        
         phone.debug(function(details){
             console.log(details);
         });
@@ -59,6 +61,7 @@ function stream(){
             console.log(session.number + " -> end");
             onSessionDisconnect(session);
             showAllSession();
+            
         });
 	    // when the session is connected.
         if(session.status != "routing"){
