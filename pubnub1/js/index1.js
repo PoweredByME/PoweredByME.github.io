@@ -118,22 +118,28 @@ function startControlFeed(){
     clearInterval(MSG_connection_interval);
     $(".control-input").removeClass("hide");
     getStats(ses.pc, function(result){
-                videoLatancyMS = result;
-                console.log(videoLatancyMS);
-            },250);
+            videoLatancyMS = result;
+            result.results.forEach(function(item){
+                if(item.googCurrentDelayMs){
+                    videoLatancyMS = item.googCurrentDelayMs;   
+                    return;        
+                }
+            });
+            $(".vid-lat").empty();
+            $(".vid-lat").append("Video Latancy : " + videoLatancyMS + "ms");
+        },500);
             
 }
 
 
 // This function send the message to the broadcaster
 function sendMessage(val){
-    pnPublish(messenger, messengerChannel, {id:myID, text: val, dispatchTime: getUnixTimeStamp()});
+    pnPublish(messenger, messengerChannel, {id:myID, text: val, dispatchTime: getUnixTimeStamp(), videoLatancy:videoLatancyMS });
 }
 
 
 function getUnixTimeStamp(){
-    var now = new moment();
-    return now.unix();
+    return (new Date()).getTime();
 }
 
 

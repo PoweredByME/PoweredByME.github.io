@@ -56,7 +56,6 @@ function stream(){
     // when the ctrl will receive request for connection 
     // or disconnect.
     ctrl.receive(function(session){
-        
         session.ended(function(session) { 
             console.log(session.number + " -> end");
             onSessionDisconnect(session);
@@ -67,9 +66,6 @@ function stream(){
         if(session.status != "routing"){
             onAddSession(session);
         }
-        
-        
-        
     });
     
     ctrl.streamPresence(function(m){
@@ -97,7 +93,7 @@ function showAllSession(){
     t.empty();
     console.log(sessionsList);
     sessionsList.forEach(function(item, index){
-        var str = "<tr><td class=\"center\">"+item.theSession.number+"</td><td class=\"center\">"+timeConverter(item.startTime)+"</td><td class=\"center\"><button class=\"red btn\" onclick=\"onclick_endSession("+index+")\">End</button></td><td class=\""+item.theSession.number+"-class center\"></td></tr>"    
+        var str = "<tr><td class=\"center\">"+item.theSession.number+"</td><td class=\"center\">"+timeConverter(item.startTime)+"</td><td class=\"center\"><button class=\"red btn\" onclick=\"onclick_endSession("+index+")\">End</button></td><td class=\""+item.theSession.number+"-class center\"></td><td class=\""+item.theSession.number+"-class-vid-lat center\"></td><td class=\""+item.theSession.number+"-class-ctrl-lat center\"></td></tr>"    
         t.append(str);
     })
 }
@@ -153,9 +149,13 @@ function onMsg_messenger(msg){
             pnPublish(messenger, messengerChannel, {id:id, text:"acceptToConnect_MSG"});
         }
     }else{
-        console.log(msg);
+        //console.log(msg);
         $("."+msg.id+"-class").empty();
+        $("."+msg.id+"-class-vid-lat").empty();
+        $("."+msg.id+"-class-ctrl-lat").empty();
         $("."+msg.id+"-class").append(msg.text);
+        $("."+msg.id+"-class-vid-lat").append("Video Lat : " + msg.videoLatancy + "ms");
+        $("."+msg.id+"-class-ctrl-lat").append("Command Lat : " + (- msg.dispatchTime + getUnixTimeStamp()) + "ms");
     }
     
     
@@ -206,6 +206,12 @@ function timeConverter(UNIX_timestamp){
   var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
   return time;
 }
+
+
+function getUnixTimeStamp(){
+    return (new Date()).getTime();
+}
+
 
 function makeId(lenght){
     return Array(lenght+1).join((Math.random().toString(36)+'00000000000000000').slice(2, 18)).slice(0, lenght)
