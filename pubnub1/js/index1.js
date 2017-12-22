@@ -118,7 +118,7 @@ function tryToCreatMsgConnection(){
 function startControlFeed(){
     clearInterval(MSG_connection_interval);
     $(".control-input").removeClass("hide");
-    setInterval(sendCtrlDataToServer, 1250);
+    setInterval(sendCtrlDataToServer, 1500);
     
     getCtrlDataFromLocalServer()
     getStats(ses.pc, function(result){
