@@ -190,9 +190,6 @@ function pnPublish(connection, theChannel, msg) {
 
 
 
-
-
-
 // helper functions.
 function timeConverter(UNIX_timestamp){
   var a = new Date(UNIX_timestamp * 1000);

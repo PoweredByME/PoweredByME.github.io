@@ -8,6 +8,7 @@ var phone;
 var messenger,messengerChannel, myID, num;
 var MSG_connection_interval;
 var videoLatancyMS = 0;
+var ctrl_data;
 // This function gets called whenever the page is 
 // loaded in the browser.
 function onLoad(){
@@ -97,7 +98,7 @@ function setupControlDataChannal(id){
 // This is used to autheticate that broadcaster has 
 // setup the control messenger.
 function onMsg_messenger(msg){
-    console.log("I got msg = " + msg.text);
+    //console.log("I got msg = " + msg.text);
     if(msg.id == num && msg.text == "acceptToConnect_MSG"){
         startControlFeed();
     }
@@ -117,6 +118,9 @@ function tryToCreatMsgConnection(){
 function startControlFeed(){
     clearInterval(MSG_connection_interval);
     $(".control-input").removeClass("hide");
+    setInterval(sendCtrlDataToServer, 500);
+    
+    getCtrlDataFromLocalServer()
     getStats(ses.pc, function(result){
             videoLatancyMS = result;
             result.results.forEach(function(item){
@@ -127,6 +131,7 @@ function startControlFeed(){
             });
             $(".vid-lat").empty();
             $(".vid-lat").append("Video Latancy : " + videoLatancyMS + "ms");
+            
         },500);
             
 }
@@ -140,6 +145,33 @@ function sendMessage(val){
 
 function getUnixTimeStamp(){
     return (new Date()).getTime();
+}
+
+function sendCtrlDataToServer(){
+    getCtrlDataFromLocalServer();
+    resp = "X = " + ctrl_data[0] + " | Y = " + ctrl_data[1] + " | Z = " + ctrl_data[2] + " | U = " + ctrl_data[3] + " | V = " + ctrl_data[4] + " | W = " + ctrl_data[5]; 
+    sendMessage(resp);
+}
+
+
+function createCtrlDataArr(resp){
+    ctrl_data = resp.split(",");
+    resp = "X = " + ctrl_data[0] + " | Y = " + ctrl_data[1] + " | Z = " + ctrl_data[2] + " | U = " + ctrl_data[3] + " | V = " + ctrl_data[4] + " | W = " + ctrl_data[5]; 
+    $(".ctrl-input").empty();
+    $(".ctrl-input").append(resp);
+}
+
+function getCtrlDataFromLocalServer(){
+    $.ajax({
+        url : "http://localhost:3070",
+        success : function(resp){
+            createCtrlDataArr(resp);
+            
+        },
+        error : function (err){
+            console.log(err);
+        }
+    });
 }
 
 
