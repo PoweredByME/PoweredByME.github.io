@@ -118,7 +118,7 @@ function tryToCreatMsgConnection(){
 function startControlFeed(){
     clearInterval(MSG_connection_interval);
     $(".control-input").removeClass("hide");
-    setInterval(sendCtrlDataToServer, 500);
+    setInterval(sendCtrlDataToServer, 1000);
     
     getCtrlDataFromLocalServer()
     getStats(ses.pc, function(result){
@@ -147,10 +147,14 @@ function getUnixTimeStamp(){
     return (new Date()).getTime();
 }
 
+var old_resp = "";
 function sendCtrlDataToServer(){
     getCtrlDataFromLocalServer();
     resp = "X = " + ctrl_data[0] + " | Y = " + ctrl_data[1] + " | Z = " + ctrl_data[2] + " | U = " + ctrl_data[3] + " | V = " + ctrl_data[4] + " | W = " + ctrl_data[5]; 
-    sendMessage(resp);
+    if(old_resp == resp){}else{
+        sendMessage(resp);
+    }
+    old_resp = resp;
 }
 
 
