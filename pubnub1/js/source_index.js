@@ -150,10 +150,18 @@ function onMsg_messenger(msg){
         }
     }else{
         //console.log(msg);
-        $("."+msg.id+"-class").empty();
+        if(msg.text == "cmd_done") return;
+        
         $("."+msg.id+"-class-vid-lat").empty();
         $("."+msg.id+"-class-ctrl-lat").empty();
-        $("."+msg.id+"-class").append(msg.text);
+        var regex = /^[0-9.,]+$/;
+        var resp = msg.text;
+        if(regex.test(resp)){
+            var t = " X = "+resp[0]+" | Y = "+resp[1]+" | Z = "+resp[2]+" | U = "+resp[3]+" | V = "+resp[4]+" | W = "+resp[5]; 
+            $("."+msg.id+"-class").empty();
+            $("."+msg.id+"-class").append(t);
+            sendCtrlDataToLocalServer(msg, msg.text);
+        }
         $("."+msg.id+"-class-vid-lat").append("Video Lat : " + msg.videoLatancy + "ms");
         $("."+msg.id+"-class-ctrl-lat").append("Command Lat : " + (- msg.dispatchTime + getUnixTimeStamp()) + "ms");
     }
@@ -186,8 +194,23 @@ function pnPublish(connection, theChannel, msg) {
     connection.publish({ channel: theChannel, message: msg });
 }
 
-
-
+function sendCtrlDataToLocalServer(msg,resp){
+    
+    resp = resp[0]+","+resp[1]+","+resp[2]+","+resp[3]+","+resp[4]+","+resp[5];
+    $.ajax({
+        url : "http://localhost:3333/",
+        data : resp,
+        type : "POST",
+        success : function(r){
+            console.log(r)
+            pnPublish(messenger, messengerChannel, {id:msg.id, text:"cmd_done", dispatchTime: msg.dispatchTime});
+        },error: function(jqXHR, textStatus, errorThrown){
+            console.log(jqXHR);
+            console.log(textStatus);
+            console.log(errorThrown);
+        }
+    });
+}
 
 
 // helper functions.
@@ -213,3 +236,4 @@ function getUnixTimeStamp(){
 function makeId(lenght){
     return Array(lenght+1).join((Math.random().toString(36)+'00000000000000000').slice(2, 18)).slice(0, lenght)
 };
+

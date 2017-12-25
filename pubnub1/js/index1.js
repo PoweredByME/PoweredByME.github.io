@@ -9,6 +9,7 @@ var messenger,messengerChannel, myID, num;
 var MSG_connection_interval;
 var videoLatancyMS = 0;
 var ctrl_data;
+var ctrlSendInterval;
 // This function gets called whenever the page is 
 // loaded in the browser.
 function onLoad(){
@@ -76,6 +77,7 @@ function watch(form){
             video_out.innerHTML = "";
             $(".control-input").addClass("hide");
             messenger.unsubscribe(messengerChannel);
+            clearInterval(ctrlSendInterval);
         })
 	});
     
@@ -101,6 +103,9 @@ function onMsg_messenger(msg){
     //console.log("I got msg = " + msg.text);
     if(msg.id == num && msg.text == "acceptToConnect_MSG"){
         startControlFeed();
+    }if(msg.id == myID && msg.text == "cmd_done"){
+        var ut = msg.dispatchTime;
+        updateExecutedCmdHistory(ut);
     }
 }
 
@@ -118,7 +123,7 @@ function tryToCreatMsgConnection(){
 function startControlFeed(){
     clearInterval(MSG_connection_interval);
     $(".control-input").removeClass("hide");
-    setInterval(sendCtrlDataToServer, 1500);
+    ctrlSendInterval = setInterval(sendCtrlDataToServer, 1500);
     
     getCtrlDataFromLocalServer()
     getStats(ses.pc, function(result){
@@ -139,7 +144,9 @@ function startControlFeed(){
 
 // This function send the message to the broadcaster
 function sendMessage(val){
-    pnPublish(messenger, messengerChannel, {id:myID, text: val, dispatchTime: getUnixTimeStamp(), videoLatancy:videoLatancyMS });
+    var ut = getUnixTimeStamp();
+    pnPublish(messenger, messengerChannel, {id:myID, text: val, dispatchTime: ut, videoLatancy:videoLatancyMS });
+    return ut;
 }
 
 
@@ -150,11 +157,13 @@ function getUnixTimeStamp(){
 var old_resp = "";
 function sendCtrlDataToServer(){
     getCtrlDataFromLocalServer();
-    resp = "X = " + ctrl_data[0] + " | Y = " + ctrl_data[1] + " | Z = " + ctrl_data[2] + " | U = " + ctrl_data[3] + " | V = " + ctrl_data[4] + " | W = " + ctrl_data[5]; 
-    if(old_resp == resp){}else{
-        sendMessage(resp);
+    resp = ctrl_data; 
+    var r = "X = " + ctrl_data[0] + " | Y = " + ctrl_data[1] + " | Z = " + ctrl_data[2] + " | U = " + ctrl_data[3] + " | V = " + ctrl_data[4] + " | W = " + ctrl_data[5];
+    if(old_resp == r){}else{
+        var ut = sendMessage(resp);
+        updateCmdHistory(ut, r);   
     }
-    old_resp = resp;
+    old_resp = r;
 }
 
 
@@ -198,4 +207,51 @@ function getCtrlDataFromLocalServer(){
 // --------------------------------
 function pnPublish(connection, theChannel, msg) {
     connection.publish({ channel: theChannel, message: msg });
+}
+
+
+
+
+
+var cmdHistory = [];
+function updateCmdHistory(dispatchTime, cmd){
+    var obj = {};
+    cmdHistory.push({
+            dispatchTime : dispatchTime,
+            cmd : cmd,
+            done : false
+    });
+    showCmdHistory()
+}
+
+function showCmdHistory(){
+    var htmlString = "";
+    cmdHistory.forEach(function(item, index){
+        var s = applyCmdHistHTML_temp(index + 1, item.dispatchTime, item.cmd, item.done);
+        htmlString = s + htmlString;
+    });
+    $(".cmd-hist-list").html(htmlString);
+}
+
+function updateExecutedCmdHistory(dispatchTime){
+    cmdHistory.forEach(function(item, index){
+        if(item.dispatchTime == dispatchTime){
+            item.done = true;
+            console.log(cmdHistory);
+            return;
+        }
+    });
+    showCmdHistory();
+}
+
+function applyCmdHistHTML_temp(SRNO, stamp, cmd, done){
+    var s = "<div class=\"card\" style = \"margin:0px !important;\">";
+    if(done == true){
+        var s = "<div class=\"card green\" style = \"margin:0px !important;\">";
+    }
+    s = s + "<div class=\"row\">";
+    s = s + "<div class=\"col l4 m4 s4 center\"><p>"+SRNO+"</p></div>"
+    s = s + "<div class=\"col l4 m4 s4 center\"><p>"+stamp+"</p></div>"
+    s = s + "<div class=\"col l4 m4 s4 center\"><p>"+cmd+"</p></div></div></div>"
+    return s;
 }
