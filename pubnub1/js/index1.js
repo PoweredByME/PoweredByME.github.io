@@ -9,7 +9,10 @@ var messenger,messengerChannel, myID, num;
 var MSG_connection_interval;
 var videoLatancyMS = 0;
 var ctrl_data;
-var ctrlSendInterval;
+var ctrlTimer;
+var ctrlSendInterval_end = 0;
+var dataPollingTime = 2000;
+var localhost_port = "3070";
 // This function gets called whenever the page is 
 // loaded in the browser.
 function onLoad(){
@@ -77,7 +80,7 @@ function watch(form){
             video_out.innerHTML = "";
             $(".control-input").addClass("hide");
             messenger.unsubscribe(messengerChannel);
-            clearInterval(ctrlSendInterval);
+            ctrlTimer.stop();
         })
 	});
     
@@ -106,6 +109,8 @@ function onMsg_messenger(msg){
     }if(msg.id == myID && msg.text == "cmd_done"){
         var ut = msg.dispatchTime;
         updateExecutedCmdHistory(ut);
+        $(".command-lat").empty()
+        $(".command-lat").append("Command Latancy : " + msg.commnand_lat + "ms");
     }
 }
 
@@ -123,9 +128,11 @@ function tryToCreatMsgConnection(){
 function startControlFeed(){
     clearInterval(MSG_connection_interval);
     $(".control-input").removeClass("hide");
-    ctrlSendInterval = setInterval(sendCtrlDataToServer, 1500);
+    ctrlTimer = new timer();
+    ctrlTimer.start(function(){
+        sendCtrlDataToServer();
+    }, dataPollingTime, true);
     
-    getCtrlDataFromLocalServer()
     getStats(ses.pc, function(result){
             videoLatancyMS = result;
             result.results.forEach(function(item){
@@ -157,8 +164,16 @@ function getUnixTimeStamp(){
 var old_resp = "";
 function sendCtrlDataToServer(){
     getCtrlDataFromLocalServer();
+}
+
+var X_DAT = 0, Y_DAT = 1, Z_DAT = 2, U_DAT = 3, V_DAT = 4, W_DAT = 5, LP_DAT = 6, RP_DAT = 7;
+function createCtrlDataArr(resp){
+    ctrl_data = resp.split(",");
+    resp = "X = " + ctrl_data[X_DAT] + " | Y = " + ctrl_data[Y_DAT] + " | Z = " + ctrl_data[Z_DAT] + " | U = " + ctrl_data[U_DAT] + " | V = " + ctrl_data[V_DAT] + " | W = " + ctrl_data[W_DAT] + " | <br> Left Pressure = " + ctrl_data[LP_DAT] + " | Right Pressure = " + ctrl_data[RP_DAT]; 
+    $(".ctrl-input").empty();
+    $(".ctrl-input").append(resp);
     resp = ctrl_data; 
-    var r = "X = " + ctrl_data[0] + " | Y = " + ctrl_data[1] + " | Z = " + ctrl_data[2] + " | U = " + ctrl_data[3] + " | V = " + ctrl_data[4] + " | W = " + ctrl_data[5];
+    var r = "X = " + ctrl_data[X_DAT] + " | Y = " + ctrl_data[Y_DAT] + " | Z = " + ctrl_data[Z_DAT] + " | U = " + ctrl_data[U_DAT] + " | V = " + ctrl_data[V_DAT] + " | W = " + ctrl_data[W_DAT] + " | <br> Left Pressure = " + ctrl_data[LP_DAT] + " | Right Pressure = " + ctrl_data[RP_DAT]; 
     if(old_resp == r){}else{
         var ut = sendMessage(resp);
         updateCmdHistory(ut, r);   
@@ -166,20 +181,16 @@ function sendCtrlDataToServer(){
     old_resp = r;
 }
 
-
-function createCtrlDataArr(resp){
-    ctrl_data = resp.split(",");
-    resp = "X = " + ctrl_data[0] + " | Y = " + ctrl_data[1] + " | Z = " + ctrl_data[2] + " | U = " + ctrl_data[3] + " | V = " + ctrl_data[4] + " | W = " + ctrl_data[5]; 
-    $(".ctrl-input").empty();
-    $(".ctrl-input").append(resp);
-}
-
 function getCtrlDataFromLocalServer(){
     $.ajax({
-        url : "http://localhost:3070",
+        url : "http://localhost:"+localhost_port+"/MCI_control_data_text_bin.txt",
+        async : false,
         success : function(resp){
+            //console.log(resp);
             createCtrlDataArr(resp);
-            
+            if($(".local_port").hasClass("hide")){}else{
+                    $(".local_port").addClass("hide");
+           }
         },
         error : function (err){
             console.log(err);
@@ -254,4 +265,49 @@ function applyCmdHistHTML_temp(SRNO, stamp, cmd, done){
     s = s + "<div class=\"col l4 m4 s4 center\"><p>"+stamp+"</p></div>"
     s = s + "<div class=\"col l4 m4 s4 center\"><p>"+cmd+"</p></div></div></div>"
     return s;
+}
+
+
+
+function changePollingTime(form){
+    localhost_port = form.lport.value;
+    dataPollingTime = form.number.value * 2000 / 100;
+    $(".poll_t").empty();
+    $(".poll_t").append(dataPollingTime);
+    ctrlTimer.set_interval(dataPollingTime);
+    return false;
+}
+
+
+function timer()
+{
+    var timer = {
+        running: false,
+        iv: 5000,
+        timeout: false,
+        cb : function(){},
+        start : function(cb,iv,sd){
+            var elm = this;
+            clearInterval(this.timeout);
+            this.running = true;
+            if(cb) this.cb = cb;
+            if(iv) this.iv = iv;
+            if(sd) elm.execute(elm);
+            this.timeout = setTimeout(function(){elm.execute(elm)}, this.iv);
+        },
+        execute : function(e){
+            if(!e.running) return false;
+            e.cb();
+            e.start();
+        },
+        stop : function(){
+            this.running = false;
+        },
+        set_interval : function(iv){
+            console.log(iv);
+            clearInterval(this.timeout);
+            this.start(false, iv);
+        }
+    };
+    return timer;
 }

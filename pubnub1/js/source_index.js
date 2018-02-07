@@ -135,6 +135,8 @@ function setupControlDataChannal(id){
 }
 
 
+var X_DAT = 0, Y_DAT = 1, Z_DAT = 2, U_DAT = 3, V_DAT = 4, W_DAT = 5, LP_DAT = 6, RP_DAT = 7;
+var command_latancy;
 // When a message is received via the control data stream
 function onMsg_messenger(msg){
     if(msg.text == "requestToConnect_MSG"){
@@ -157,18 +159,22 @@ function onMsg_messenger(msg){
         var regex = /^[0-9.,]+$/;
         var resp = msg.text;
         if(regex.test(resp)){
-            var t = " X = "+resp[0]+" | Y = "+resp[1]+" | Z = "+resp[2]+" | U = "+resp[3]+" | V = "+resp[4]+" | W = "+resp[5]; 
+            ctrl_data = resp;
+            var t = "X = " + ctrl_data[X_DAT] + " | Y = " + ctrl_data[Y_DAT] + " | Z = " + ctrl_data[Z_DAT] + " | U = " + ctrl_data[U_DAT] + " | V = " + ctrl_data[V_DAT] + " | W = " + ctrl_data[W_DAT] + " | <br> Left Pressure = " + ctrl_data[LP_DAT] + " | Right Pressure = " + ctrl_data[RP_DAT]; 
             $("."+msg.id+"-class").empty();
             $("."+msg.id+"-class").append(t);
             sendCtrlDataToLocalServer(msg, msg.text);
         }
         $("."+msg.id+"-class-vid-lat").append("Video Lat : " + msg.videoLatancy + "ms");
-        $("."+msg.id+"-class-ctrl-lat").append("Command Lat : " + (- msg.dispatchTime + getUnixTimeStamp()) + "ms");
+        command_latancy = (- msg.dispatchTime + getUnixTimeStamp());
+        $("."+msg.id+"-class-ctrl-lat").append("Command Lat : " + command_latancy + "ms");
     }
     
     
     
 }
+
+
 
 function messangerIsConnected(){
     console.log("Messager Is CONNECTD");
@@ -196,14 +202,14 @@ function pnPublish(connection, theChannel, msg) {
 
 function sendCtrlDataToLocalServer(msg,resp){
     
-    resp = resp[0]+","+resp[1]+","+resp[2]+","+resp[3]+","+resp[4]+","+resp[5];
+    resp = resp[0]+","+resp[1]+","+resp[2]+","+resp[3]+","+resp[4]+","+resp[5]+","+resp[6]+","+resp[7];
     $.ajax({
         url : "http://localhost:3333/",
         data : resp,
         type : "POST",
         success : function(r){
             console.log(r)
-            pnPublish(messenger, messengerChannel, {id:msg.id, text:"cmd_done", dispatchTime: msg.dispatchTime});
+            pnPublish(messenger, messengerChannel, {id:msg.id, text:"cmd_done", commnand_lat : command_latancy,dispatchTime: msg.dispatchTime});
         },error: function(jqXHR, textStatus, errorThrown){
             console.log(jqXHR);
             console.log(textStatus);
