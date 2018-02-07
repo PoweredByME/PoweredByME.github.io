@@ -183,7 +183,7 @@ function createCtrlDataArr(resp){
 
 function getCtrlDataFromLocalServer(){
     $.ajax({
-        url : "http://localhost:"+localhost_port+"/MCI_control_data_text_bin.txt",
+        url : "http://localhost:"+localhost_port+"/",
         async : false,
         success : function(resp){
             //console.log(resp);
