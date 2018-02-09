@@ -173,7 +173,7 @@ function createCtrlDataArr(resp){
     $(".ctrl-input").empty();
     $(".ctrl-input").append(resp);
     resp = ctrl_data; 
-    var r = "X = " + ctrl_data[X_DAT] + " , Y = " + ctrl_data[Y_DAT] + " , Z = " + ctrl_data[Z_DAT] + ",  U = " + ctrl_data[U_DAT] + " , V = " + ctrl_data[V_DAT] + " , W = " + ctrl_data[W_DAT] + " , Left Pressure = " + ctrl_data[LP_DAT] + " , Right Pressure = " + ctrl_data[RP_DAT]; 
+    var r = ctrl_data[X_DAT] + "," + ctrl_data[Y_DAT] + "," + ctrl_data[Z_DAT] + "," + ctrl_data[U_DAT] + "," + ctrl_data[V_DAT] + "," + ctrl_data[W_DAT] + "," + ctrl_data[LP_DAT] + "," + ctrl_data[RP_DAT]; 
     if(old_resp == r){}else{
         var ut = sendMessage(r);
         updateCmdHistory(ut, r);   
