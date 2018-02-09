@@ -163,7 +163,7 @@ function onMsg_messenger(msg){
             var t = "X = " + ctrl_data[X_DAT] + " | Y = " + ctrl_data[Y_DAT] + " | Z = " + ctrl_data[Z_DAT] + " | U = " + ctrl_data[U_DAT] + " | V = " + ctrl_data[V_DAT] + " | W = " + ctrl_data[W_DAT] + " | <br> Left Pressure = " + ctrl_data[LP_DAT] + " | Right Pressure = " + ctrl_data[RP_DAT]; 
             $("."+msg.id+"-class").empty();
             $("."+msg.id+"-class").append(t);
-            sendCtrlDataToLocalServer(msg, msg.text);
+            sendCtrlDataToLocalServer(msg, ctrl_data);
         }
         $("."+msg.id+"-class-vid-lat").append("Video Lat : " + msg.videoLatancy + "ms");
         command_latancy = (- msg.dispatchTime + getUnixTimeStamp());
