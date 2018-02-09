@@ -156,7 +156,7 @@ function onMsg_messenger(msg){
         
         $("."+msg.id+"-class-vid-lat").empty();
         $("."+msg.id+"-class-ctrl-lat").empty();
-        var regex = /^[0-9.-,]+$/;
+        var regex = /^[+-]?[0-9.,]+$/;
         var resp = msg.text;
         if(regex.test(resp)){
             ctrl_data = resp.split(",");
