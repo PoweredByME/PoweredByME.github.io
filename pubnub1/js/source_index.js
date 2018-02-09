@@ -156,15 +156,15 @@ function onMsg_messenger(msg){
         
         $("."+msg.id+"-class-vid-lat").empty();
         $("."+msg.id+"-class-ctrl-lat").empty();
-        var regex = /^[+-]?[0-9.,]+$/;
+        //var regex = /^[+-]?[0-9.,]+$/;
         var resp = msg.text;
-        if(regex.test(resp)){
+        //if(regex.test(resp)){
             ctrl_data = resp.split(",");
             var t = "X = " + ctrl_data[X_DAT] + " | Y = " + ctrl_data[Y_DAT] + " | Z = " + ctrl_data[Z_DAT] + " | U = " + ctrl_data[U_DAT] + " | V = " + ctrl_data[V_DAT] + " | W = " + ctrl_data[W_DAT] + " | <br> Left Pressure = " + ctrl_data[LP_DAT] + " | Right Pressure = " + ctrl_data[RP_DAT]; 
             $("."+msg.id+"-class").empty();
             $("."+msg.id+"-class").append(t);
             sendCtrlDataToLocalServer(msg, ctrl_data);
-        }
+        //}
         $("."+msg.id+"-class-vid-lat").append("Video Lat : " + msg.videoLatancy + "ms");
         command_latancy = (- msg.dispatchTime + getUnixTimeStamp());
         $("."+msg.id+"-class-ctrl-lat").append("Command Lat : " + command_latancy + "ms");
