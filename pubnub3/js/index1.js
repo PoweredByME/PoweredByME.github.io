@@ -125,14 +125,14 @@ function onMsg_messenger(msg){
     }if(msg.id == myID && msg.text == "cmd_done"){
         // The command has been recieved by the source. It has sent 
         // an ACK -> cmd_done.
-        onCommandAck();
+        onCommandAck(msg);
     }
 }
 
 
 // When the command ack is recieved -> update the command history list (that specific command has been executed).
 // Show the command latency.
-function onCommandAck(){
+function onCommandAck(msg){
     var ut = msg.dispatchTime;
     updateExecutedCmdHistory(ut);
     $(".command-lat").empty()
