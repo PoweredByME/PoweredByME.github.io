@@ -46,8 +46,8 @@
         <nav class="site-theme-blue nf-div n-hide z-depth-0">
             <div class="navbar-div nav-wrapper">
                 <a href="#!" class="brand-logo">
-                    <span><img class="hide-on-small-only nav-logo-image" src="assets/nlogo.svg" height="32" ></span>
-                    <span><img class="hide-on-med-and-up  nav-logo-image nli-mobile" src="assets/nlogo.svg" height="24" ></span>
+                    <span><img class="hide-on-small-only nav-logo-image" src="/assets/nlogo.svg" height="32" ></span>
+                    <span><img class="hide-on-med-and-up  nav-logo-image nli-mobile" src="/assets/nlogo.svg" height="24" ></span>
                 </a>
 
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -139,17 +139,25 @@
                     <h1 class="aki center">Sign Up to Nazdeeq</h1>
                     <div class="sp-lgi-form-div">
                         <form action="#!">
-                            <input class="ak-field-text" type="text" name="fullName" placeholder="Full Name">
-                            <input class="ak-field-email" type="email" name="email" placeholder="Email">
-                            <input class="ak-field-text" type="text" name="interests" placeholder="Interests">
+                            <input class="ak-field-text" type="text" required name="fullName" placeholder="Full Name">
+                            <input class="ak-field-email" type="email" required name="email" placeholder="Email">
 
                             <div class="row">
                                 <div class="col l6 m6 s12">
-                                    <input class="ak-field-password" type="password" name="password" placeholder="Password">
+                                    <input class="ak-field-password" required type="password" name="password" placeholder="Password" style="margin-bottom :0px">
                                 </div>
                                 <div class="col l6 m6 s12">
-                                    <input class="ak-field-password" type="password" name="c-password" placeholder="Confirm Password">
+                                    <input class="ak-field-password" required type="password" name="c-password" placeholder="Confirm Password" style="margin-bottom :0px">
                                 </div>
+                            </div>
+
+                            <div class="left interests-chip-div " style="padding-bottom: 12px;">
+                            </div>
+
+                            <div class="input-field col s12">
+                                <select multiple class="s-dropdown" name="interests">
+                                  <option value="" disabled selected>Choose your Interests</option>
+                                </select>
                             </div>
 
                             <div class="error-div red hide">
@@ -195,9 +203,6 @@
                         <li><a class="site-footer-text site-theme-light-grey-text" href="#!">Prohibited Items</a></li>
                         <li><a class="site-footer-text site-theme-light-grey-text" href="#!">FAQs</a></li>
                     </ul>
-                </div>
-
-                <div class="col l3 m6 s12">
                     <p class="site-footer-text site-theme-grey-text">Legal</p>
                     <ul>
                         <li><a class="site-footer-text site-theme-light-grey-text" href="#!">Terms of Service</a></li>
@@ -206,6 +211,31 @@
                 </div>
 
                 <div class="col l3 m6 s12">
+                    <ul>
+
+                        <li>
+                            <p class="site-footer-text site-theme-light-grey-text" style="font-size:14px;">Nazdeeq is powered by</p>
+                            <img src="/assets/p9l.png" height="46">
+                        </li>
+
+
+                        <li class="" style="padding-top:8px">
+                            <p class="site-footer-text site-theme-light-grey-text" style="font-size:14px;">Follow us on</p>
+                            <a href="#!" title="facebook">
+                                <img style="margin-right:8px;" src="/assets/facebook.svg" height="48">
+                            </a>
+                            <a href="#!" title="twitter">
+                                <img style="margin-right:8px;" src="/assets/twitter.svg" height="48">
+                            </a>
+                            <a href="#!" title="instagram">
+                                <img src="/assets/instagram.svg" height="48">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col l3 m6 s12">
+                    <p class="site-footer-text site-theme-grey-text">Contact Us</p>
                     <ul>
                         <li>
                             <a class="site-footer-text site-theme-grey-text" href="#!" style="display:flex; align-items: center">
@@ -230,64 +260,9 @@
                     </ul>
                 </div>
 
-            </div>
-
-            <div class="row hide-on-small-only">
-
-
-
-                <div class="col l5 m6 s12">
-                    <ul>
-                        <li class="valign-wrapper">
-                            <a href="#!">
-                                <img style="margin-right:8px;" src="assets/facebook.svg" height="48">
-                            </a>
-                            <a href="#!">
-                                <img style="margin-right:8px;" src="assets/twitter.svg" height="48">
-                            </a>
-                            <a href="#!">
-                                <img src="assets/instagram.svg" height="48">
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="col l4 hide-on-med-and-down"></div>
-
-                <div class="col l3 m6 s12">
-                    <p class="site-footer-text site-theme-light-grey-text" style="font-size:14px;">Nazdeeq is powered by</p>
-                    <img src="assets/p9l.png" height="64">
-                </div>
-
 
             </div>
 
-
-            <div class="row hide-on-med-and-up">
-
-                <div class="col l3 m6 s12 ">
-                    <p class="site-footer-text site-theme-light-grey-text" style="font-size:14px;">Nazdeeq is powered by</p>
-                    <img src="assets/p9l.png" height="64">
-                </div>
-
-
-                <div class="col l5 m6 s12">
-                    <ul>
-                        <li class="" style="padding-top:8px">
-                            <a href="#!">
-                                <img style="margin-right:8px;" src="assets/facebook.svg" height="48">
-                            </a>
-                            <a href="#!">
-                                <img style="margin-right:8px;" src="assets/twitter.svg" height="48">
-                            </a>
-                            <a href="#!">
-                                <img src="assets/instagram.svg" height="48">
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-            </div>
 
 
 
@@ -316,6 +291,60 @@
         window.onload = windowOnLoad;
         window.onresize = windowOnResize;
         window.onscroll = windowOnScroll;
+        var interests_list = [
+            "Baby",
+            "Home Appliance",
+            "Arts",
+            "Crafts & Sewing",
+            "Cars & Automotive",
+            "Beauty & Personal Care",
+            "Books",
+            "Cellphones & accessories",
+            "Clothing & Fashion",
+            "Jewelry",
+            "Collectible & Fine Art",
+            "Computers & Laptops",
+            "Electronics & Gadgets",
+            "Gardens & Outdoor",
+            "Handmade",
+            "Health & Household",
+            "Home & Kitchen",
+            "Luggage & Travel Gears",
+            "Luxury Products",
+            "Musical Instruments",
+            "Office Products",
+            "Pets Supplies",
+            "Sports & Outdoors",
+            "Tools & Home Improvement",
+            "Toys & Games",
+            "Video Games"
+        ]
+        var sdp = $(".s-dropdown");
+        interests_list.forEach(function(val, index) {
+            sdp.append("<option value=" + index + ">" + val + "</option>")
+        })
+
+
+        $('select').material_select();
+        $('.select-dropdown').addClass('ak-field-select');
+        $('.caret').addClass("hide");
+
+        $('select').on('change', function() {
+            var s = "";
+            var num = 1;
+            $(this).val().forEach(function(val, index) {
+                var color = "orange";
+                if (num > 1) {
+                    color = "pink";
+                    num = 0;
+                }
+                s = s + '<div class="chip site-theme-' + color + ' site-theme-white-text" style = "font-weight:400;border-radius:3px;;">' + interests_list[val] + '</div>'
+                num++;
+            })
+            $('.interests-chip-div').empty();
+            $('.interests-chip-div').append(s + "<br>");
+            $('.select-dropdown').val("Choose your Interests");
+        })
     </script>
 
 </body>
