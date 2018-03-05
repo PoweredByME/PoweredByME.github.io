@@ -51,7 +51,7 @@
 }
 
 .sp-lgi-login-btn--facebook:before {
-    background: url('/nazdeeq/assets/icon_facebook.png') 6px 6px no-repeat;
+    background: url('/assets/icon_facebook.png') 6px 6px no-repeat;
 }
 
 .sp-lgi-login-btn--facebook:hover,
@@ -67,7 +67,7 @@
 }
 
 .sp-lgi-login-btn--google:before {
-    background: url('/nazdeeq/assets/icon_google.png') 6px 6px no-repeat;
+    background: url('/assets/icon_google.png') 6px 6px no-repeat;
 }
 
 .sp-lgi-login-btn--google:hover,
@@ -80,10 +80,26 @@
     Code by  Daniyal 
 */
 
+td,
+tr {
+    padding: 8px 5px !important;
+}
+
+.db-btn {
+    padding: 6px 0px !important;
+    width: 92px;
+    border: none;
+    border-radius: 3px;
+}
+
+.db-table {
+    margin: 50px;
+}
+
 .sp-wrapper {
     width: 100vw;
     min-height: 100vh;
-    background-image: url('/nazdeeq/assets/img/bgn.png');
+    background-image: url('/assets/img/bgn.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -131,8 +147,129 @@
     border-radius: 3px;
 }
 
+.sp-password {
+    margin-bottom: 6px !important;
+}
+
+.c-sp-password {
+    margin-bottom: 6px !important;
+}
+
+.i-search-container {
+    margin-top: 56px;
+    margin-bottom: 56px;
+}
+
+.in-s-button {
+    width: 100% !important;
+    margin-top: 3% !important;
+}
+
+.search-in {
+    border-bottom: none !important;
+    height: 3rem !important;
+    margin-bottom: 0px !important;
+    padding: 6px !important;
+}
+
+.search-icon {
+    left: 4% !important;
+    height: 50px !important;
+}
+
+.search-card {
+    padding-left: 24px !important;
+    padding-right: 4px !important;
+    border-radius: 5px;
+}
+
+.shop-btn {
+    margin-top: 1px !important;
+    margin-right: 6px;
+    border-radius: 6%;
+}
+
+.btn-options {
+    margin-bottom: 6px !important;
+}
+
+.i-play-vid-btn {
+    height: 132px;
+    width: 132px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    outline: none;
+    border: none;
+}
+
+.i-play-vid-btn i {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 @media screen and (max-width:992px) {
     .sp-wrapper {
         margin-top: 0px;
+    }
+}
+
+.search-in:focus {
+    border-bottom: none !important;
+    box-shadow: none !important;
+}
+
+.sugg-div {
+    margin-left: auto !important;
+}
+
+.sugg-div a {
+    margin-right: 8px;
+}
+
+.sugg-links a {
+    text-transform: none !important;
+    margin-right: 8px !important;
+}
+
+.sugg-btn:hover {
+    background-color: #EC2F85 !important;
+    color: white !important;
+    border: 1px solid transparent !important;
+}
+
+.sugg-links a:active {
+    filter: brightness(50%);
+}
+
+.default-sugg-btn {
+    background-color: #EC2F85 !important;
+    color: white !important;
+}
+
+.sugg-btn {
+    border: 1px solid #c0c0c0 !important;
+}
+
+.myhideclass {
+    border: 0px solid #F0F0F0 !important;
+    padding: 16px !important;
+    padding-bottom: 2px !important;
+    padding-top: 0px !important;
+    border-radius: 3px !important;
+}
+
+@media screen and (max-width:600px) {
+    .sp-password {
+        margin-bottom: 20px !important;
+    }
+    .i-play-vid-btn {
+        height: 108px;
+        width: 108px;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        align-items: center;
     }
 }

@@ -1,0 +1,131 @@
+
+.co-m-heading{
+	text-align: center;
+	font-family: 'Ubuntu';
+}
+
+.container{
+    margin-top: 50px !important;
+}
+.co-p-amazon{
+    border-bottom: 1px solid #EC2F85;
+    width: 100%;
+}
+
+.co-payment-grid{
+    margin-top: 52px;
+    border-left: 6px solid #eceff1;
+    border-right: 6px solid #eceff1;
+}
+.co-table-head{
+    border-color: #EC2F85 !important;
+}
+.co-table-head th{
+    font-size: 12px !important;
+}
+.co-item-img{
+    height: 30px;
+    width: 65px;
+}
+.co-table{
+    border-bottom: 1px solid grey;
+}
+
+.card-title{
+    font-size: 12px !important;
+    font-weight: bold !important;
+    color: #444444;
+}
+
+.card-title ~ p{
+    font-size: 12px !important;
+}
+.bold{
+    font-weight: bold;
+}
+
+.bill-items p{
+    display: inline !important;
+}
+
+.co-details{
+    display: flex;
+    align-content: center;
+    line-height: 1;
+    margin-bottom: -15px;
+    
+}
+.co-details-value{
+    width: 40%;
+    font-weight: bold;
+    text-align: left;
+    padding-left: 6px;
+}
+
+.co-details-title{
+    width:60%;
+    text-align: right;
+    
+}
+.small{
+    color:#EC2F85 !important;
+}
+
+.co-invoice-box{
+    margin-top: 8px !important;
+}
+
+.co-right-margin-colored{
+}
+
+.co-back{
+    color: #EC2F85 !important; 
+}
+
+.co-radio-label{
+    font-size: 12px;
+}
+
+.medium{
+    color: #EC2F85;
+}
+.co-button{
+    padding: 2px !important;
+    width:auto !important;
+    width: 100% !important;
+    -webkit-box-shadow: 0px 6px 0px #d44512;
+    -moz-box-shadow: 0px 6px 0px #d44512;
+    box-shadow: 0px 6px 0px #d44512;
+}
+
+.co-coupon-bar{
+    
+    border-bottom: 1px solid #eceff1;
+    
+}
+
+.co-icon-c{
+    display: flex;
+    align-items:stretch;
+    font-style: italic;
+    font-size: 12px;
+}
+
+.ak-field-text{
+    height: 30px !important;
+}
+.ak-field-number{
+    height: 30px !important;
+}
+
+.co-icon-c .tiny{
+    color:#ef7246 !important;
+}
+
+.co-submit-btn{
+    width: 100% !important;
+}
+.co-disc{
+    font-size: 10px !important;
+}
+
