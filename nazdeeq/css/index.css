@@ -156,8 +156,13 @@ tr {
 }
 
 .i-search-container {
-    margin-top: 56px;
-    margin-bottom: 56px;
+    margin-bottom: 120px;
+}
+
+.i-search-div {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    min-height: calc(100vh - 141px);
 }
 
 .in-s-button {
@@ -180,6 +185,7 @@ tr {
 .search-card {
     padding-left: 24px !important;
     padding-right: 4px !important;
+    margin-top: 42px;
     border-radius: 5px;
 }
 
@@ -207,12 +213,6 @@ tr {
 .i-play-vid-btn i {
     margin-left: auto;
     margin-right: auto;
-}
-
-@media screen and (max-width:992px) {
-    .sp-wrapper {
-        margin-top: 0px;
-    }
 }
 
 .search-in:focus {
@@ -260,9 +260,111 @@ tr {
     border-radius: 3px !important;
 }
 
+.i-amazon-banner {
+    height: 56px;
+}
+
+.vid-div {
+    opacity: 0;
+    transition-property: all;
+    transition-duration: 0.4s;
+    transition-timing-function: ease-out;
+}
+
+.show.vid-div {
+    opacity: 1;
+}
+
+.vid-div-btn {
+    transform: scale(2);
+    opacity: 0;
+    transition-property: all;
+    transition-duration: 0.4s;
+    transition-delay: 0.3s;
+    transition-timing-function: ease-out;
+}
+
+.show.vid-div-btn {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.hw-heading {
+    transform: translateY(40px);
+    opacity: 0;
+    transition-property: all;
+    transition-duration: 0.4s;
+    transition-timing-function: ease-out;
+}
+
+.show.hw-heading {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+.hw-col .card {
+    transform: translateY(40px);
+    opacity: 0;
+    transition-property: all;
+    transition-duration: 0.4s;
+    transition-timing-function: ease-out;
+}
+
+.show.hw-col .card {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+.op-heading {
+    transform: translateY(40px);
+    opacity: 0;
+    transition-property: all;
+    transition-duration: 0.4s;
+    transition-timing-function: ease-out;
+}
+
+.show.op-heading {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+.op-col img {
+    transform: translateY(40px);
+    opacity: 0;
+    transition-property: all;
+    transition-duration: 0.4s;
+    transition-timing-function: ease-out;
+}
+
+.show.op-col img {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+.coming-soon-div img {
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+.coming-soon-div {
+    padding-left: 36px;
+}
+
+@media screen and (max-width:992px) {
+    .sp-wrapper {
+        margin-top: 0px;
+    }
+}
+
 @media screen and (max-width:600px) {
     .sp-password {
         margin-bottom: 20px !important;
+    }
+    .i-search-div {
+        min-height: 40vh;
+    }
+    .i-search-container {
+        margin-bottom: 0px;
     }
     .i-play-vid-btn {
         height: 108px;
@@ -271,5 +373,12 @@ tr {
         margin-right: auto;
         display: flex;
         align-items: center;
+    }
+    .vid-div {
+        opacity: 1;
+    }
+    .vid-div-btn {
+        transform: scale(1);
+        opacity: 1;
     }
 }

@@ -29,6 +29,7 @@
    -------------------------------
 */
 
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
 .the-body {
     overflow-x: hidden;
 }
@@ -136,4 +137,14 @@ a.site-footer-text {
 a.site-footer-text:hover,
 a.site-footer-text:focus {
     color: #555555 !important;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Lato', 'Roboto', sans-serif !important;
 }
