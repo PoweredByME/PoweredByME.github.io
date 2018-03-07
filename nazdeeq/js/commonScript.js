@@ -16,6 +16,7 @@
 //      - callback : the function is called which the function triggers e.g. function(){ //code }
 ////////////////////////////////////////////////
 function onScrollAction(element, offset, globalvariable_r, callback) {
+    if (!element.length) { return; }
     var top = element.offset().top - $(window).scrollTop();
     var trigger_offset = $(window).innerHeight() - offset;
     if (top <= trigger_offset && globalvariable_r.flag == false) {

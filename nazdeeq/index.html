@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="theWebAPI/atlaskit-rui.css" />
     <link rel="stylesheet" href="theWebAPI/atlaskit-css-reset.css" />
     <link rel="stylesheet" href="theWebAPI/modal-video.min.css">
+    <link rel="stylesheet" href="theWebAPI/slick.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/commonStyle.css">
 
@@ -41,7 +42,7 @@
 <body class="the-body body-no-scroll">
 
     <!-- Code index page -->
-
+    <div id="top-ref-div-id"></div>
     <!-- Navbar Code START -->
     <div class="navbar-fixed">
         <nav class="site-theme-blue nf-div n-hide z-depth-0">
@@ -102,36 +103,20 @@
     </ul>
 
     <!-- Navbar Code END -->
+    <div style="position:relative" class="hide-on-med-and-down">
 
-    <div class="i-amazon-banner hide-on-small-only site-theme-white">
-        <div class="container">
-            <div class="row">
-                <div class="col l3 m4" style="display:flex;align-items:center">
-                    <p class="site-theme-grey-text fw-600">Interesting finds on Amazon</p>
-                </div>
-                <div class="col l1 m1">
-                    <img style="height:42px;margin-top:4px; margin-bottom:4px" src="assets/img/abi1.png">
-                </div>
+        <div class="slick-slider-handle i-amazon-banner-div">
 
-                <div class="col l1 m1">
-                    <img style="height:42px;margin-top:4px; margin-bottom:4px" src="assets/img/abi2.png">
-                </div>
-                <div class="col l1 m1">
-                    <img style="height:42px;margin-top:4px; margin-bottom:4px" src="assets/img/abi3.png">
-                </div>
-                <div class="col l1 m1">
-                    <img style="height:42px;margin-top:4px; margin-bottom:4px" src="assets/img/abi4.png">
-                </div>
-                <div class="col l1 m1">
-                    <img style="height:42px;margin-top:4px; margin-bottom:4px" src="assets/img/abi5.png">
-                </div>
-                <div class="col l1 m1 hide-on-med-and-down">
-                    <img style="height:42px;margin-top:4px; margin-bottom:4px" src="assets/img/abi6.png">
-                </div>
-                <div class="col l3 m3 right-align">
-                    <img style="height:36px;margin-top:10px; margin-bottom:10px" src="assets/img/alogo.png">
-                </div>
-            </div>
+        </div>
+        <div style="height:56px;position:absolute;top:0;left:0;display:flex;align-items:center" class="site-theme-white">
+            <button class="a-prev-btn" style="background:transparent;border:none;height:56px">
+                <i class="material-icons">chevron_left</i>
+            </button>
+        </div>
+        <div style="height:56px;position:absolute;top:0;right:0;display:flex;align-items:center" class="site-theme-white">
+            <button class="a-next-btn" style="background:transparent;border:none;height:56px">
+                <i class="material-icons">chevron_right</i>
+            </button>
         </div>
     </div>
     <br>
@@ -327,7 +312,7 @@
                 <div class="col l4 m6 s12 hw-col">
                     <div class="card">
                         <div class="center site-theme-pink site-theme-white-text">
-                            <p style="padding:8px;">Search & Place an Order</p>
+                            <p style="padding:16px;">Search & Place an Order</p>
                         </div>
                         <img src="assets/img/ihw_1.svg " width="296 ">
                     </div>
@@ -335,7 +320,7 @@
                 <div class="col l4 m6 s12 hw-col">
                     <div class="card">
                         <div class="center site-theme-pink site-theme-white-text">
-                            <p style="padding:8px;">Confirm & Pay for your Order</p>
+                            <p style="padding:16px;">Confirm & Pay for your Order</p>
                         </div>
                         <img src="assets/img/ihw_2.svg " width="296 ">
                     </div>
@@ -343,7 +328,7 @@
                 <div class="col l4 m6 s12 hw-col">
                     <div class="card">
                         <div class="center site-theme-pink site-theme-white-text">
-                            <p style="padding:8px;">Receive your packages</p>
+                            <p style="padding:16px;">Receive your packages</p>
                         </div>
                         <img src="assets/img/ihw_3.svg " width="296 ">
                     </div>
@@ -495,7 +480,7 @@
             <div class="container site-theme-grey-text ">
                 <span class="hide-on-small-only ">© 2018 Nazdeeq. All rights reserved.</span>
                 <span class="hide-on-med-and-up ">© 2018 Copyrights | Nazdeeq</span>
-                <a class="site-theme-grey-text right " style="display:inline-flex;align-items:center " href="#top-ref-div-id ">
+                <a class="site-theme-grey-text right " style="display:inline-flex;align-items:center " href="#top-ref-div-id">
                     <span style="margin-right:6px;font-weight:300 ">Go to Top</span><i class="material-icons "> arrow_upward </i>
                 </a>
             </div>
@@ -509,6 +494,7 @@
 
     <script type="text/javascript " src="theWebAPI/jQuery.min.js "></script>
     <script type="text/javascript " src="theWebAPI/modal-video.js "></script>
+    <script type="text/javascript " src="theWebAPI/slick.js "></script>
     <script type="text/javascript " src="theWebAPI/materialize/js/materialize.min.js "></script>
     <script type="text/javascript " src="js/commonScript.js "></script>
     <script type="text/javascript " src="js/index.js "></script>
@@ -542,9 +528,73 @@
                 link: "# "
             }];
 
+
+            var bl = [
+                [{
+                    "img": "/assets/img/abi1.png ",
+                    "href": "!#"
+                }, {
+                    "img": "/assets/img/abi2.png ",
+                    "href": "!#"
+                }, {
+                    "img": "/assets/img/abi3.png ",
+                    "href": "!#"
+                }, {
+                    "img": "/assets/img/abi4.png ",
+                    "href": "!#"
+                }, {
+                    "img": "/assets/img/abi5.png ",
+                    "href": "!#"
+                }, {
+                    "img": "/assets/img/abi6.png ",
+                    "href": "!#"
+                }],
+                [{
+                    "img": "/assets/img/abi1.png ",
+                    "href": "!#"
+                }, {
+                    "img": "/assets/img/abi2.png ",
+                    "href": "!#"
+                }, {
+                    "img": "/assets/img/abi3.png ",
+                    "href": "!#"
+                }, {
+                    "img": "/assets/img/abi4.png ",
+                    "href": "!#"
+                }, {
+                    "img": "/assets/img/abi5.png ",
+                    "href": "!#"
+                }, {
+                    "img": "/assets/img/abi6.png ",
+                    "href": "!#"
+                }],
+                [{
+                    "img": "/assets/img/abi1.png ",
+                    "href": "!#"
+                }, {
+                    "img": "/assets/img/abi2.png ",
+                    "href": "!#"
+                }, {
+                    "img": "/assets/img/abi3.png ",
+                    "href": "!#"
+                }, {
+                    "img": "/assets/img/abi4.png ",
+                    "href": "!#"
+                }, {
+                    "img": "/assets/img/abi5.png ",
+                    "href": "!#"
+                }, {
+                    "img": "/assets/img/abi6.png ",
+                    "href": "!#"
+                }]
+            ];
+
             search_bar_set_explore_popular_list(explore, popular);
-
-
+            $(".slick-slider-handle").append(iAmazonBanner(bl))
+            $('.slick-slider-handle').slick({
+                prevArrow: ".a-prev-btn",
+                nextArrow: ".a-next-btn"
+            });
         })
     </script>
 
