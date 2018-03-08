@@ -46,8 +46,8 @@
         <nav class="site-theme-blue nf-div n-hide z-depth-0">
             <div class="navbar-div nav-wrapper">
                 <a href="#!" class="brand-logo">
-                    <span><img class="hide-on-small-only nav-logo-image" src="/assets/nlogo.svg" height="32" ></span>
-                    <span><img class="hide-on-med-and-up  nav-logo-image nli-mobile" src="/assets/nlogo.svg" height="24" ></span>
+                    <span><img class="hide-on-small-only nav-logo-image" src="assets/nlogo.svg" height="32" ></span>
+                    <span><img class="hide-on-med-and-up  nav-logo-image nli-mobile" src="assets/nlogo.svg" height="24" ></span>
                 </a>
 
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -153,12 +153,66 @@
 
                             <div class="left interests-chip-div " style="padding-bottom: 12px;padding-top: 12px;">
                             </div>
-
+                            <!--
                             <div class="input-field col s12">
                                 <select multiple class="s-dropdown" name="interests">
                                   <option value="" disabled selected>Choose your Interests</option>
                                 </select>
                             </div>
+                            -->
+                            <input type="number" class="interest_count" name="interest_count" value="0" hidden>
+                            <div style="align-items: center;cursor:pointer" class="card horizontal z-depth-0 it-class-div">
+                                <input style="cursor:pointer" readonly class="search-in" placeholder='Interests (0 out of 5)'>
+                                <button type="button" class="it-down-btn">
+                                
+                                <i class="material-icons" >arrow_drop_down</i>
+                                </button>
+
+                                <div class="search-results"></div>
+                            </div>
+                            <div class="col l12 selected-interests-hide">
+                                <div class="row">
+
+                                </div>
+                                <div id="Selected" style="margin-left: auto;" class="row left-align">
+
+                                    <!--
+                                    <div class="chip site-theme-pink site-theme-white-text">
+                                        <span class="selected-name" >Books</span>
+                                        <i class="close material-icons">close</i>
+                                      </div>
+                                   <div class="chip site-theme-pink site-theme-white-text">
+                                       <span class="selected-name" >Mobiles</span>
+                                        <i class="close material-icons">close</i>
+                                      </div>
+                                    <div class="chip site-theme-pink site-theme-white-text">
+                                        <span class="selected-name" >Laptops</span>
+                                        <i class="close material-icons">close</i>
+                                      </div>
+-->
+                                </div>
+                            </div>
+                            <div class="col l12 select-interests-hide">
+                                <div class="row">
+                                    <div class="col l12 s12 m12 selected">
+                                        <h6 class="left-align">Select Interests</h6>
+                                    </div>
+                                </div>
+                                <div id="Select" style="margin-left: auto;" class="row left-align">
+                                    <!--
+                                     <a id="books-btn" class="btn btn-options white site-theme-grey-text z-depth-0 sugg-btn i-select-btn">Books</a>
+                                   <a id="mobiles-btn" class="btn btn-options white site-theme-grey-text z-depth-0 sugg-btn i-select-btn">Mobiles</a>
+                                    <a id="laptops-btn" class="btn btn-options white site-theme-grey-text z-depth-0 sugg-btn i-select-btn">Laptops</a>
+                                    <a id="tablets-btn" class="btn btn-options white site-theme-grey-text z-depth-0 sugg-btn i-select-btn">Tablets</a>
+                                    <a id="macbooks-btn" class="btn btn-options white site-theme-grey-text z-depth-0 sugg-btn i-select-btn">MacBooks</a>
+                                    <a id="jackets-btn" class="btn btn-options white site-theme-grey-text z-depth-0 sugg-btn i-select-btn">Jackets</a>
+                                    <a id="shirts-btn" class="btn btn-options white site-theme-grey-text z-depth-0 sugg-btn i-select-btn">Shirts</a>
+                                    <a id="headphones-btn" class="btn btn-options white site-theme-grey-text z-depth-0 sugg-btn i-select-btn">Headphones</a>
+                                    -->
+                                </div>
+                            </div>
+
+
 
                             <div class="error-div red hide">
                                 <p class="error-text"></p>
@@ -294,6 +348,106 @@
         window.onresize = windowOnResize;
         window.onscroll = windowOnScroll;
         onSignUpLoad();
+    </script>
+    <script>
+        /*
+                var it_btn_click=0;
+                var selected_show=0;
+                $(document).ready(function(){
+                    
+                    $('.select-interests-hide').hide();
+                    $('.selected-interests-hide').hide();
+                    $('.it-down-btn').click(function(){
+                        
+                        if(selected_show==0){
+                            $('.selected-interests-hide').show(500);
+                            selected_show=1;
+                        }
+                        else selected_show=0;
+                        if(it_btn_click==0){
+                            $('.select-interests-hide').show(500);
+                            it_btn_click=1   
+                        }
+                        else  {
+                            $('.select-interests-hide').hide(500);
+                            it_btn_click=0;
+                        } 
+                    });
+                    
+
+                    function init_del_chip(ele){
+                        ele.click(function(){
+                            var my_id=ele.parent().attr("id");
+                            $("#"+my_id+"-btn").toggleClass("clicked-btn-class");
+                            $("#"+my_id+"-btn").toggleClass("site-theme-grey-text");
+                            $("."+my_id+"-inp").remove();
+                            var i=parseInt($(".interest_count").val());
+                            i=i-1;
+                            $(".interest_count").val(i);
+                            $(".search-in").attr("placeholder","Interests ( "+i+" out of 5)");
+                        });
+                    };
+                    function get_interest_count(){
+                        var i=parseInt($(".interest_count").val());
+                        console.log(i);
+                        for (var j=0;j<i+25;j++)
+                            {
+                                if($("#interest-"+j).length<1){
+                                    answer=j;
+                                    return j;
+                                    break;
+                                }
+                            }
+                    }
+                    
+                    function check_full_interests(){
+                        var i=parseInt($(".interest_count").val());
+                        return i>=5;
+                    }
+                    
+                    $(".i-select-btn").click(function(){
+                        var i_c=parseInt($(".interest_count").val());
+                        var name=$(this).text();
+                        
+                       
+                        
+                       
+                        
+                        var chip='<div id="'+ name.toLowerCase() +'" class="chip site-theme-pink site-theme-white-text"><span class="selected-name" >'+ name +'</span><i class="close material-icons">close</i></div>';
+                        name=name.toLowerCase();
+                        
+                        
+                        if($("#"+name).length<1){
+                            if(i_c<5 ){
+                            $("#Selected").append(chip);
+                            init_del_chip($("#"+name +" i"));
+                            var i=parseInt($(".interest_count").val());
+                            i=i+1;
+                            var i_number=get_interest_count();
+                            var input_temp='<input hidden id="interest-'+i_number+'" name="interest-'+i_number+'" class="' +name+ '-inp" value="' +name+ '">';
+                            $(".interest_count").after(input_temp);
+                            $(".interest_count").val(i);
+                            $(".search-in").attr("placeholder","Interests ( "+i+" out of 5)");
+                             $(this).toggleClass("clicked-btn-class");
+                        $(this).toggleClass("site-theme-grey-text");
+                            }
+                        }
+                        
+                        else{ 
+                            var name_=$(this).text().toLowerCase();
+                            $("#"+name_).remove();
+                            $("."+name_+"-inp").remove();
+                            var i=parseInt($(".interest_count").val());
+                            i=i-1;
+                            $(".interest_count").val(i);
+                            $(".search-in").attr("placeholder","Interests ( "+i+" out of 5)");
+                            $(this).toggleClass("clicked-btn-class");
+                            $(this).toggleClass("site-theme-grey-text");
+                        }
+                    });
+                    
+                });
+                */
     </script>
 
 </body>

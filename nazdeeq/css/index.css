@@ -156,13 +156,20 @@ tr {
 }
 
 .i-search-container {
-    margin-bottom: 120px;
+    margin-top: 56px;
+    margin-bottom: 56px;
 }
 
 .i-search-div {
-    padding-top: 24px;
+    padding-top: 64px;
     padding-bottom: 24px;
     min-height: calc(100vh - 141px);
+    transition-property: all;
+    transition-duration: 0.5s;
+}
+
+.i-search-div-search-focus {
+    padding-top: 24px;
 }
 
 .in-s-button {
@@ -215,6 +222,12 @@ tr {
     margin-right: auto;
 }
 
+@media screen and (max-width:992px) {
+    .sp-wrapper {
+        margin-top: 0px;
+    }
+}
+
 .search-in:focus {
     border-bottom: none !important;
     box-shadow: none !important;
@@ -260,12 +273,42 @@ tr {
     border-radius: 3px !important;
 }
 
+.it-down-btn {
+    background: transparent !important;
+    border: none! important;
+}
+
+.it-class-div {
+    background: #F4F5F7 !important;
+    border: 1px solid #DFE1E6 !important;
+    border-radius: 5px !important;
+    height: 3rem !important;
+    cursor: pointer;
+}
+
+.serach-in:hover {
+    cursor: pointer !important;
+}
+
+.i-select-btn {
+    padding-left: 8px !important;
+    font-size: 12px !important;
+    padding-right: 8px !important;
+    margin-right: 6px !important;
+}
+
+.clicked-btn-class {
+    background-color: #EC2F85 !important;
+    color: white !important;
+    border: 1px solid transparent !important;
+}
+
 .i-amazon-banner {
     height: 56px;
 }
 
 .vid-div {
-    opacity: 0;
+    opacity: 1;
     transition-property: all;
     transition-duration: 0.4s;
     transition-timing-function: ease-out;
@@ -348,6 +391,20 @@ tr {
 
 .coming-soon-div {
     padding-left: 36px;
+}
+
+.b-search-item {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 48px;
+}
+
+@media screen and (max-width:1107px) {
+    .b-search-item {
+        display: inline-flex;
+        align-items: center;
+        margin-right: 24px;
+    }
 }
 
 @media screen and (max-width:992px) {
