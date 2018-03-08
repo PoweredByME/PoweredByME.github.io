@@ -26,8 +26,8 @@ function windowOnLoad() {
     windowOnScroll();
     windowOnResize();
 }
-var it_btn_click=0;
-var selected_show=0;
+var it_btn_click = 0;
+var selected_show = 0;
 // This function gets called when the window gets resized
 function windowOnResize() {
 
@@ -94,111 +94,106 @@ function onSignUpLoad() {
     */
 
     $('.select-interests-hide').hide();
-            $('.selected-interests-hide').hide();
-            $('.it-class-div').click(function(){
-                
-                if(selected_show==0){
-                    $('.selected-interests-hide').show(500);
-                    selected_show=1;
-                }
-                else selected_show=0;
-                if(it_btn_click==0){
-                    $('.select-interests-hide').show(500);
-                    it_btn_click=1   
-                }
-                else  {
-                    $('.select-interests-hide').hide(500);
-                    it_btn_click=0;
-                } 
-            });
-            
+    $('.selected-interests-hide').hide();
+    $('.it-class-div').click(function() {
 
-            function init_del_chip(ele){
-                ele.click(function(){
-                    var my_id=ele.parent().attr("id");
-                    $("#"+my_id+"-btn").toggleClass("clicked-btn-class");
-                    $("#"+my_id+"-btn").toggleClass("site-theme-grey-text");
-                    $("."+my_id+"-inp").remove();
-                    var i=parseInt($(".interest_count").val());
-                    i=i-1;
-                    $(".interest_count").val(i);
-                    $(".search-in").attr("placeholder","Interests ( "+i+" out of 5)");
-                });
-            };
+        if (selected_show == 0) {
+            $('.selected-interests-hide').show(500);
+            selected_show = 1;
+        } else selected_show = 0;
+        if (it_btn_click == 0) {
+            $('.select-interests-hide').show(500);
+            it_btn_click = 1
+        } else {
+            $('.select-interests-hide').hide(500);
+            it_btn_click = 0;
+        }
+    });
 
-            for(var itr=0;itr<interests_list.length;itr++)
-            {
-            name=interests_list[itr].replace(/\s/g, '');
-            name=name.replace("&","");
-            //var chip='<div id="'+ name.toLowerCase() +'" class="chip site-theme-pink site-theme-white-text"><span class="selected-name" >'+ interests_list[itr] +'</span><i class="close material-icons">close</i></div>';
-            var btn='<a id="' + name.toLowerCase() +'-btn" class="btn btn-options white site-theme-grey-text z-depth-0 sugg-btn i-select-btn">'+ interests_list[itr] +'</a>';
-            $("#Select").append(btn);
-            init_del_chip($("#"+name +" i"));
+
+    function init_del_chip(ele) {
+        ele.click(function() {
+            var my_id = ele.parent().attr("id");
+            $("#" + my_id + "-btn").toggleClass("clicked-btn-class");
+            $("#" + my_id + "-btn").toggleClass("site-theme-grey-text");
+            $("." + my_id + "-inp").remove();
+            var i = parseInt($(".interest_count").val());
+            i = i - 1;
+            $(".interest_count").val(i);
+            $(".search-in").attr("placeholder", "Interests ( " + i + " out of 5)");
+        });
+    };
+
+    for (var itr = 0; itr < interests_list.length; itr++) {
+        name = interests_list[itr].replace(/\s/g, '');
+        name = name.replace("&", "");
+        //var chip='<div id="'+ name.toLowerCase() +'" class="chip site-theme-pink site-theme-white-text"><span class="selected-name" >'+ interests_list[itr] +'</span><i class="close material-icons">close</i></div>';
+        var btn = '<a id="' + name.toLowerCase() + '-btn" class="btn btn-options white site-theme-grey-text z-depth-0 sugg-btn i-select-btn">' + interests_list[itr] + '</a>';
+        $("#Select").append(btn);
+        init_del_chip($("#" + name + " i"));
+    }
+
+    function get_interest_count() {
+        var i = parseInt($(".interest_count").val());
+        console.log(i);
+        for (var j = 0; j < i + 25; j++) {
+            if ($("#interest-" + j).length < 1) {
+                answer = j;
+                return j;
+                break;
             }
-            function get_interest_count(){
-                var i=parseInt($(".interest_count").val());
-                console.log(i);
-                for (var j=0;j<i+25;j++)
-                    {
-                        if($("#interest-"+j).length<1){
-                            answer=j;
-                            return j;
-                            break;
-                        }
-                    }
-            }
-            
-            function check_full_interests(){
-                var i=parseInt($(".interest_count").val());
-                return i>=5;
-            }
-            
-            $(".i-select-btn").click(function(){
-                var i_c=parseInt($(".interest_count").val());
-                var orgname=$(this).text();
-                name=orgname.replace(/\s/g, '');
-                name=name.replace("&","");
-                console.log("aaa");
-               
-                
-               
-                
-                var chip='<div id="'+ name.toLowerCase() +'" class="chip site-theme-pink site-theme-white-text"><span class="selected-name" >'+ orgname +'</span><i class="close material-icons">close</i></div>';
-                name=name.toLowerCase();
-                
-                
-                if($("#"+name).length<1){
-                    if(i_c<5 ){
-                    $("#Selected").append(chip);
-                    init_del_chip($("#"+name +" i"));
-                    var i=parseInt($(".interest_count").val());
-                    i=i+1;
-                    var i_number=get_interest_count();
-                    var input_temp='<input hidden id="interest-'+i_number+'" name="interest-'+i_number+'" class="' +name+ '-inp" value="' +name+ '">';
-                    $(".interest_count").after(input_temp);
-                    $(".interest_count").val(i);
-                    $(".search-in").attr("placeholder","Interests ( "+i+" out of 5)");
-                     $(this).toggleClass("clicked-btn-class");
+        }
+    }
+
+    function check_full_interests() {
+        var i = parseInt($(".interest_count").val());
+        return i >= 5;
+    }
+
+    $(".i-select-btn").click(function() {
+        var i_c = parseInt($(".interest_count").val());
+        var orgname = $(this).text();
+        name = orgname.replace(/\s/g, '');
+        name = name.replace("&", "");
+        console.log("aaa");
+
+
+
+
+        var chip = '<div id="' + name.toLowerCase() + '" class="chip site-theme-pink site-theme-white-text"><span class="selected-name" >' + orgname + '</span><i class="close material-icons">close</i></div>';
+        name = name.toLowerCase();
+
+
+        if ($("#" + name).length < 1) {
+            if (i_c < 5) {
+                $("#Selected").append(chip);
+                init_del_chip($("#" + name + " i"));
+                var i = parseInt($(".interest_count").val());
+                i = i + 1;
+                var i_number = get_interest_count();
+                var input_temp = '<input hidden id="interest-' + i_number + '" name="interest-' + i_number + '" class="' + name + '-inp" value="' + name + '">';
+                $(".interest_count").after(input_temp);
+                $(".interest_count").val(i);
+                $(".search-in").attr("placeholder", "Interests ( " + i + " out of 5)");
+                $(this).toggleClass("clicked-btn-class");
                 $(this).toggleClass("site-theme-grey-text");
-                    }
-                }
-                
-                else{ 
-                    var name_=$(this).text().toLowerCase();
-                    name_=name.replace(/\s/g, '');
-                    name_=name.replace("&","");
-                    $("#"+name_).remove();
-                    $("."+name_+"-inp").remove();
-                    var i=parseInt($(".interest_count").val());
-                    i=i-1;
-                    $(".interest_count").val(i);
-                    $(".search-in").attr("placeholder","Interests ( "+i+" out of 5)");
-                    $(this).toggleClass("clicked-btn-class");
-                    $(this).toggleClass("site-theme-grey-text");
-                }
-            });
-            
-    
+            }
+        } else {
+            var name_ = $(this).text().toLowerCase();
+            name_ = name.replace(/\s/g, '');
+            name_ = name.replace("&", "");
+            $("#" + name_).remove();
+            $("." + name_ + "-inp").remove();
+            var i = parseInt($(".interest_count").val());
+            i = i - 1;
+            $(".interest_count").val(i);
+            $(".search-in").attr("placeholder", "Interests ( " + i + " out of 5)");
+            $(this).toggleClass("clicked-btn-class");
+            $(this).toggleClass("site-theme-grey-text");
+        }
+    });
+
+
 
     $('select').material_select();
     $('.select-dropdown').addClass('ak-field-select');
@@ -247,6 +242,7 @@ function seachBarInit() {
     var sil_ele = $(".search-in-large");
     var sis_ele = $(".search-in-small");
     var isd_ele = $(".i-search-div");
+
     sil_ele.focus(function() {
         isd_ele.addClass("i-search-div-search-focus");
         $(".search-sugg-large").show(500)
@@ -279,7 +275,7 @@ function seachBarInit() {
 
 
 function getSearchLinksString(explore_links, popular_searches) {
-    var links_starting_row = '<div class="row" style="margin-bottom : 0px;"><div class="col l2 left-align"> <p class="site-theme-light-grey-text fw-400">Explore Amazon</p>  </div></div><div style="margin-left: auto;margin-bottom: 12px;" class="row left-align sugg-links"><a class="btn btn-options default-sugg-btn z-depth-0" >All</a>';
+    var links_starting_row = '<div class="row" style="margin-bottom : 0px;"><div class="col l2 left-align"> <p class="site-theme-light-grey-text fw-400">Explore Amazon</p>  </div></div><div style="margin-left: auto;margin-bottom: 12px;" class="row left-align sugg-links"><a href="https://www.amazon.com/" class="btn btn-options default-sugg-btn z-depth-0" >All</a>';
     var explore_buttons = "";
     for (i in explore_links) {
         var temp_button = '<a class="btn btn-options white site-theme-grey-text z-depth-0 sugg-btn" href="' + explore_links[i].link + '">' + explore_links[i].name + '</a>';
