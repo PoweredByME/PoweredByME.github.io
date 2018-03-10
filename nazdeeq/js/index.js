@@ -310,7 +310,7 @@ function iAmazonBanner(banner_data_list) {
 }
 
 function iAmazonBanner_template(items_list) {
-    var s = '<div class="i-amazon-banner site-theme-white"><div class="container"><div class="row"><div class="col l3 m4" style="display:flex;align-items:center"><p class="site-theme-grey-text fw-600">Interesting finds on Amazon</p></div>';
+    var s = '<div class="i-amazon-banner site-theme-white"><div class="container" style="margin-top:0px !important;"><div class="row"><div class="col l3 m4" style="display:flex;align-items:center"><p class="site-theme-grey-text fw-600">Interesting finds on Amazon</p></div>';
     items_list.forEach(function(obj, i) {
         s += '<div class="col l1 m1"><a href="' + obj.href + '"><img style="height:42px;margin-top:4px; margin-bottom:4px" src="' + obj.img + '"></a></div>';
     });
