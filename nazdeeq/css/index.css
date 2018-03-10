@@ -51,7 +51,7 @@
 }
 
 .sp-lgi-login-btn--facebook:before {
-    background: url('/assets/icon_facebook.png') 6px 6px no-repeat;
+    background: url('/nazdeeq/assets/icon_facebook.png') 6px 6px no-repeat;
 }
 
 .sp-lgi-login-btn--facebook:hover,
@@ -67,7 +67,7 @@
 }
 
 .sp-lgi-login-btn--google:before {
-    background: url('/assets/icon_google.png') 6px 6px no-repeat;
+    background: url('/nazdeeq/assets/icon_google.png') 6px 6px no-repeat;
 }
 
 .sp-lgi-login-btn--google:hover,
@@ -99,7 +99,7 @@ tr {
 .sp-wrapper {
     width: 100vw;
     min-height: 100vh;
-    background-image: url('/assets/img/bgn.png');
+    background-image: url('/nazdeeq/assets/img/bgn.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
