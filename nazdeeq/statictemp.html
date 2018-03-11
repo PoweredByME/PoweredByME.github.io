@@ -4,7 +4,7 @@
 <head>
 
     <title>
-        Nazdeeq | Sign Up
+        Nazdeeq | About Us
     </title>
 
     <!--METADATA-->
@@ -102,10 +102,10 @@
 
 
 
-    <div class="sp-wrapper valign-wrapper">
+    <div class="sp-wrapper valign-wrapper" style="background-attachment:fixed; background-size: cover; background-repeat:no-repeat">
         <div class="container center">
-            <div class="container">
-                <div class="card" style="padding:16px;">
+            <div class="container st-content-div hide-on-small-only">
+                <div class="card" style="padding:16px;margin-top:108px;margin-bottom:108px;">
                     <h2 class="hide-on-small-only site-theme-blue-text fw-600">ABOUT US</h2>
                     <h3 class="hide-on-med-and-up site-theme-blue-text fw-600">ABOUT US</h3>
                     <div class="st-content-div center" style="margin:16px;margin-bottom:40px;margin-top:24px;">
@@ -114,9 +114,28 @@
                             survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more
                             recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                         </p>
+                        <br>
+                        <p style="text-align:justify">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
+                            survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more
+                            recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                        </p>
+                        <br>
+                        <p style="text-align:justify">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
+                            survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more
+                            recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                        </p>
+                        <br>
+                        <p style="text-align:justify">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
+                            survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more
+                            recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                        </p>
                     </div>
                 </div>
             </div>
+            <div class="mobile-st-content-div hide-on-med-and-up"></div>
         </div>
     </div>
 
@@ -231,7 +250,10 @@
     <script type="text/javascript" src="js/commonScript.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script>
-        window.onload = windowOnLoad;
+        window.onload = function() {
+            windowOnLoad();
+            $(".mobile-st-content-div").html($(".st-content-div").html());
+        }
         window.onresize = windowOnResize;
         window.onscroll = windowOnScroll;
     </script>
