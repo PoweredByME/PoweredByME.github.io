@@ -327,7 +327,8 @@
             <div class="container site-theme-grey-text ">
                 <span class="hide-on-small-only ">© 2018 Nazdeeq. All rights reserved.</span>
                 <span class="hide-on-med-and-up ">© 2018 Copyrights | Nazdeeq</span>
-                <a class="site-theme-grey-text right " style="display:inline-flex;align-items:center " href="#top-ref-div-id ">
+
+                <a class="site-theme-grey-text right " style="display:inline-flex;align-items:center " href="#top-ref-div-id">
                     <span style="margin-right:6px;font-weight:300 ">Go to Top</span><i class="material-icons "> arrow_upward </i>
                 </a>
             </div>
@@ -348,106 +349,6 @@
         window.onresize = windowOnResize;
         window.onscroll = windowOnScroll;
         onSignUpLoad();
-    </script>
-    <script>
-        /*
-                var it_btn_click=0;
-                var selected_show=0;
-                $(document).ready(function(){
-                    
-                    $('.select-interests-hide').hide();
-                    $('.selected-interests-hide').hide();
-                    $('.it-down-btn').click(function(){
-                        
-                        if(selected_show==0){
-                            $('.selected-interests-hide').show(500);
-                            selected_show=1;
-                        }
-                        else selected_show=0;
-                        if(it_btn_click==0){
-                            $('.select-interests-hide').show(500);
-                            it_btn_click=1   
-                        }
-                        else  {
-                            $('.select-interests-hide').hide(500);
-                            it_btn_click=0;
-                        } 
-                    });
-                    
-
-                    function init_del_chip(ele){
-                        ele.click(function(){
-                            var my_id=ele.parent().attr("id");
-                            $("#"+my_id+"-btn").toggleClass("clicked-btn-class");
-                            $("#"+my_id+"-btn").toggleClass("site-theme-grey-text");
-                            $("."+my_id+"-inp").remove();
-                            var i=parseInt($(".interest_count").val());
-                            i=i-1;
-                            $(".interest_count").val(i);
-                            $(".search-in").attr("placeholder","Interests ( "+i+" out of 5)");
-                        });
-                    };
-                    function get_interest_count(){
-                        var i=parseInt($(".interest_count").val());
-                        console.log(i);
-                        for (var j=0;j<i+25;j++)
-                            {
-                                if($("#interest-"+j).length<1){
-                                    answer=j;
-                                    return j;
-                                    break;
-                                }
-                            }
-                    }
-                    
-                    function check_full_interests(){
-                        var i=parseInt($(".interest_count").val());
-                        return i>=5;
-                    }
-                    
-                    $(".i-select-btn").click(function(){
-                        var i_c=parseInt($(".interest_count").val());
-                        var name=$(this).text();
-                        
-                       
-                        
-                       
-                        
-                        var chip='<div id="'+ name.toLowerCase() +'" class="chip site-theme-pink site-theme-white-text"><span class="selected-name" >'+ name +'</span><i class="close material-icons">close</i></div>';
-                        name=name.toLowerCase();
-                        
-                        
-                        if($("#"+name).length<1){
-                            if(i_c<5 ){
-                            $("#Selected").append(chip);
-                            init_del_chip($("#"+name +" i"));
-                            var i=parseInt($(".interest_count").val());
-                            i=i+1;
-                            var i_number=get_interest_count();
-                            var input_temp='<input hidden id="interest-'+i_number+'" name="interest-'+i_number+'" class="' +name+ '-inp" value="' +name+ '">';
-                            $(".interest_count").after(input_temp);
-                            $(".interest_count").val(i);
-                            $(".search-in").attr("placeholder","Interests ( "+i+" out of 5)");
-                             $(this).toggleClass("clicked-btn-class");
-                        $(this).toggleClass("site-theme-grey-text");
-                            }
-                        }
-                        
-                        else{ 
-                            var name_=$(this).text().toLowerCase();
-                            $("#"+name_).remove();
-                            $("."+name_+"-inp").remove();
-                            var i=parseInt($(".interest_count").val());
-                            i=i-1;
-                            $(".interest_count").val(i);
-                            $(".search-in").attr("placeholder","Interests ( "+i+" out of 5)");
-                            $(this).toggleClass("clicked-btn-class");
-                            $(this).toggleClass("site-theme-grey-text");
-                        }
-                    });
-                    
-                });
-                */
     </script>
 
 </body>

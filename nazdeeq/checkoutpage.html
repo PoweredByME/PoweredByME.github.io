@@ -1,3 +1,38 @@
+<!--
+
+    In this page in the script there are two lists
+    One is the list of items which are to be shown
+    in the amazon interesting items banner (var bl) and the other 
+    it the address_list array. 
+
+    Formate is given as:
+    Amazon Banner List :- 
+    bl = [
+        [
+            {"img" : --- , "href" : --- }, ...   
+        ],
+        [
+            {"img" : --- , "href" : --- }, ...   
+        ], ...
+    ]
+    It is an array of arrays where each array can have 6 items. 
+    And each array coresponds to the group of items on one slide in  the banner.
+
+
+    The address list:-
+    address_list = [
+        {
+            "id": --- ,
+            "name": --- ,
+            "address": --- ,
+            "city": --- ,
+            "postalCode": --- ,
+            "tel": ---
+        }, ...
+        ];
+
+-->
+
 <!DOCTYPE html>
 <html>
 
@@ -227,21 +262,67 @@
                         <div class="col l12 s12 m12">
                             <h5 style="margin-top:16px;margin-bottom:8px;">Shipping Information</h5>
                         </div>
-                        <div style="margin-bottom:8px; padding-left:64px;margin-right:8px;min-height:268px;display:flex;align-items:center" class="col l6 s12 m12 current-address site-theme-grey-text">
-                            <div><input type="radio" id="sel">
-                                <label style="font-family:'Roboto';" for="sel" class="site-theme-grey-text">Select</label>
-                                <p style="padding-left:32px;margin:0px;margin-top:16px;" class="site-theme-light-grey-text">Jamie Larson</p>
-                                <p style="padding-left:32px;margin:0px;" class="site-theme-light-grey-text">Unit 2 Green Mount Retail Park</p>
-                                <p style="padding-left:32px;margin:0px;" class="site-theme-light-grey-text">Halifax</p>
-                                <p style="padding-left:32px;margin:0px;" class="site-theme-light-grey-text">HX1 5QN</p>
-                                <p style="padding-left:32px;margin:0px;" class="site-theme-light-grey-text">Tel : <span>03443325931</span></p>
-                                <p style="padding-left:32px;margin:0px;margin-top:16px"><a class="site-theme-orange-text" href="#">Edit Address</a></p>
+                        <div class="address-box row">
+
+                        </div>
+
+
+
+
+
+                        <!-- Modal Structure Adress Form -->
+                        <div id="modal1" class="modal">
+                            <div class="modal-content">
+                                <h4>Add a new Address</h4>
+
+                                <div class="row">
+                                    <form class="col s12" action="!#" onsubmit="return addNewAddress(this)">
+                                        <div class="row modal-form-row">
+                                            <div class="input-field col s12">
+                                                <input name="name" id="name_id" type="text" required class="validate site-theme-blue-text">
+                                                <label for="name_id" class="site-theme-blue-text">Name *</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <input id="add_1_id" name="address_1" type="text" required class="validate  site-theme-blue-text">
+                                                <label for="add_1_id" class=" site-theme-blue-text">Address Line 1 *</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <input id="add_2_id" name="address_2" type="text" class="site-theme-blue-text">
+                                                <label for="add_2_id" class=" site-theme-blue-text">Address Line 2 </label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <input id="city_id" name="city" type="text" required class="site-theme-blue-text">
+                                                <label for="city_id" class=" site-theme-blue-text">City *</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <input id="pc_id" name="postalCode" type="text" required class="site-theme-blue-text">
+                                                <label for="pc_id" class=" site-theme-blue-text">Postal Code </label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <input id="tel_id" name="tel" type="text" required class="site-theme-blue-text">
+                                                <label for="tel_id" class=" site-theme-blue-text">Tel *</label>
+                                            </div>
+                                        </div>
+                                        <div class="row center">
+                                            <input type="submit" value="Submit" class="ak-button site-theme-orange site-theme-white-text">
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
 
-                        <div style="min-height:268px;" class="col l5     s12 m12 current-address add-address">
-                            <h5 style="font-size:16px;" class="center site-theme-orange-text">Add a new address</h5>
-                        </div>
+                        <!-- Modal Structure Adress Form END-->
+
                         <div style="padding-right:0px;margin-top:8px;" class="col l11 s12 m12">
                             <i class="tiny material-icons site-theme-light-grey-text">arrow_back</i>
                             <a href="#!" style="display:inline" class="site-theme-light-grey-text left-align" onclick="$('ul.tabs').tabs('select_tab', 'test-swipe-1');">Return to checkout</a>
@@ -423,6 +504,77 @@
 
 
     <script>
+        var bl = [
+            [{
+                "img": "assets/img/abi1.png ",
+                "href": "!#"
+            }, {
+                "img": "assets/img/abi2.png ",
+                "href": "!#"
+            }, {
+                "img": "assets/img/abi3.png ",
+                "href": "!#"
+            }, {
+                "img": "assets/img/abi4.png ",
+                "href": "!#"
+            }, {
+                "img": "assets/img/abi5.png ",
+                "href": "!#"
+            }, {
+                "img": "assets/img/abi6.png ",
+                "href": "!#"
+            }],
+            [{
+                "img": "assets/img/abi1.png ",
+                "href": "!#"
+            }, {
+                "img": "assets/img/abi2.png ",
+                "href": "!#"
+            }, {
+                "img": "assets/img/abi3.png ",
+                "href": "!#"
+            }, {
+                "img": "assets/img/abi4.png ",
+                "href": "!#"
+            }, {
+                "img": "assets/img/abi5.png ",
+                "href": "!#"
+            }, {
+                "img": "assets/img/abi6.png ",
+                "href": "!#"
+            }],
+            [{
+                "img": "assets/img/abi1.png ",
+                "href": "!#"
+            }, {
+                "img": "assets/img/abi2.png ",
+                "href": "!#"
+            }, {
+                "img": "assets/img/abi3.png ",
+                "href": "!#"
+            }, {
+                "img": "assets/img/abi4.png ",
+                "href": "!#"
+            }, {
+                "img": "assets/img/abi5.png ",
+                "href": "!#"
+            }, {
+                "img": "assets/img/abi6.png ",
+                "href": "!#"
+            }]
+        ];
+
+
+        var address_list = [{
+            "id": '0',
+            "name": "Name",
+            "address": "Address1 and Address2",
+            "city": "City",
+            "postalCode": "44444",
+            "tel": "+923443325931"
+        }, ];
+
+
         window.onload = windowOnLoad;
         window.onresize = windowOnResize;
         window.onscroll = windowOnScroll;
@@ -431,72 +583,77 @@
                 $('select').material_select();
                 $(".add-address ").height($(".add-address ").prev().height());
             });
-            var bl = [
-                [{
-                    "img": "assets/img/abi1.png ",
-                    "href": "!#"
-                }, {
-                    "img": "assets/img/abi2.png ",
-                    "href": "!#"
-                }, {
-                    "img": "assets/img/abi3.png ",
-                    "href": "!#"
-                }, {
-                    "img": "assets/img/abi4.png ",
-                    "href": "!#"
-                }, {
-                    "img": "assets/img/abi5.png ",
-                    "href": "!#"
-                }, {
-                    "img": "assets/img/abi6.png ",
-                    "href": "!#"
-                }],
-                [{
-                    "img": "assets/img/abi1.png ",
-                    "href": "!#"
-                }, {
-                    "img": "assets/img/abi2.png ",
-                    "href": "!#"
-                }, {
-                    "img": "assets/img/abi3.png ",
-                    "href": "!#"
-                }, {
-                    "img": "assets/img/abi4.png ",
-                    "href": "!#"
-                }, {
-                    "img": "assets/img/abi5.png ",
-                    "href": "!#"
-                }, {
-                    "img": "assets/img/abi6.png ",
-                    "href": "!#"
-                }],
-                [{
-                    "img": "assets/img/abi1.png ",
-                    "href": "!#"
-                }, {
-                    "img": "assets/img/abi2.png ",
-                    "href": "!#"
-                }, {
-                    "img": "assets/img/abi3.png ",
-                    "href": "!#"
-                }, {
-                    "img": "assets/img/abi4.png ",
-                    "href": "!#"
-                }, {
-                    "img": "assets/img/abi5.png ",
-                    "href": "!#"
-                }, {
-                    "img": "assets/img/abi6.png ",
-                    "href": "!#"
-                }]
-            ];
+            showAddressList();
 
+            $(".modal").modal();
             $(".slick-slider-handle ").append(iAmazonBanner(bl))
             $('.slick-slider-handle').slick({
                 prevArrow: ".a-prev-btn ",
                 nextArrow: ".a-next-btn "
             });
         });
+
+
+
+        function showAddressList() {
+            var s = "";
+            address_list.forEach(function(ele, index) {
+                s += addressListTemp(ele, index);
+            });
+            s += '<div style="min-height:268px;" class="col l5 s12 m12 current-address add-address"><a style="font-size:16px;background:transparent;border:none;" href="#modal1" class="modal-trigger center site-theme-orange-text">Add a new address</a></div>';
+            $(".address-box").html(s);
+        }
+
+        function addressListTemp(element, index) {
+            var s = '<div style = "margin-bottom:8px; padding-left:64px;margin-right:8px;min-height:268px;display:flex;align-items:center" class = "col l5 s12 m12 current-address site-theme-grey-text" ><div><input name="address" type="radio" id="sel' + index + '"><label style="font-family:\'Roboto\';" for="sel' + index + '" class="site-theme-grey-text">Select</label>';
+            s += '<p style="padding-left:32px;margin:0px;margin-top:16px;" class="site-theme-light-grey-text">' + element.name + '</p>';
+            s += '<p style="padding-left:32px;margin:0px;margin-top:0px;" class="site-theme-light-grey-text">' + element.address + '</p>';
+            s += '<p style="padding-left:32px;margin:0px;margin-top:0px;" class="site-theme-light-grey-text">' + element.city + '</p>';
+            s += '<p style="padding-left:32px;margin:0px;margin-top:0px;" class="site-theme-light-grey-text">' + element.postalCode + '</p>';
+            s += '<p style="padding-left:32px;margin:0px;margin-top:0px;" class="site-theme-light-grey-text">' + element.tel + '</p>';
+            s += '<p style="padding-left:32px;margin:0px;margin-top:16px"><a class="site-theme-orange-text" href="#" onclick="removeAddress(' + element.id + ')">Delete Address</a></p>';
+            s += "</div></div>";
+            return s;
+        }
+
+        function addNewAddress(form) {
+            var name = form.name.value;
+            var address_1 = "" + form.address_1.value;
+            var address_2 = "" + form.address_2.value;
+            var city = form.city.value;
+            var pc = form.postalCode.value;
+            var tel = form.tel.value;
+            var id = 0;
+            if (address_list.length > 0) {
+                id = parseInt(address_list[address_list.length - 1].id) + 1;
+            }
+
+
+
+            address_list.push({
+                "id": id,
+                "name": name,
+                "address": address_1.trim() + " " + address_2.trim(),
+                "city": city,
+                "postalCode": pc,
+                "tel": tel
+            });
+
+            showAddressList();
+            $("#modal1").modal("close");
+            return false;
+        }
+
+        function removeAddress(id) {
+            var temp = [];
+            address_list.forEach(function(obj, index) {
+                if (obj.id == id) {} else {
+                    temp.push(obj);
+                }
+            });
+            address_list = temp;
+            showAddressList();
+        }
     </script>
 </body>
 
