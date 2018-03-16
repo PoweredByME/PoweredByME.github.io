@@ -1,0 +1,46 @@
+
+<!-- EXAMPLE OF ATLASKIT
+
+    <button class="ak-button ak-button__appearance-default">Submit</button>
+    <button class="ak-button ak-button__appearance-primary">Submit</button>
+    <button class="ak-button ak-button__appearance-subtle-link">Submit</button>
+    <button class="ak-button ak-button__appearance-link site-theme-blue">Submit</button>
+    <button class="ak-button ak-button__appearance-subtle">Submit</button>
+    <button class="ak-button ak-button__spacing-compact">Submit</button>
+    <button class="ak-button ak-button__spacing-none">Submit</button>
+
+
+    <div class="card container ak-field-group">
+
+        <h1 class="black-text center fw-600 aki">Login to Nazdeeq</h1>
+
+        <form action="#!">
+            <input class="ak-field-text" type="text" name="firstname" value="Mickey" placeholder="Your name">
+            <br> Last name:<br>
+            <input type="text" name="lastname" value="Mouse">
+            <br><br>
+            <input type="submit" class="ak-button site-theme-orange site-theme-white-text site-anime site-btn-hover" value="Submit">
+        </form>
+    </div>
+
+
+    FORM elements of atlas kit
+
+
+    .ak-field-text,
+    .ak-field-date,
+    .ak-field-search,
+    .ak-field-email,
+    .ak-field-url,
+    .ak-field-tel,
+    .ak-field-number,
+    .ak-field-month,
+    .ak-field-week,
+    .ak-field-time,
+    .ak-field-datetime-local,
+    .ak-field-password,
+    .ak-field-select,
+    .ak-field-textarea
+
+
+-->

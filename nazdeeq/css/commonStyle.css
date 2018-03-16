@@ -1,0 +1,150 @@
+/*
+    This file contains all the 
+    common style for navbar and
+    footer. 
+*/
+
+
+/*
+    DON'T CODE THE COLORS YOURSELF.
+    THEME COLORS :
+    -------------------------------
+   .site-theme-blue
+   .site-theme-blue-text
+   .site-theme-pink
+   .site-theme-pink-text
+   .site-theme-white
+   .site-theme-white-text
+   .site-theme-orange
+   .site-theme-orange-text
+   .site-theme-grey
+   .site-theme-grey-text
+   .site-theme-light-grey
+   .site-theme-light-grey-text
+   .fw-200
+   .fw-400
+   .fw-600
+   .site-btn-hover
+   .site-anime
+   -------------------------------
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+.the-body {
+    overflow-x: hidden;
+}
+
+.body-no-scroll {
+    overflow-y: hidden;
+}
+
+.site-theme-blue {
+    background-color: #221C35 !important;
+}
+
+.site-theme-blue-text {
+    color: #221C35 !important;
+}
+
+.site-theme-pink {
+    background-color: #EC2F85 !important;
+}
+
+.site-theme-pink-text {
+    color: #EC2F85 !important;
+}
+
+.site-theme-white {
+    background-color: #fafafa !important;
+}
+
+.site-theme-white-text {
+    color: #fafafa !important;
+}
+
+.site-theme-orange {
+    background-color: #ef7246 !important;
+}
+
+.site-theme-orange-text {
+    color: #ef7246 !important;
+}
+
+.site-theme-grey {
+    background-color: #444444 !important;
+}
+
+.site-theme-grey-text {
+    color: #444444 !important;
+}
+
+.site-theme-light-grey {
+    background-color: #767676 !important;
+}
+
+.site-theme-light-grey-text {
+    color: #767676 !important;
+}
+
+.fw-400 {
+    font-weight: 400 !important;
+}
+
+.fw-200 {
+    font-weight: 200 !important;
+}
+
+.fw-600 {
+    font-weight: 600 !important;
+}
+
+.site-anime {
+    transition-property: all !important;
+    transition-duration: 0.3s !important;
+}
+
+.site-btn-hover:hover {
+    filter: brightness(110%) !important;
+}
+
+.site-btn-hover:focus {
+    filter: brightness(110%) !important;
+}
+
+.nav-logo-image {
+    margin: 16px;
+    margin-left: 8px;
+}
+
+.nav-fv-option-ul li a {
+    font-weight: 300;
+    transition-property: all !important;
+    transition-duration: 0.3s !important;
+}
+
+.nav-fv-option-ul li a:hover,
+.nav-fv-option-ul li a:focus {
+    color: #eaeaea !important;
+    background-color: rgb(43, 35, 70) !important;
+}
+
+a.site-footer-text {
+    font-size: 12px;
+    transition-property: all !important;
+    transition-duration: 0.3s !important;
+}
+
+a.site-footer-text:hover,
+a.site-footer-text:focus {
+    color: #555555 !important;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Lato', 'Roboto', sans-serif !important;
+}

@@ -1,0 +1,444 @@
+/*
+    This file contains css related to 
+    index.html, signup.html, login.html
+*/
+
+
+/*
+    Shared 
+    Code taken from https://codepen.io/davidelrizzo/pen/vEYvyv
+*/
+
+.sp-lgi-login-btn {
+    box-sizing: border-box;
+    position: relative;
+    /* width: 13em;  - apply for fixed size */
+    margin: 0.2em;
+    padding: 0 15px 0 46px;
+    border: none;
+    text-align: left;
+    line-height: 34px;
+    white-space: nowrap;
+    border-radius: 0.2em;
+    font-size: 14px;
+    color: #FFF;
+}
+
+.sp-lgi-login-btn:before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 34px;
+    height: 100%;
+}
+
+.sp-lgi-login-btn:focus {
+    outline: none;
+}
+
+.sp-lgi-login-btn:active {
+    box-shadow: inset 0 0 0 32px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Facebook */
+
+.sp-lgi-login-btn--facebook {
+    background-color: #4C69BA;
+    text-shadow: 0 -1px 0 #354C8C;
+}
+
+.sp-lgi-login-btn--facebook:before {
+    background: url('icon_facebook.png') 6px 6px no-repeat;
+}
+
+.sp-lgi-login-btn--facebook:hover,
+.sp-lgi-login-btn--facebook:focus {
+    background-color: #5B7BD5;
+}
+
+
+/* Google */
+
+.sp-lgi-login-btn--google {
+    background: #DD4B39;
+}
+
+.sp-lgi-login-btn--google:before {
+    background: url('icon_google.png') 6px 6px no-repeat;
+}
+
+.sp-lgi-login-btn--google:hover,
+.sp-lgi-login-btn--google:focus {
+    background: rgb(228, 84, 65);
+}
+
+
+/*
+    Code by  Daniyal 
+*/
+
+td,
+tr {
+    padding: 8px 5px !important;
+}
+
+.db-btn {
+    padding: 6px 0px !important;
+    width: 92px;
+    border: none;
+    border-radius: 3px;
+}
+
+.db-table {
+    margin: 50px;
+}
+
+.sp-wrapper {
+    width: 100vw;
+    min-height: 100vh;
+    background-image: url('bgn.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.sp-lgi-content-container {
+    display: flex;
+}
+
+.sp-lgi-card-container {
+    width: 460px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 56px;
+    padding-bottom: 48px;
+}
+
+.sp-lgi-card {
+    padding: 24px;
+    padding-top: 32px;
+    padding-bottom: 32px;
+}
+
+.sp-lgi-form-div {
+    margin-top: 36px;
+}
+
+.error-div {
+    padding: 6px;
+}
+
+.error-text {
+    margin: 6px;
+    text-align: center;
+}
+
+.lgi-fp-a {
+    display: block;
+}
+
+.sp-btn {
+    padding: 16px !important;
+    width: 108px;
+    border: none;
+    border-radius: 3px;
+}
+
+.sp-password {
+    margin-bottom: 6px !important;
+}
+
+.c-sp-password {
+    margin-bottom: 6px !important;
+}
+
+.i-search-container {
+    margin-top: 56px;
+    margin-bottom: 56px;
+}
+
+.i-search-div {
+    padding-top: 64px;
+    padding-bottom: 24px;
+    min-height: calc(100vh - 141px);
+    transition-property: all;
+    transition-duration: 0.5s;
+}
+
+.i-search-div-search-focus {
+    padding-top: 24px;
+}
+
+.in-s-button {
+    width: 100% !important;
+    margin-top: 3% !important;
+}
+
+.search-in {
+    border-bottom: none !important;
+    height: 3rem !important;
+    margin-bottom: 0px !important;
+    padding: 6px !important;
+}
+
+.search-icon {
+    left: 4% !important;
+    height: 50px !important;
+}
+
+.search-card {
+    padding-left: 24px !important;
+    padding-right: 4px !important;
+    margin-top: 42px;
+    border-radius: 5px;
+}
+
+.shop-btn {
+    margin-top: 1px !important;
+    margin-right: 6px;
+    border-radius: 6%;
+}
+
+.btn-options {
+    margin-bottom: 6px !important;
+}
+
+.i-play-vid-btn {
+    height: 132px;
+    width: 132px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    outline: none;
+    border: none;
+}
+
+.i-play-vid-btn i {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.search-in:focus {
+    border-bottom: none !important;
+    box-shadow: none !important;
+}
+
+.sugg-div {
+    margin-left: auto !important;
+}
+
+.sugg-div a {
+    margin-right: 8px;
+}
+
+.sugg-links a {
+    text-transform: none !important;
+    margin-right: 8px !important;
+}
+
+.sugg-btn:hover {
+    background-color: #EC2F85 !important;
+    color: white !important;
+    border: 1px solid transparent !important;
+}
+
+.sugg-links a:active {
+    filter: brightness(50%);
+}
+
+.default-sugg-btn {
+    background-color: #EC2F85 !important;
+    color: white !important;
+}
+
+.sugg-btn {
+    border: 1px solid #c0c0c0 !important;
+}
+
+.myhideclass {
+    border: 0px solid #F0F0F0 !important;
+    padding: 16px !important;
+    padding-bottom: 2px !important;
+    padding-top: 0px !important;
+    border-radius: 3px !important;
+}
+
+.it-down-btn {
+    background: transparent !important;
+    border: none! important;
+}
+
+.it-class-div {
+    background: #F4F5F7 !important;
+    border: 1px solid #DFE1E6 !important;
+    border-radius: 5px !important;
+    height: 3rem !important;
+    cursor: pointer;
+}
+
+.serach-in:hover {
+    cursor: pointer !important;
+}
+
+.i-select-btn {
+    padding-left: 8px !important;
+    font-size: 12px !important;
+    padding-right: 8px !important;
+    margin-right: 6px !important;
+}
+
+.clicked-btn-class {
+    background-color: #EC2F85 !important;
+    color: white !important;
+    border: 1px solid transparent !important;
+}
+
+.i-amazon-banner {
+    height: 56px;
+}
+
+.vid-div {
+    opacity: 1;
+    transition-property: all;
+    transition-duration: 0.4s;
+    transition-timing-function: ease-out;
+}
+
+.show.vid-div {
+    opacity: 1;
+}
+
+.vid-div-btn {
+    transform: scale(2);
+    opacity: 0;
+    transition-property: all;
+    transition-duration: 0.4s;
+    transition-delay: 0.3s;
+    transition-timing-function: ease-out;
+}
+
+.show.vid-div-btn {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.hw-heading {
+    transform: translateY(40px);
+    opacity: 0;
+    transition-property: all;
+    transition-duration: 0.4s;
+    transition-timing-function: ease-out;
+}
+
+.show.hw-heading {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+.hw-col .card {
+    transform: translateY(40px);
+    opacity: 0;
+    transition-property: all;
+    transition-duration: 0.4s;
+    transition-timing-function: ease-out;
+}
+
+.show.hw-col .card {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+.op-heading {
+    transform: translateY(40px);
+    opacity: 0;
+    transition-property: all;
+    transition-duration: 0.4s;
+    transition-timing-function: ease-out;
+}
+
+.show.op-heading {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+.op-col img {
+    transform: translateY(40px);
+    opacity: 0;
+    transition-property: all;
+    transition-duration: 0.4s;
+    transition-timing-function: ease-out;
+}
+
+.show.op-col img {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+.coming-soon-div img {
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+.coming-soon-div {
+    padding-left: 36px;
+}
+
+.b-search-item {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 48px;
+}
+
+.pco-thanks-heading-container {
+    margin-top: 72px;
+    margin-bottom: 72px;
+}
+
+@media screen and (max-width:1107px) {
+    .b-search-item {
+        display: inline-flex;
+        align-items: center;
+        margin-right: 24px;
+    }
+}
+
+@media screen and (max-width:992px) {
+    .sp-wrapper {
+        margin-top: 0px;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .sp-password {
+        margin-bottom: 20px !important;
+    }
+    .i-search-div {
+        min-height: 40vh;
+    }
+    .i-search-container {
+        margin-bottom: 0px;
+    }
+    .i-play-vid-btn {
+        height: 108px;
+        width: 108px;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        align-items: center;
+    }
+    .vid-div {
+        opacity: 1;
+    }
+    .vid-div-btn {
+        transform: scale(1);
+        opacity: 1;
+    }
+    .pco-thanks-heading-container {
+        margin-top: 56px;
+        margin-bottom: 56px;
+    }
+}
