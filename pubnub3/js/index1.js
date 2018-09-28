@@ -471,7 +471,7 @@ function mqtt_Publish_Message(mqtt, message0){
     Note: 
     It can be extended.
 */
-function mqtt_sendMessage(datatype,msg){
+function mqtt_sendMessage(dataType,msg){
     var ut = getUnixTimeStamp();
     msg = dataType + "#" + msg + "#" + myID + "#" + ut.toString() + "#" + videoLatancyMS.toString();
     mqtt_Publish_Message(MQTT_Client, msg);
