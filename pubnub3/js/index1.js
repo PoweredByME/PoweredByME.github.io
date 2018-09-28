@@ -161,9 +161,6 @@ function startControlFeed(){
     clearInterval(MSG_connection_interval);  // stop trying to create MSG Connection as it has been created.
     $(".control-input").removeClass("hide");
     mqtt_Connect_with_Broker();
-    while (!mqtt_connected){
-        console.log("connecting mqtt");
-    }
     ctrlTimer = new timer();   // Set the timer for data polling
     ctrlTimer.start(function(){
         get_CtrlData_FromLocalServer_And_SendToSource();

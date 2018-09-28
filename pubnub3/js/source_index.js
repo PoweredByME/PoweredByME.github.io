@@ -138,6 +138,7 @@ function setupControlDataChannal(id){
 var X_DAT = 0, Y_DAT = 1, Z_DAT = 2, U_DAT = 3, V_DAT = 4, W_DAT = 5, LP_DAT = 6, RP_DAT = 7;
 var command_latancy;
 // When a message is received via the control data stream
+
 function onMsg_messenger(msg){
     if(msg.text == "requestToConnect_MSG"){
         var sessionFound = false;
@@ -149,11 +150,8 @@ function onMsg_messenger(msg){
         });
         if(sessionFound){
             mqtt_Connect_with_Broker()
-            while (!mqtt_connected){
-                console.log("connecting mqtt");
-            }
+            MQTT_Subscribe_Topic = msg.id;
             pnPublish(messenger, messengerChannel, {id:id, text:"acceptToConnect_MSG"});
-            MQTT_Subscribe_Topic(msg.id);
         }
     }else{
         //console.log(msg);
@@ -283,7 +281,8 @@ function onConnect() {
     // Once a connection has been made, make a subscription and send a message.
     //Set_New_Console_Msg("Connected with MQTT Broker: " + "\"" + document.getElementById("txt_MQTT_Broker_URL").value + "\"");
     console.log("Connected with MQTT Broker: " + "\"" + WebSocket_MQTT_Broker_URL + "\"");
-    mqtt_connected = true;
+    mqtt_connected = true
+    mqtt_Subscribe_to_Topic(MQTT_Subscribe_Topic);
 }
 
 // called when the client loses its connection
