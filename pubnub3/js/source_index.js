@@ -212,7 +212,10 @@ function sendCtrlDataToLocalServer(msg,resp){
         type : "POST",
         success : function(r){
             console.log(r)
-            pnPublish(messenger, messengerChannel, {id:msg.id, text:"cmd_done", commnand_lat : command_latancy,dispatchTime: msg.dispatchTime});
+            mqtt_Publish_Message(
+                "cmd_done#" + msg.id + "#" + command_latancy.toString() + "#" + msg.dispatchTime
+            );
+            //pnPublish(messenger, messengerChannel, {id:msg.id, text:"cmd_done", commnand_lat : command_latancy,dispatchTime: msg.dispatchTime});
         },error: function(jqXHR, textStatus, errorThrown){
             console.log(jqXHR);
             console.log(textStatus);
@@ -296,6 +299,37 @@ function onConnectionLost(responseObject) {
 // called when a message arrives
 function onMessageArrived(message) {
     console.log("MQTT Message Recieved. "  + " Message: " + "\"" +  message.payloadString + "\"" + " MQTT Topic: " + "\"" + message.destinationName + "\"" + " QoS Value: " + "\"" + message.qos + "\"");
+    msgData = message.split("#");
+    dataType = msgData[0];
+    if(dataType == "ctrl"){
+        // When control data is recieved.
+        data = msgData[1];
+        device_id = msgData[2];
+        timeStamp = msgData[3];
+        video_latancy_ms = msgData[4];
+
+        msg = {
+            id : device_id,
+            text : data,
+            dispatchTime : parseFloat(timeStamp),
+            videoLatancyMS : video_latancy_ms   
+        };
+
+        $("."+msg.id+"-class-vid-lat").empty();
+        $("."+msg.id+"-class-ctrl-lat").empty();
+        var regex = /[a-z]/;
+        var resp = msg.text;
+        if(!regex.test(resp)){
+            ctrl_data = resp.split(",");
+            var t = "X = " + ctrl_data[X_DAT] + " | Y = " + ctrl_data[Y_DAT] + " | Z = " + ctrl_data[Z_DAT] + " | U = " + ctrl_data[U_DAT] + " | V = " + ctrl_data[V_DAT] + " | W = " + ctrl_data[W_DAT] + " | <br> Left Pressure = " + ctrl_data[LP_DAT] + " | Right Pressure = " + ctrl_data[RP_DAT]; 
+            $("."+msg.id+"-class").empty();
+            $("."+msg.id+"-class").append(t);
+            sendCtrlDataToLocalServer(msg, ctrl_data);
+        }
+        $("."+msg.id+"-class-vid-lat").append("Video Lat : " + msg.videoLatancy + "ms");
+        command_latancy = (- msg.dispatchTime + getUnixTimeStamp());
+        $("."+msg.id+"-class-ctrl-lat").append("Command Lat : " + command_latancy + "ms");
+    }
 } 
 
 
@@ -306,15 +340,27 @@ function mqtt_Subscribe_to_Topic(topic){
 }
 
 // Send MQTT Message 
-function mqtt_Publish_Message(mqtt, message){
-    message = new Paho.MQTT.Message(message);
+function mqtt_Publish_Message(mqtt, message0){
+    message = new Paho.MQTT.Message(message0);
     message.destinationName = MQTT_Subscribe_Topic;
     MQTT_Client.send(message);
-    console.log("Published " + "\"" + document.getElementById("txt_MQTT_Msg").value + "\"" + "to MQTT Topic: " + "\"" +  document.getElementById("txt_MQTT_Publish_Topic").value + "\"");
+    console.log("Published " + "\"" + message0 + "\"");    
 }
 
-function mqtt_sendMessage(msg){
+
+/*
+
+    Format of the high level MCI control feed is as follows;
+    dataType # string (control data) # string (ID) # string (time stamp) # string (video latancy)
+    
+    Control data formate is:
+    X,Y,Z,U,V,W,LP,RP
+
+    Note: 
+    It can be extended.
+*/
+function mqtt_sendMessage(datatype,msg){
     var ut = getUnixTimeStamp();
-    msg = msg + "#" + myID + "#" + ut.toString() + "#" + videoLatancyMS.toString();
+    msg = dataType + "#" + msg + "#" + myID + "#" + ut.toString() + "#" + videoLatancyMS.toString();
     mqtt_Publish_Message(MQTT_Client, msg);
 }
