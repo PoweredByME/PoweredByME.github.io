@@ -149,6 +149,7 @@ function onMsg_messenger(msg){
         });
         if(sessionFound){
             pnPublish(messenger, messengerChannel, {id:id, text:"acceptToConnect_MSG"});
+            MQTT_Subscribe_Topic(msg.id);
         }
     }else{
         //console.log(msg);
@@ -243,3 +244,72 @@ function makeId(lenght){
     return Array(lenght+1).join((Math.random().toString(36)+'00000000000000000').slice(2, 18)).slice(0, lenght)
 };
 
+
+
+///////////////////////////////////////////////////////////////
+// MQTT MESSAGING CODE
+///////////////////////////////////////////////////////////////
+var WebSocket_MQTT_Broker_URL = "ws://test.mosquitto.org:8081/mqtt";
+var MQTT_Client_ID = "";
+var MQTT_Subscribe_Topic = "";
+var MQTT_Client = null;
+
+function mqtt_Connect_with_Broker(){
+    // Set variables
+    MQTT_Client_ID = "Client-" + Math.floor(Math.random()*100000).toString();
+
+    // Create a MQTT Client nstance 
+    MQTT_Client = new Paho.MQTT.Client(WebSocket_MQTT_Broker_URL, MQTT_Client_ID);
+
+    // set callback handlers
+    MQTT_Client.onConnectionLost = onConnectionLost;
+    MQTT_Client.onMessageArrived = onMessageArrived;
+
+    options = {
+        onSuccess : onConnect,
+        useSSL : true,
+    }
+    console.log("Attempting to connect with MQTT Broker: " + "\"" + WebSocket_MQTT_Broker_URL + "\"");
+    MQTT_Client.connect(options);
+}
+
+// called when the client connects
+function onConnect() {
+    // Once a connection has been made, make a subscription and send a message.
+    //Set_New_Console_Msg("Connected with MQTT Broker: " + "\"" + document.getElementById("txt_MQTT_Broker_URL").value + "\"");
+    console.log("Connected with MQTT Broker: " + "\"" + WebSocket_MQTT_Broker_URL + "\"");
+}
+
+// called when the client loses its connection
+function onConnectionLost(responseObject) {
+    if (responseObject.errorCode !== 0) {
+      //Set_New_Console_Msg("Connection Lost with MQTT Broker. Error: " + "\"" +responseObject.errorMessage + "\"");
+      console.log("Connection Lost with MQTT Broker. Error: " + "\"" +responseObject.errorMessage + "\"");
+    }
+}
+
+// called when a message arrives
+function onMessageArrived(message) {
+    console.log("MQTT Message Recieved. "  + " Message: " + "\"" +  message.payloadString + "\"" + " MQTT Topic: " + "\"" + message.destinationName + "\"" + " QoS Value: " + "\"" + message.qos + "\"");
+} 
+
+
+function mqtt_Subscribe_to_Topic(topic){
+    MQTT_Subscribe_Topic = topic;
+    MQTT_Client.subscribe(MQTT_Subscribe_Topic);
+    console.log("Subscribed to MQTT Topic: " + "\"" + MQTT_Subscribe_Topic + "\"" );
+}
+
+// Send MQTT Message 
+function mqtt_Publish_Message(mqtt, message){
+    message = new Paho.MQTT.Message(message);
+    message.destinationName = MQTT_Subscribe_Topic;
+    MQTT_Client.send(message);
+    console.log("Published " + "\"" + document.getElementById("txt_MQTT_Msg").value + "\"" + "to MQTT Topic: " + "\"" +  document.getElementById("txt_MQTT_Publish_Topic").value + "\"");
+}
+
+function mqtt_sendMessage(msg){
+    var ut = getUnixTimeStamp();
+    msg = msg + "#" + myID + "#" + ut.toString() + "#" + videoLatancyMS.toString();
+    mqtt_Publish_Message(MQTT_Client, msg);
+}
