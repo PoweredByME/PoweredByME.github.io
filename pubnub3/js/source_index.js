@@ -148,6 +148,10 @@ function onMsg_messenger(msg){
            }
         });
         if(sessionFound){
+            mqtt_Connect_with_Broker()
+            while (!mqtt_connected){
+                console.log("connecting mqtt");
+            }
             pnPublish(messenger, messengerChannel, {id:id, text:"acceptToConnect_MSG"});
             MQTT_Subscribe_Topic(msg.id);
         }
@@ -253,6 +257,7 @@ var WebSocket_MQTT_Broker_URL = "ws://test.mosquitto.org:8081/mqtt";
 var MQTT_Client_ID = "";
 var MQTT_Subscribe_Topic = "";
 var MQTT_Client = null;
+var mqtt_connected = false;
 
 function mqtt_Connect_with_Broker(){
     // Set variables
@@ -278,6 +283,7 @@ function onConnect() {
     // Once a connection has been made, make a subscription and send a message.
     //Set_New_Console_Msg("Connected with MQTT Broker: " + "\"" + document.getElementById("txt_MQTT_Broker_URL").value + "\"");
     console.log("Connected with MQTT Broker: " + "\"" + WebSocket_MQTT_Broker_URL + "\"");
+    mqtt_connected = true;
 }
 
 // called when the client loses its connection

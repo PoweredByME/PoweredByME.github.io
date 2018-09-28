@@ -160,7 +160,10 @@ function tryToCreatMsgConnection(){
 function startControlFeed(){
     clearInterval(MSG_connection_interval);  // stop trying to create MSG Connection as it has been created.
     $(".control-input").removeClass("hide");
-    
+    mqtt_Connect_with_Broker();
+    while (!mqtt_connected){
+        console.log("connecting mqtt");
+    }
     ctrlTimer = new timer();   // Set the timer for data polling
     ctrlTimer.start(function(){
         get_CtrlData_FromLocalServer_And_SendToSource();
@@ -388,6 +391,7 @@ var WebSocket_MQTT_Broker_URL = "ws://test.mosquitto.org:8081/mqtt";
 var MQTT_Client_ID = "";
 var MQTT_Subscribe_Topic = "";
 var MQTT_Client = null;
+var mqtt_connected = false;
 
 function mqtt_Connect_with_Broker(){
     // Set variables
@@ -414,6 +418,7 @@ function onConnect() {
     //Set_New_Console_Msg("Connected with MQTT Broker: " + "\"" + document.getElementById("txt_MQTT_Broker_URL").value + "\"");
     console.log("Connected with MQTT Broker: " + "\"" + WebSocket_MQTT_Broker_URL + "\"");
     mqtt_Subscribe_to_Topic(myID);
+    mqtt_connected = true;
 }
 
 // called when the client loses its connection
