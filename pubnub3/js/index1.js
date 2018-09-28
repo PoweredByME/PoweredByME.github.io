@@ -429,7 +429,7 @@ function onConnectionLost(responseObject) {
 // called when a message arrives
 function onMessageArrived(message) {
     console.log("MQTT Message Recieved. "  + " Message: " + "\"" +  message.payloadString + "\"" + " MQTT Topic: " + "\"" + message.destinationName + "\"" + " QoS Value: " + "\"" + message.qos + "\"");
-    msgData = message.split("#");
+    msgData = message.payloadString.split("#");
     dataType = msgData[0];
     if(dataType == "ctrl"){
         return;

@@ -299,7 +299,7 @@ function onConnectionLost(responseObject) {
 // called when a message arrives
 function onMessageArrived(message) {
     console.log("MQTT Message Recieved. "  + " Message: " + "\"" +  message.payloadString + "\"" + " MQTT Topic: " + "\"" + message.destinationName + "\"" + " QoS Value: " + "\"" + message.qos + "\"");
-    msgData = message.split("#");
+    msgData = message.payloadString.split("#");
     dataType = msgData[0];
     if(dataType == "ctrl"){
         // When control data is recieved.
@@ -312,23 +312,24 @@ function onMessageArrived(message) {
             id : device_id,
             text : data,
             dispatchTime : parseFloat(timeStamp),
-            videoLatancyMS : video_latancy_ms   
+            videoLatancy : video_latancy_ms   
         };
 
         $("."+msg.id+"-class-vid-lat").empty();
         $("."+msg.id+"-class-ctrl-lat").empty();
         var regex = /[a-z]/;
         var resp = msg.text;
+        $("."+msg.id+"-class-vid-lat").append("Video Lat : " + msg.videoLatancy + "ms");
+        command_latancy = (- msg.dispatchTime + getUnixTimeStamp());
+        $("."+msg.id+"-class-ctrl-lat").append("Command Lat : " + command_latancy + "ms");
         if(!regex.test(resp)){
             ctrl_data = resp.split(",");
             var t = "X = " + ctrl_data[X_DAT] + " | Y = " + ctrl_data[Y_DAT] + " | Z = " + ctrl_data[Z_DAT] + " | U = " + ctrl_data[U_DAT] + " | V = " + ctrl_data[V_DAT] + " | W = " + ctrl_data[W_DAT] + " | <br> Left Pressure = " + ctrl_data[LP_DAT] + " | Right Pressure = " + ctrl_data[RP_DAT]; 
             $("."+msg.id+"-class").empty();
             $("."+msg.id+"-class").append(t);
-            sendCtrlDataToLocalServer(msg, ctrl_data);
+            //sendCtrlDataToLocalServer(msg, ctrl_data);
         }
-        $("."+msg.id+"-class-vid-lat").append("Video Lat : " + msg.videoLatancy + "ms");
-        command_latancy = (- msg.dispatchTime + getUnixTimeStamp());
-        $("."+msg.id+"-class-ctrl-lat").append("Command Lat : " + command_latancy + "ms");
+        
     }
 } 
 
