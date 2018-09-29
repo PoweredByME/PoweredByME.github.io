@@ -206,7 +206,7 @@ function pnPublish(connection, theChannel, msg) {
 
 function sendCtrlDataToLocalServer(msg,resp){
     
-    resp = resp[0]+","+resp[1]+","+resp[2]+","+resp[3]+","+resp[4]+","+resp[5]+","+resp[6]+","+resp[7];
+    resp = resp[0]+","+resp[1]+","+resp[2]+","+resp[3]+","+resp[4]+","+resp[5]+","+resp[6]+","+resp[7]+","+resp[8]+","+resp[9];
     $.ajax({
         url : "http://localhost:3333/",
         data : resp,
