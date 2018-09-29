@@ -319,9 +319,8 @@ function onMessageArrived(message) {
         $("."+msg.id+"-class-ctrl-lat").empty();
         var regex = /[a-z]/;
         var resp = msg.text;
-        $("."+msg.id+"-class-vid-lat").append("Video Lat : " + msg.videoLatancy + "ms");
+        $("."+msg.id+"-class-vid-lat").append("Latancy : " + msg.videoLatancy + "ms");
         command_latancy = (- msg.dispatchTime + getUnixTimeStamp());
-        $("."+msg.id+"-class-ctrl-lat").append("Command Lat : " + command_latancy + "ms");
         if(!regex.test(resp)){
             ctrl_data = resp.split(",");
             var t = "X = " + ctrl_data[X_DAT] + " | Y = " + ctrl_data[Y_DAT] + " | Z = " + ctrl_data[Z_DAT] + " | U = " + ctrl_data[U_DAT] + " | V = " + ctrl_data[V_DAT] + " | W = " + ctrl_data[W_DAT] + " | <br> Left Pressure = " + ctrl_data[LP_DAT] + " | Right Pressure = " + ctrl_data[RP_DAT]; 
