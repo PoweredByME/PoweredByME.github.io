@@ -186,7 +186,8 @@ function startControlFeed(){
 
 // These functions fetch data from localhost and send it to the source.
 var old_resp = "";
-var X_DAT = 0, Y_DAT = 1, Z_DAT = 2, U_DAT = 3, V_DAT = 4, W_DAT = 5, LP_DAT = 6, RP_DAT = 7;
+var X_DAT = 0, Y_DAT = 1, Z_DAT = 2, U_DAT = 3, V_DAT = 4, W_DAT = 5, LP_DAT = 6, RP_DAT = 7,
+POS_CTRL_SENSITIVITY = 8, PRES_CTRL_SENSITIVITY = 9;
 function createCtrlDataArr(resp){
     if(resp == old_resp){return;}else{old_resp = resp;}
     ctrl_data = resp.split(",");
@@ -197,7 +198,9 @@ function createCtrlDataArr(resp){
         + " | V = " + ctrl_data[V_DAT]
         + " | W = " + ctrl_data[W_DAT]
         + " | <br> LP = " + ctrl_data[LP_DAT]
-        + " | RP = " + ctrl_data[RP_DAT]; 
+        + " | RP = " + ctrl_data[RP_DAT]
+        + " | POS_S = " + ctrl_data[POS_CTRL_SENSITIVITY]
+        + " | PRES_S = " + ctrl_data[PRES_CTRL_SENSITIVITY]; 
     $(".ctrl-input").empty();
     $(".ctrl-input").append(resp);
     resp = ctrl_data; 
@@ -208,7 +211,9 @@ function createCtrlDataArr(resp){
             + "," + ctrl_data[V_DAT]
             + "," + ctrl_data[W_DAT]
             + "," + ctrl_data[LP_DAT]
-            + "," + ctrl_data[RP_DAT]; 
+            + "," + ctrl_data[RP_DAT]
+            + "," + ctrl_data[POS_CTRL_SENSITIVITY]
+            + "," + ctrl_data[POS_CTRL_SENSITIVITY];
     var cmdDispatchTime = mqtt_sendMessage("ctrl",r);
     updateCmdHistory(cmdDispatchTime, r); 
 }
