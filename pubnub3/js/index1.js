@@ -175,7 +175,7 @@ function startControlFeed(){
                 }
             });
             $(".vid-lat").empty();
-            $(".vid-lat").append("Video Latancy : " + videoLatancyMS + "ms");
+            $(".vid-lat").append("Latancy : " + videoLatancyMS + "ms");
             
     },500);
             
@@ -241,7 +241,10 @@ function updateCmdHistory(dispatchTime, cmd){
             cmd : cmd,
             done : false
     });
-    showCmdHistory()
+    if(cmdHistory.length > 2){
+        cmdHistory.shift();
+    }
+    //showCmdHistory()
 }
 
 
@@ -261,11 +264,11 @@ function updateExecutedCmdHistory(dispatchTime){
     cmdHistory.forEach(function(item, index){
         if(item.dispatchTime == dispatchTime){
             item.done = true;
-            console.log(cmdHistory);
+            //console.log(cmdHistory);
             return;
         }
     });
-    showCmdHistory();
+   //showCmdHistory();
 }
 
 
