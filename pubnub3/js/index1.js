@@ -464,7 +464,7 @@ function mqtt_Publish_Message(mqtt, message0){
 
     Format of the high level MCI control feed is as follows;
     dataType # string (control data) # string (ID) # string (time stamp) # string (video latancy)
-    
+    I dont know    
     Control data formate is:
     X,Y,Z,U,V,W,LP,RP
 
