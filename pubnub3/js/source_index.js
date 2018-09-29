@@ -168,9 +168,9 @@ function onMsg_messenger(msg){
             $("."+msg.id+"-class").append(t);
             sendCtrlDataToLocalServer(msg, ctrl_data);
         }
-        $("."+msg.id+"-class-vid-lat").append("Video Lat : " + msg.videoLatancy + "ms");
+        $("."+msg.id+"-class-vid-lat").append("Latancy : " + msg.videoLatancy + "ms");
         command_latancy = (- msg.dispatchTime + getUnixTimeStamp());
-        $("."+msg.id+"-class-ctrl-lat").append("Command Lat : " + command_latancy + "ms");
+        //$("."+msg.id+"-class-ctrl-lat").append("Command Lat : " + command_latancy + "ms");
     }
     
     
