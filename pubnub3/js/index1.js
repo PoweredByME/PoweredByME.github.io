@@ -10,7 +10,7 @@ var MSG_connection_interval;
 var videoLatancyMS = 0;
 var ctrl_data;
 var ctrlTimer;  // The timer object which call the function for collecting the data from the localhost(Desktop API).
-var dataPollingTime = 2000;  // The time in milli-seconds after which data is polled from the localhost.
+var dataPollingTime = 50;  // 2000 (actual max polling time)// The time in milli-seconds after which data is polled from the localhost.
 var localhost_port = "3070";  // The defualt localhost port.
 var cmdHistory = [];
 var ackReceiveTimeOut_time = 10000; //ms
