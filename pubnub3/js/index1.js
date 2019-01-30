@@ -14,7 +14,9 @@ var dataPollingTime = 50;  // 2000 (actual max polling time)// The time in milli
 var localhost_port = "3070";  // The defualt localhost port.
 var cmdHistory = [];
 var ackReceiveTimeOut_time = 10000; //ms
-
+var presenceMessageDispatchTime = 0;
+var presenceResponceReceived = false;
+var connectionWasBroken = false;
 
 
 
@@ -130,6 +132,14 @@ function onMsg_messenger(msg){
         // The command has been recieved by the source. It has sent 
         // an ACK -> cmd_done.
         onCommandAck(msg);
+    }else if(msg.id == myID && msg.text == "RESP_PRESENCE"){
+        var originTimeOfPrecenseMsg = msg.originTimeOfPrecenseMsg;
+        if (presenceMessageDispatchTime == originTimeOfPrecenseMsg){
+            var time_diff = getUnixTimeStamp() - presenceMessageDispatchTime;
+            if (time_diff < 15000){
+                presenceResponceReceived = true;
+            }
+        }
     }
 }
 
@@ -178,6 +188,27 @@ function startControlFeed(){
             $(".vid-lat").append("Latancy : " + videoLatancyMS + "ms");
             
     },500);
+
+    // Once the control feed is established on the Pubnub WebRTC Data Stream. 
+    // An infinite loop kicks in with an interval of 10 seconds. It send a WebRTC message
+    // to the source and checks if the response of the last message came back.
+    setInterval(function (){
+        if (presenceResponceReceived == false){
+            console.log("Connection ended.");
+            connectionWasBroken = true;
+            alert("Error! The connection has broken. Please check your internet connection.");
+        }
+        sendMessage("PRESENCE");
+        
+        if(connectionWasBroken && presenceResponceReceived){
+            mqtt_Connect_with_Broker();
+            connectionWasBroken = false;
+        }
+
+        presenceResponceReceived = false;
+
+
+    }, 10000);
             
 }
 
@@ -312,6 +343,9 @@ function applyCmdHistHTML_temp(SRNO, stamp, cmd, done){
 // This function send the message to the broadcaster
 function sendMessage(val){
     var ut = getUnixTimeStamp();
+    if (val == "PRESENCE"){
+        presenceMessageDispatchTime = ut;
+    }
     pnPublish(messenger, messengerChannel, {id:myID, text: val, dispatchTime: ut, videoLatancy:videoLatancyMS });
     return ut;
 }
