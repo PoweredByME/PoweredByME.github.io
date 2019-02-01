@@ -153,8 +153,10 @@ function onMsg_messenger(msg){
             MQTT_Subscribe_Topic = msg.id;
             pnPublish(messenger, messengerChannel, {id:id, text:"acceptToConnect_MSG"});
         }
-    }else if(msg.text="PRESENCE"){
-        pnPublish(messenger, messengerChannel, {id:id, text:"RESP_PRESENCE", originTimeOfPrecenseMsg:msg.timeStamp});
+    }else if(msg.text=="PRESENCE"){
+        pnPublish(messenger, messengerChannel, {senderID:id, id:msg.id, text:"RESP_PRESENCE", originTimeOfPrecenseMsg:msg.dispatchTime});
+    }else if(msg.text=='RESP_PRESENCE'){
+        
     }else{
         //console.log(msg);
         if(msg.text == "cmd_done") return;

@@ -126,6 +126,7 @@ function setupControlDataChannal(id){
 // This is used to autheticate that broadcaster has 
 // setup the control messenger.
 function onMsg_messenger(msg){
+    console.log( msg)
     if(msg.id == num && msg.text == "acceptToConnect_MSG"){
         startControlFeed();
     }if(msg.id == myID && msg.text == "cmd_done"){
@@ -134,8 +135,10 @@ function onMsg_messenger(msg){
         onCommandAck(msg);
     }else if(msg.id == myID && msg.text == "RESP_PRESENCE"){
         var originTimeOfPrecenseMsg = msg.originTimeOfPrecenseMsg;
+        console.log("Hello = " + msg)
         if (presenceMessageDispatchTime == originTimeOfPrecenseMsg){
             var time_diff = getUnixTimeStamp() - presenceMessageDispatchTime;
+            console.log(time_diff);
             if (time_diff < 15000){
                 presenceResponceReceived = true;
             }
