@@ -168,7 +168,7 @@ function tryToCreatMsgConnection(){
     }, 500);
 }
 
-
+var presenceSignalEmitterHasStart_flag = false;
 // This function is fired when the control data feed is setup.
 function startControlFeed(){
     clearInterval(MSG_connection_interval);  // stop trying to create MSG Connection as it has been created.
@@ -195,23 +195,29 @@ function startControlFeed(){
     // Once the control feed is established on the Pubnub WebRTC Data Stream. 
     // An infinite loop kicks in with an interval of 10 seconds. It send a WebRTC message
     // to the source and checks if the response of the last message came back.
-    setInterval(function (){
-        if (presenceResponceReceived == false){
-            console.log("Connection ended.");
-            connectionWasBroken = true;
-            alert("Error! The connection has broken. Please check your internet connection.");
-        }
-        sendMessage("PRESENCE");
-        
-        if(connectionWasBroken && presenceResponceReceived){
-            mqtt_Connect_with_Broker();
-            connectionWasBroken = false;
-        }
+    if (presenceSignalEmitterHasStart_flag == false){
+        setInterval(function (){
+            console.log("ddddd");
+            if (presenceResponceReceived == false){
+                console.log("aaaaa");
+                console.log("Connection ended.");
+                connectionWasBroken = true;
+                alert("Error! The connection has broken. Please check your internet connection.");
+            }
+            sendMessage("PRESENCE");
 
-        presenceResponceReceived = false;
+            if(connectionWasBroken && presenceResponceReceived){
+                mqtt_Connect_with_Broker();
+                connectionWasBroken = false;
+                presenceResponceReceived = true;
+            }
+
+            presenceResponceReceived = false;
 
 
-    }, 10000);
+        }, 10000);
+        presenceSignalEmitterHasStart_flag = true;
+    }
             
 }
 
