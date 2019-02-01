@@ -139,7 +139,7 @@ function onMsg_messenger(msg){
         if (presenceMessageDispatchTime == originTimeOfPrecenseMsg){
             var time_diff = getUnixTimeStamp() - presenceMessageDispatchTime;
             console.log(time_diff);
-            if (time_diff < 15000){
+            if (time_diff < 5000){
                 presenceResponceReceived = true;
             }
         }
@@ -215,7 +215,7 @@ function startControlFeed(){
             presenceResponceReceived = false;
 
 
-        }, 10000);
+        }, 5000);
         presenceSignalEmitterHasStart_flag = true;
     }
             
