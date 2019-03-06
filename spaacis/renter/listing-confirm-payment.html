@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fiver-danish-psd2html</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comfortaa:300,400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700">
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/@bootstrapstudio/bootstrap-better-nav/dist/bootstrap-better-nav.min.css">
+    <link rel="stylesheet" href="../assets/css/styles.min.css">
+</head>
+
+<body style="color:#022d41;">
+    <div id="temp-div" class="p-1" style="background:#999;">
+        <p>This is a temporary block which shows the interaction with the concerned modal. It will be removed once the backend functionality will be completed</p><button class="btn btn-light" type="button" data-toggle="modal" data-target="#confirm-booking">Confirm Booking Button</button></div>
+    <div
+        class="modal fade" role="dialog" tabindex="-1" id="confirm-booking">
+        <div class="modal-dialog modal-dialog-centered" role="document" style="max-width:800px;">
+            <div class="modal-content" style="border-radius:16px;width:800px !important;">
+                <div class="modal-header" style="border:none;display:none;"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                <div class="modal-body p-5 pt-5 pb-5">
+                    <div style="color:#022d41;">
+                        <h3 class="mb-5 mt-5" style="color:#022d41;">Order Summary<br></h3>
+                        <div class="row pb-5" style="padding:0px;margin:0px;">
+                            <div class="col-6" style="padding:0px;">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h5 class="mb-0" style="color:#022d41;">Venue Name</h5>
+                                    <h5 class="mb-0" style="color:#022d41;">$550</h5>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center" style="color:rgb(34, 167, 181);margin-left:-5px;"><i class="material-icons mr-1" style="font-size:30px;">location_on</i>
+                                        <p class="m-0 p-0" style="font-size:14px;">Shoreditch, London</p>
+                                    </div>
+                                    <h6 class="mb-0" style="color:#777;font-size:14px;">5 days</h6>
+                                </div>
+                                <div class="d-flex align-items-center mb-4" style="border-bottom:1px solid #022d41;">
+                                    <p class="d-flex align-items-center mb-4" style="margin-left:3px;margin-top:6px;"><i class="fa fa-star rating-star"></i><i class="fa fa-star rating-star"></i><i class="fa fa-star rating-star"></i><i class="fa fa-star rating-star"></i><i class="fa fa-star rating-star"></i></p>
+                                </div>
+                                <h6 class="mb-3" style="color:#777;font-family:Comfortaa, cursive;">Hourly Rate: &nbsp; &nbsp;00USD</h6>
+                                <h6 class="mb-4" style="color:#777;font-family:Comfortaa, cursive;">Service Fee: &nbsp; &nbsp;00USD</h6>
+                                <h6 class="pb-4 mb-4 mt-3 mb-3" style="color:#777;border-bottom:1px solid #022d41;font-family:Comfortaa, cursive;font-size:12px;">*minimum spend: 100USD</h6>
+                                <div class="row" style="padding:0px;margin:0px;">
+                                    <div class="col-6" style="padding:0px;">
+                                        <p>Dates</p>
+                                        <p style="font-size:14px;">01/01/2010<i class="icon ion-arrow-right-b ml-2 mr-2"></i>01/01/2010</p>
+                                    </div>
+                                    <div class="col offset-1" style="padding:0px;">
+                                        <p>Time</p>
+                                        <p style="font-size:14px;">10:00<i class="icon ion-arrow-right-b ml-2 mr-2"></i>18:00</p>
+                                    </div>
+                                </div>
+                                <div class="mt-2 pb-2 mb-4" style="border-bottom:1px solid #022d41;">
+                                    <p class="mb-1">Guests</p>
+                                    <p class="m-0" style="font-size:14px;color:#777;">Standing: 12</p>
+                                    <p style="color:#777;font-size:14px;">Request: 14</p>
+                                </div>
+                                <p style="font-size:12px;margin-top:196px;">You will be charged when the renter confirms booking</p>
+                            </div>
+                            <div class="col-5 offset-1" style="padding:0px;">
+                                <h5 class="mb-3" style="color:#022d41;">Payment</h5>
+                                <h6 class="mb-3" style="color:#022d41;">Credit Card Info</h6>
+                                <div class="mb-4">
+                                    <p class="mb-1" style="font-size:12px;color:#777;">CARD NUMBER</p><input type="text" placeholder="1234 4567 8910 1234" class="shadow-sm p-3 pl-3 pr-3" style="width:220px;border-radius:12px;border:none;"></div>
+                                <div class="mb-4">
+                                    <p class="mb-1" style="font-size:12px;color:#777;">CARDHOLDER NAME</p><input type="text" placeholder="John Doe" class="shadow-sm p-3 pl-3 pr-3" style="width:100%;border-radius:12px;border:none;"></div>
+                                <div class="mb-4">
+                                    <p class="mb-1" style="font-size:12px;color:#777;">EXPIRE DATE</p><input type="text" placeholder="05  /  21" class="shadow-sm p-3 pl-3 pr-3" style="width:100%;border-radius:12px;border:none;"></div>
+                                <div class="mb-5">
+                                    <p class="mb-1" style="font-size:12px;color:#777;">CVV</p><input type="text" placeholder="123" class="shadow-sm p-3 pl-3 pr-3" style="width:130px;border-radius:12px;border:none;"></div>
+                                <div><button class="btn btn-primary p-2 pl-5 pr-5 shadow-sm" type="button" style="background:#022d41;border:none;">Authorise Payment</button></div>
+                                <div class="mt-4 mb-4">
+                                    <p>Or pay with</p>
+                                </div>
+                                <div><button class="btn btn-primary p-3 pl-5 pr-5 shadow-sm" type="button" style="color:#022d41;border:none;background:white;">PayPal</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer" style="border:none;display:none;"></div>
+            </div>
+        </div>
+        </div>
+        <section id="listing-hero">
+            <div class="row" style="padding:0px;margin:0px;">
+                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 pl-5 pr-5" style="padding:0px;">
+                    <div class="pt-5 d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <p class="m-0 mr-2" style="font-family:Comfortaa, cursive;">Venue Type</p><i class="icon ion-android-arrow-dropright mr-3"></i>
+                            <p class="m-0 mr-2" style="font-family:Comfortaa, cursive;">Venue Name</p>
+                        </div>
+                        <div><button class="btn btn-outline-dark pl-4 pr-4" type="button">Modify Search</button></div>
+                    </div>
+                    <div style="margin-top:180px;font-family:Comfortaa, cursive;">
+                        <div class="d-flex align-items-center" style="color:rgb(34, 167, 181);"><i class="material-icons mr-1" style="font-size:30px;">location_on</i>
+                            <p class="m-0 p-0">Shoreditch, London</p>
+                        </div>
+                        <div class="d-flex align-items-center mt-3 justify-content-between">
+                            <h1 style="color:#022d41;font-family:Comfortaa, cursive;">Venue Name</h1>
+                            <div class="d-flex align-items-center"><a href="#"><i class="fa fa-heart m-1" style="color:white;background:#022d41;display:inline-block;padding:8px;border-radius:23px;font-size:12px;"></i><i class="fa fa-share-alt m-1" style="color:white;background:#022d41;display:inline-block;padding:8px;border-radius:23px;font-size:12px;width:28px;height:28px;"></i><i class="fa fa-wechat m-1" style="color:white;background:#022d41;display:inline-block;padding:8px;border-radius:30px;font-size:12px;width:28px;height:28px;"></i></a></div>
+                        </div>
+                        <div class="d-flex align-items-center mt-3">
+                            <p class="mr-5">Price</p>
+                            <p class="mr-5 ml-5">Seller Info</p>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <p class="d-flex align-items-center"><i class="fa fa-star rating-star"></i><i class="fa fa-star rating-star"></i><i class="fa fa-star rating-star"></i><i class="fa fa-star rating-star"></i><i class="fa fa-star rating-star"></i><span class="ml-2" style="font-size:10px;">( 38 Reviews )</span></p>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <p class="mb-5" style="color:rgb(99,96,96);">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.&nbsp;<br><br>Nemo
+                            enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
+                            adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid
+                            ex ea commodi consequatur?&nbsp;<br><br>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?&nbsp;Quis autem vel
+                            eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?<br><br>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse
+                            quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?&nbsp;Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem
+                            eum fugiat quo voluptas nulla pariatur?<br></p>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6" style="padding:0px;background-image:url(&quot;../assets/img/fredy-martinez-348701-unsplash.jpg&quot;);background-position:center;background-size:cover;background-repeat:no-repeat;">
+                    <div class="align-items-end shadow-sm d-flex" style="height:100%;">
+                        <div class="p-5"><button class="btn btn-primary mr-4 pl-5 pr-5" type="button" style="background:#022d41;border:none;">Virtual Plan</button><button class="btn btn-outline-dark pr-5 pl-5" type="button">Floor Plan</button></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="p-5">
+            <div class="p-3 shadow-sm pt-5 pb-5" style="border-radius:10px;">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-5 col-xl-5 pl-4 mb-4">
+                        <div class="mb-4">
+                            <h6 class="pb-3 mb-4" style="color:#022d41;border-bottom:1px solid #022d41;font-family:Comfortaa, cursive;">Dates</h6>
+                            <div class="d-flex align-items-center">
+                                <div class="dropdown"><button class="btn btn-primary dropdown-toggle p-2 pl-3 shadow-sm" data-toggle="dropdown" aria-expanded="false" type="button" style="background:white;color:#022d41;border:none !important;padding:0px;font-family:Comfortaa, cursive;outline:none !important;">&nbsp; &nbsp; &nbsp; &nbsp;01/01/2010 &nbsp; &nbsp;</button>
+                                    <div
+                                        class="dropdown-menu shadow pt-5 pb-5" role="menu" style="width:360px;border-radius:10px;border:none;outline:none;">
+                                        <a class="dropdown-item" role="presentation" href="#" style="font-family:Comfortaa, cursive;">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <p style="padding:0px;margin:0px;"><strong>Venue Name</strong></p>
+                                                <p style="padding:0px;margin:0px;font-size:12px;color:rgb(51,174,187);">Select</p>
+                                            </div>
+                                            <p class="pb-3" style="padding:0px;margin:0px;border-bottom:1px solid rgba(0,0,0,0.4);">Location</p>
+                                        </a>
+                                        <a class="dropdown-item" role="presentation" href="#" style="font-family:Comfortaa, cursive;">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <p style="padding:0px;margin:0px;"><strong>Venue Name</strong></p>
+                                                <p style="padding:0px;margin:0px;font-size:12px;color:rgb(51,174,187);">Select</p>
+                                            </div>
+                                            <p class="pb-3" style="padding:0px;margin:0px;border-bottom:1px solid rgba(0,0,0,0.4);">Location</p>
+                                        </a>
+                                </div>
+                            </div>
+                            <p style="margin:0px 16px;">to</p>
+                            <div class="dropdown"><button class="btn btn-primary dropdown-toggle p-2 pl-3 shadow-sm" data-toggle="dropdown" aria-expanded="false" type="button" style="background:white;color:#022d41;border:none !important;padding:0px;font-family:Comfortaa, cursive;outline:none !important;">&nbsp; &nbsp; &nbsp; &nbsp;01/01/2010 &nbsp; &nbsp;</button>
+                                <div
+                                    class="dropdown-menu shadow pt-5 pb-5" role="menu" style="width:360px;border-radius:10px;border:none;outline:none;">
+                                    <a class="dropdown-item" role="presentation" href="#" style="font-family:Comfortaa, cursive;">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <p style="padding:0px;margin:0px;"><strong>Venue Name</strong></p>
+                                            <p style="padding:0px;margin:0px;font-size:12px;color:rgb(51,174,187);">Select</p>
+                                        </div>
+                                        <p class="pb-3" style="padding:0px;margin:0px;border-bottom:1px solid rgba(0,0,0,0.4);">Location</p>
+                                    </a>
+                                    <a class="dropdown-item" role="presentation" href="#" style="font-family:Comfortaa, cursive;">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <p style="padding:0px;margin:0px;"><strong>Venue Name</strong></p>
+                                            <p style="padding:0px;margin:0px;font-size:12px;color:rgb(51,174,187);">Select</p>
+                                        </div>
+                                        <p class="pb-3" style="padding:0px;margin:0px;border-bottom:1px solid rgba(0,0,0,0.4);">Location</p>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <h6 class="pb-3 mb-4" style="color:#022d41;border-bottom:1px solid #022d41;font-family:Comfortaa, cursive;">Time</h6>
+                    <div class="d-flex align-items-center">
+                        <div class="dropdown"><button class="btn btn-primary dropdown-toggle p-2 pl-3 shadow-sm" data-toggle="dropdown" aria-expanded="false" type="button" style="background:white;color:#022d41;border:none !important;padding:0px;font-family:Comfortaa, cursive;outline:none !important;">&nbsp; &nbsp; &nbsp; &nbsp;10:00 &nbsp; &nbsp;</button>
+                            <div
+                                class="dropdown-menu shadow pt-5 pb-5" role="menu" style="width:360px;border-radius:10px;border:none;outline:none;">
+                                <a class="dropdown-item" role="presentation" href="#" style="font-family:Comfortaa, cursive;">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <p style="padding:0px;margin:0px;"><strong>Venue Name</strong></p>
+                                        <p style="padding:0px;margin:0px;font-size:12px;color:rgb(51,174,187);">Select</p>
+                                    </div>
+                                    <p class="pb-3" style="padding:0px;margin:0px;border-bottom:1px solid rgba(0,0,0,0.4);">Location</p>
+                                </a>
+                                <a class="dropdown-item" role="presentation" href="#" style="font-family:Comfortaa, cursive;">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <p style="padding:0px;margin:0px;"><strong>Venue Name</strong></p>
+                                        <p style="padding:0px;margin:0px;font-size:12px;color:rgb(51,174,187);">Select</p>
+                                    </div>
+                                    <p class="pb-3" style="padding:0px;margin:0px;border-bottom:1px solid rgba(0,0,0,0.4);">Location</p>
+                                </a>
+                        </div>
+                    </div>
+                    <p style="margin:0px 16px;">to</p>
+                    <div class="dropdown"><button class="btn btn-primary dropdown-toggle p-2 pl-3 shadow-sm" data-toggle="dropdown" aria-expanded="false" type="button" style="background:white;color:#022d41;border:none !important;padding:0px;font-family:Comfortaa, cursive;outline:none !important;">&nbsp; &nbsp; &nbsp; &nbsp;18:00 &nbsp; &nbsp;</button>
+                        <div
+                            class="dropdown-menu shadow pt-5 pb-5" role="menu" style="width:360px;border-radius:10px;border:none;outline:none;">
+                            <a class="dropdown-item" role="presentation" href="#" style="font-family:Comfortaa, cursive;">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <p style="padding:0px;margin:0px;"><strong>Venue Name</strong></p>
+                                    <p style="padding:0px;margin:0px;font-size:12px;color:rgb(51,174,187);">Select</p>
+                                </div>
+                                <p class="pb-3" style="padding:0px;margin:0px;border-bottom:1px solid rgba(0,0,0,0.4);">Location</p>
+                            </a>
+                            <a class="dropdown-item" role="presentation" href="#" style="font-family:Comfortaa, cursive;">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <p style="padding:0px;margin:0px;"><strong>Venue Name</strong></p>
+                                    <p style="padding:0px;margin:0px;font-size:12px;color:rgb(51,174,187);">Select</p>
+                                </div>
+                                <p class="pb-3" style="padding:0px;margin:0px;border-bottom:1px solid rgba(0,0,0,0.4);">Location</p>
+                            </a>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="mb-4">
+                <h6 class="pb-3 mb-4" style="color:#022d41;border-bottom:1px solid #022d41;font-family:Comfortaa, cursive;">Guests</h6>
+                <div class="d-flex align-items-center"><input type="text" placeholder="12" class="shadow-sm pl-3 pr-3 pb-2 pt-2" style="width:100px;border-radius:6px;border:none;"></div>
+            </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-5 col-xl-5 offset-lg-2 offset-xl-2 pr-4">
+                <h3 style="color:#022d41;font-family:Comfortaa, cursive;">$550</h3>
+                <div class="mb-4">
+                    <h6 class="pb-4 mb-4 mt-3" style="color:#022d41;border-bottom:1px solid #022d41;font-family:Comfortaa, cursive;">5 days</h6>
+                    <h6 class="mb-3" style="color:#777;font-family:Comfortaa, cursive;">Hourly Rate: &nbsp; &nbsp;00USD</h6>
+                    <h6 style="color:#777;font-family:Comfortaa, cursive;">Service Fee: &nbsp; &nbsp; 00USD</h6>
+                    <h6 class="pb-4 mb-4 mt-3 mb-3" style="color:#777;border-bottom:1px solid #022d41;font-family:Comfortaa, cursive;font-size:12px;">*minimum spend: 100USD</h6>
+                    <h6 class="mb-3" style="color:#022d41;font-family:Comfortaa, cursive;">Cancellation Policy, Terms &amp; Conditions</h6>
+                    <div class="mt-4"><button class="btn btn-primary pr-5 pl-5 pt-2 pb-2 mr-3" type="button" style="background:#022d41;border:none;">Book</button><button class="btn btn-outline-dark pr-5 pl-5 pt-2 pb-2" type="button">Request Viewing</button></div>
+                </div>
+            </div>
+            </div>
+            </div>
+        </section>
+        <section class="mt-5 p-5">
+            <div>
+                <h1 class="mb-5" style="color:#022d41;font-family:Comfortaa, cursive;">Capacity</h1>
+                <div>
+                    <div class="row" style="padding:0px;margin:0px;">
+                        <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4" style="padding:0px;">
+                            <h5 style="color:#022d41;font-family:Comfortaa, cursive;">Area: XXX m2</h5>
+                            <h5 style="color:#022d41;font-family:Comfortaa, cursive;">Seating: XXX</h5>
+                            <h5 style="color:#022d41;font-family:Comfortaa, cursive;">Standing: XXX</h5>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-5 col-xl-5 offset-lg-2 offset-xl-2" style="padding:0pc;">
+                            <h5 style="color:#022d41;font-family:Comfortaa, cursive;">Ceiling Height: XXX m</h5>
+                            <h5 style="color:#022d41;font-family:Comfortaa, cursive;">Theater: XXX</h5>
+                            <h5 style="color:#022d41;font-family:Comfortaa, cursive;">Disabled Access: XXX</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="p-5">
+            <div>
+                <h1 class="mb-5" style="color:#022d41;font-family:Comfortaa, cursive;">Amenities</h1>
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h5 style="color:#022d41;font-family:Comfortaa, cursive;"><i class="fa fa-star mr-3"></i>Air Condition</h5>
+                        <h5 style="color:#022d41;font-family:Comfortaa, cursive;"><i class="fa fa-star mr-3"></i>Cloakroom</h5>
+                        <h5 style="color:#022d41;font-family:Comfortaa, cursive;"><i class="fa fa-star mr-3"></i>Early Access</h5>
+                        <h5 style="color:#022d41;font-family:Comfortaa, cursive;"><i class="fa fa-star mr-3"></i>Unfurnished</h5>
+                        <h5 style="color:#022d41;font-family:Comfortaa, cursive;"><i class="fa fa-star mr-3"></i>Smoking Area</h5>
+                        <h5 style="color:#022d41;font-family:Comfortaa, cursive;"><i class="fa fa-star mr-3"></i>Toilets</h5>
+                    </div>
+                    <div>
+                        <h5 style="color:#022d41;font-family:Comfortaa, cursive;"><i class="fa fa-star mr-3"></i>Breakout Room</h5>
+                        <h5 style="color:#022d41;font-family:Comfortaa, cursive;"><i class="fa fa-star mr-3"></i>Storage</h5>
+                        <h5 style="color:#022d41;font-family:Comfortaa, cursive;"><i class="fa fa-star mr-3"></i>Disabled Access</h5>
+                        <h5 style="color:#022d41;font-family:Comfortaa, cursive;"><i class="fa fa-star mr-3"></i>Elevator</h5>
+                        <h5 style="color:#022d41;font-family:Comfortaa, cursive;"><i class="fa fa-star mr-3"></i>Hostess</h5>
+                        <h5 style="color:#022d41;font-family:Comfortaa, cursive;"><i class="fa fa-star mr-3"></i>Reception</h5>
+                    </div>
+                    <div>
+                        <h5 class="pr-5 mr-5" style="color:#022d41;font-family:Comfortaa, cursive;"><i class="fa fa-star mr-3"></i>Stationary</h5>
+                        <h5 class="pr-5" style="color:#022d41;font-family:Comfortaa, cursive;"><i class="fa fa-star mr-3"></i>Whiteboard</h5>
+                        <h5 class="pr-5" style="color:#022d41;font-family:Comfortaa, cursive;"><i class="fa fa-star mr-3"></i>Live Music</h5>
+                        <h5 class="pr-5" style="color:#022d41;font-family:Comfortaa, cursive;"><i class="fa fa-star mr-3"></i>DJ</h5>
+                        <h5 class="pr-5" style="color:#022d41;font-family:Comfortaa, cursive;"><i class="fa fa-star mr-3"></i>Bar</h5>
+                        <h5 class="pr-5" style="color:#022d41;font-family:Comfortaa, cursive;"><i class="fa fa-star mr-3"></i>Dance Floor</h5>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="mt-5 p-5">
+            <div>
+                <h1 class="mb-5" style="color:#022d41;font-family:Comfortaa, cursive;">Facilities</h1>
+                <div>
+                    <div class="row" style="padding:0px;margin:0px;">
+                        <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4" style="padding:0px;">
+                            <h5 style="color:#022d41;font-family:Comfortaa, cursive;">Area: XXX m2</h5>
+                            <h5 style="color:#022d41;font-family:Comfortaa, cursive;">Seating: XXX</h5>
+                            <h5 style="color:#022d41;font-family:Comfortaa, cursive;">Char List 1</h5>
+                            <h5 style="color:#022d41;font-family:Comfortaa, cursive;">Char List 1</h5>
+                            <h5 style="color:#022d41;font-family:Comfortaa, cursive;">Char List 1</h5>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-5 col-xl-5 offset-lg-2 offset-xl-2" style="padding:0pc;">
+                            <h5 style="color:#022d41;font-family:Comfortaa, cursive;">Char List 1</h5>
+                            <h5 style="color:#022d41;font-family:Comfortaa, cursive;">Char List 1</h5>
+                            <h5 style="color:#022d41;font-family:Comfortaa, cursive;">Char List 1</h5>
+                            <h5 style="color:#022d41;font-family:Comfortaa, cursive;">Char List 1</h5>
+                            <h5 style="color:#022d41;font-family:Comfortaa, cursive;">Char List 1</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="mt-5 p-5">
+            <div>
+                <h1 class="mb-5" style="color:#022d41;font-family:Comfortaa, cursive;">Item</h1>
+                <div>
+                    <div class="row" style="padding:0px;margin:0px;">
+                        <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4" style="padding:0px;">
+                            <h5 style="color:#022d41;font-family:Comfortaa, cursive;">Area: XXX m2</h5>
+                            <h5 style="color:#022d41;font-family:Comfortaa, cursive;">Seating: XXX</h5>
+                            <h5 style="color:#022d41;font-family:Comfortaa, cursive;">Char List 1</h5>
+                            <h5 style="color:#022d41;font-family:Comfortaa, cursive;">Char List 1</h5>
+                            <h5 style="color:#022d41;font-family:Comfortaa, cursive;">Char List 1</h5>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-5 col-xl-5 offset-lg-2 offset-xl-2" style="padding:0pc;">
+                            <h5 style="color:#022d41;font-family:Comfortaa, cursive;">Char List 1</h5>
+                            <h5 style="color:#022d41;font-family:Comfortaa, cursive;">Char List 1</h5>
+                            <h5 style="color:#022d41;font-family:Comfortaa, cursive;">Char List 1</h5>
+                            <h5 style="color:#022d41;font-family:Comfortaa, cursive;">Char List 1</h5>
+                            <h5 style="color:#022d41;font-family:Comfortaa, cursive;">Char List 1</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="mt-5 p-5" style="margin-bottom:200px;">
+            <div>
+                <div>
+                    <div class="row" style="padding:0px;margin:0px;">
+                        <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4" style="padding:0px;">
+                            <h1 class="mb-5" style="color:#022d41;font-family:Comfortaa, cursive;">Item</h1>
+                            <h5 style="color:#022d41;font-family:Comfortaa, cursive;">Area: XXX m2</h5>
+                            <h5 style="color:#022d41;font-family:Comfortaa, cursive;">Seating: XXX</h5>
+                            <h5 style="color:#022d41;font-family:Comfortaa, cursive;">Char List 1</h5>
+                            <h5 style="color:#022d41;font-family:Comfortaa, cursive;">Char List 1</h5>
+                            <h5 style="color:#022d41;font-family:Comfortaa, cursive;">Char List 1</h5>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-5 col-xl-5 offset-lg-2 offset-xl-2" style="padding:0pc;">
+                            <h1 class="mb-5" style="color:#022d41;font-family:Comfortaa, cursive;">Item</h1>
+                            <h5 style="color:#022d41;font-family:Comfortaa, cursive;">Char List 1</h5>
+                            <h5 style="color:#022d41;font-family:Comfortaa, cursive;">Char List 1</h5>
+                            <h5 style="color:#022d41;font-family:Comfortaa, cursive;">Char List 1</h5>
+                            <h5 style="color:#022d41;font-family:Comfortaa, cursive;">Char List 1</h5>
+                            <h5 style="color:#022d41;font-family:Comfortaa, cursive;">Char List 1</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="mt-5">
+            <div>
+                <h1 class="mb-5 pl-5 pr-5" style="color:#022d41;font-family:Comfortaa, cursive;">Images</h1>
+                <div class="p-2 d-flex align-items-center">
+
+<div 
+     id="listing-images-div-slide-left"
+     style="width:5%;cursor:pointer" class="d-flex align-items-center justify-content-center">
+<i class="fa fa-caret-left" style="font-size:36px"></i>
+</div>
+<div style="width:90%" class="listing-slider">
+    <div class="ml-3">
+    <div class="es-card-div mb-5" style="width:360px"><img src="../assets/img/fredy-martinez-348701-unsplash.jpg" width="360px" class="shadow mb-5 rounded" />
+    
+</div>
+    </div>
+  
+    <div class="ml-3">
+    <div class="es-card-div mb-5" style="width:360px"><img src="../assets/img/fredy-martinez-348701-unsplash.jpg" width="360px" class="shadow mb-5 rounded" />
+    
+</div>
+    </div>
+  
+    <div class="ml-3">
+    <div class="es-card-div mb-5" style="width:360px"><img src="../assets/img/fredy-martinez-348701-unsplash.jpg" width="360px" class="shadow mb-5 rounded" />
+    
+</div>
+    </div>
+  
+    <div class="ml-3">
+    <div class="es-card-div mb-5" style="width:360px"><img src="../assets/img/fredy-martinez-348701-unsplash.jpg" width="360px" class="shadow mb-5 rounded" />
+    
+</div>
+    </div>
+  
+    
+    
+    
+</div>
+<div id="listing-images-div-slide-right" style="cursor:pointer;width:5%" class="d-flex align-items-center justify-content-center">
+<i class="fa fa-caret-right" style="font-size:36px;"></i>
+</div>
+
+<script>
+    window.onload = function(){
+        console.log('Hello');
+        $(".listing-slider").slick({
+            arrows: false,
+            slidesToShow: 3
+        });
+        
+        $("#listing-images-div-slide-right").on('click', function(){
+            $(".listing-slider").slick('slickNext');
+        });
+        
+        $("#listing-images-div-slide-left").on('click', function(){
+            $(".listing-slider").slick('slickPrev');
+        });
+        
+    }
+</script></div>
+            </div>
+        </section>
+        <section class="mt-5 p-5 pb-0">
+            <div>
+                <h1 class="mb-5" style="color:#022d41;font-family:Comfortaa, cursive;">Location</h1>
+                <div>
+                    <p style="font-weight:300;line-height:18px;">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Sed ut perspiciatis
+                        unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et. voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab
+                        illo inventore veritatis et.<br></p>
+                </div>
+            </div>
+        </section>
+        <section class="p-5"><iframe allowfullscreen="" frameborder="0" width="100%" height="400" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD-po3QS8shDr6fZTwCtcUJ2Xui7elMKOM&amp;q=Paris%2C+France&amp;zoom=11" class="shadow-sm mb-5" style="border-radius:12px;"></iframe>
+            <button
+                class="btn btn-primary pr-5 pl-5 pt-2 pb-2 mr-3 mt-5" type="button" style="background:#022d41;border:none;">Make an Offer</button>
+        </section>
+        <section class="mt-5">
+            <div>
+                <h1 class="mb-5 pl-5 pr-5" style="color:#022d41;font-family:Comfortaa, cursive;">Similar Places</h1>
+                <div class="p-2 d-flex align-items-center mb-5"><div 
+     id="listing-images-div-slide-left"
+     style="width:5%" class="d-flex align-items-center justify-content-center">
+<i class="fa fa-caret-left" style="font-size:36px"></i>
+</div>
+<div style="width:90%" class="listing-slider">
+    <div class="ml-2">
+    <div class="es-card-div mb-5" style="width:360px"><img src="../assets/img/fredy-martinez-348701-unsplash.jpg" width="360px" class="shadow mb-5 rounded" />
+    <p class="es-card-title">Gallery Name<span class="d-inline-block float-right"><i class="fa fa-heart" style="color:rgb(255,0,0);margin-right:4px;"></i><span id="rating">36</span></span>
+    </p>
+    <p class="text-secondary es-card-text">Looking for a gallery, a rehersal studio, a meeting room or</p>
+    <p class="text-info es-card-price" style="font-family:Comfortaa, cursive;font-size:14px;font-weight:600;">120USD per day</p>
+</div>
+    </div>
+  
+    
+    <div class="ml-2">
+    <div class="es-card-div mb-5" style="width:360px"><img src="../assets/img/fredy-martinez-348701-unsplash.jpg" width="360px" class="shadow mb-5 rounded" />
+    <p class="es-card-title">Gallery Name<span class="d-inline-block float-right"><i class="fa fa-heart" style="color:rgb(255,0,0);margin-right:4px;"></i><span id="rating">36</span></span>
+    </p>
+    <p class="text-secondary es-card-text">Looking for a gallery, a rehersal studio, a meeting room or</p>
+    <p class="text-info es-card-price" style="font-family:Comfortaa, cursive;font-size:14px;font-weight:600;">120USD per day</p>
+</div>
+    </div>
+    
+    
+    
+    <div class="ml-2">
+    <div class="es-card-div mb-5" style="width:360px"><img src="../assets/img/fredy-martinez-348701-unsplash.jpg" width="360px" class="shadow mb-5 rounded" />
+    <p class="es-card-title">Gallery Name<span class="d-inline-block float-right"><i class="fa fa-heart" style="color:rgb(255,0,0);margin-right:4px;"></i><span id="rating">36</span></span>
+    </p>
+    <p class="text-secondary es-card-text">Looking for a gallery, a rehersal studio, a meeting room or</p>
+    <p class="text-info es-card-price" style="font-family:Comfortaa, cursive;font-size:14px;font-weight:600;">120USD per day</p>
+</div>
+    </div>
+    
+    
+    <div class="ml-2">
+    <div class="es-card-div mb-5" style="width:360px"><img src="../assets/img/fredy-martinez-348701-unsplash.jpg" width="360px" class="shadow mb-5 rounded" />
+    <p class="es-card-title">Gallery Name<span class="d-inline-block float-right"><i class="fa fa-heart" style="color:rgb(255,0,0);margin-right:4px;"></i><span id="rating">36</span></span>
+    </p>
+    <p class="text-secondary es-card-text">Looking for a gallery, a rehersal studio, a meeting room or</p>
+    <p class="text-info es-card-price" style="font-family:Comfortaa, cursive;font-size:14px;font-weight:600;">120USD per day</p>
+</div>
+    </div>
+    
+    
+    
+    
+    
+</div>
+<div id="listing-images-div-slide-right" style="cursor:pointer;width:5%" class="d-flex align-items-center justify-content-center">
+<i class="fa fa-caret-right" style="font-size:36px;"></i>
+</div>
+
+<script>
+    window.onload = function(){
+        console.log('Hello');
+        $(".listing-slider").slick({
+            arrows: false,
+            slidesToShow: 3
+        });
+        
+        $("#listing-images-div-slide-right").on('click', function(){
+            $(".listing-slider").slick('slickNext');
+        });
+        
+        $("#listing-images-div-slide-left").on('click', function(){
+            $(".listing-slider").slick('slickPrev');
+        });
+        
+    }
+</script></div>
+            </div>
+        </section>
+        <div class="footer-dark" style="background-color:rgb(255,255,255);color:rgb(0,0,0);font-family:Comfortaa, cursive;border-top:1px solid rgba(0,0,0,0.05);">
+            <footer>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-2 col-lg-2 col-xl-2 item">
+                            <h3>Spacies</h3>
+                            <ul>
+                                <li><a href="#">Careers</a></li>
+                                <li><a href="#">Press</a></li>
+                                <li><a href="#">Policies</a></li>
+                                <li><a href="#">Help</a></li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Company Details</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6 col-md-2 col-lg-2 col-xl-2 item">
+                            <h3>Hosting</h3>
+                            <ul>
+                                <li><a href="#">Truth &amp; Safety</a></li>
+                                <li><a href="#">Why Hosting?</a></li>
+                                <li><a href="#">Hospitality</a></li>
+                                <li><a href="#">Responsible Hosting&nbsp;</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6 col-md-3 col-lg-5 col-xl-5 item">
+                            <h3>Renting</h3>
+                            <ul>
+                                <li><a href="#">Discover Spaces</a></li>
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#">Invite Friends</a></li>
+                                <li><a href="#">Support</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6 col-md-3 col-lg-3 col-xl-3 item social"><a href="#" style="color:rgb(0,0,0);"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter" style="color:rgb(0,0,0);"></i></a><a href="#"><i class="icon ion-social-instagram" style="color:rgb(0,0,0);"></i></a>
+                            <ul
+                                id="social-bl">
+                                <li><a href="#">Terms</a></li>
+                                <li><a href="#">Policies</a></li>
+                                <li><a href="#">Sitemap</a></li>
+                                <li></li>
+                                </ul>
+                        </div>
+                    </div>
+                    <p class="copyright left-text">© Spaacis</p>
+                </div>
+            </footer>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.bundle.min.js"></script>
+        <script src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+        <script src="https://unpkg.com/@bootstrapstudio/bootstrap-better-nav/dist/bootstrap-better-nav.min.js"></script>
+        <script src="../assets/js/script.min.js"></script>
+</body>
+
+</html>

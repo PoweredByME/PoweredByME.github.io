@@ -8,9 +8,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comfortaa:300,400,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700">
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
     <link rel="stylesheet" href="https://unpkg.com/@bootstrapstudio/bootstrap-better-nav/dist/bootstrap-better-nav.min.css">
@@ -219,28 +221,79 @@
                         </div>
                     </div>
                     <div class="d-flex justify-content-center">
-                        <nav>
-                            <ul class="pagination">
-                                <li class="page-item"><a class="page-link" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                                <li class="page-item"><a class="page-link">1</a></li>
-                                <li class="page-item"><a class="page-link">2</a></li>
-                                <li class="page-item"><a class="page-link">3</a></li>
-                                <li class="page-item"><a class="page-link">4</a></li>
-                                <li class="page-item"><a class="page-link">5</a></li>
-                                <li class="page-item"><a class="page-link" aria-label="Next"><span aria-hidden="true">»</span></a></li>
-                            </ul>
-                        </nav>
+                        <div class="d-flex align-items-center">
+                            <div class="d-flex align-items-center justify-content-center" style="width:40px;height:40px;background:#022d41;border-radius:100px;color:white;">
+                                <p style="padding:0px;margin:0px;">1</p>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-center" style="width:40px;height:40px;background:white;border-radius:100px;color:#022d41;">
+                                <p style="padding:0px;margin:0px;">2</p>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-center" style="width:40px;height:40px;background:white;border-radius:100px;color:#022d41;">
+                                <p style="padding:0px;margin:0px;">3</p>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-center" style="width:40px;height:40px;background:white;border-radius:100px;color:#022d41;">
+                                <p style="padding:0px;margin:0px;margin-bottom:10px;">.........</p>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-center m-1 ml-3" style="width:40px;height:40px;background:white;border-radius:100px;color:#022d41;border:1px solid #022d41;">
+                                <p style="padding:0px;margin:0px;">15</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         </div>
     </section>
-    <section class="d-flex justify-content-center pb-5 pr-5" id="tphcm-container">
-        <div><button class="btn btn-outline-dark shadow rounded" type="button" style="font-family:Comfortaa, cursive;padding:16px;border-color:white !important;font-size:14px;"><i class="fa fa-external-link" style="margin-right:12px;"></i><span>Terms, Privacy, Help Center &amp; More</span></button></div>
-    </section>
+    <div class="footer-dark" style="background-color:rgb(255,255,255);color:rgb(0,0,0);font-family:Comfortaa, cursive;border-top:1px solid rgba(0,0,0,0.05);">
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-2 col-lg-2 col-xl-2 item">
+                        <h3>Spacies</h3>
+                        <ul>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Press</a></li>
+                            <li><a href="#">Policies</a></li>
+                            <li><a href="#">Help</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Company Details</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-2 col-lg-2 col-xl-2 item">
+                        <h3>Hosting</h3>
+                        <ul>
+                            <li><a href="#">Truth &amp; Safety</a></li>
+                            <li><a href="#">Why Hosting?</a></li>
+                            <li><a href="#">Hospitality</a></li>
+                            <li><a href="#">Responsible Hosting&nbsp;</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 col-lg-5 col-xl-5 item">
+                        <h3>Renting</h3>
+                        <ul>
+                            <li><a href="#">Discover Spaces</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Invite Friends</a></li>
+                            <li><a href="#">Support</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 col-lg-3 col-xl-3 item social"><a href="#" style="color:rgb(0,0,0);"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter" style="color:rgb(0,0,0);"></i></a><a href="#"><i class="icon ion-social-instagram" style="color:rgb(0,0,0);"></i></a>
+                        <ul
+                            id="social-bl">
+                            <li><a href="#">Terms</a></li>
+                            <li><a href="#">Policies</a></li>
+                            <li><a href="#">Sitemap</a></li>
+                            <li></li>
+                            </ul>
+                    </div>
+                </div>
+                <p class="copyright left-text">© Spaacis</p>
+            </div>
+        </footer>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.bundle.min.js"></script>
+    <script src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
     <script src="https://unpkg.com/@bootstrapstudio/bootstrap-better-nav/dist/bootstrap-better-nav.min.js"></script>
