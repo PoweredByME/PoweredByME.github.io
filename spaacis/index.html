@@ -9,19 +9,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comfortaa:300,400,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700">
     <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/css/ion.rangeSlider.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
     <link rel="stylesheet" href="https://unpkg.com/@bootstrapstudio/bootstrap-better-nav/dist/bootstrap-better-nav.min.css">
     <link rel="stylesheet" href="assets/css/styles.min.css">
 </head>
 
 <body style="overflow-x:hidden;background-color:rgb(255,255,255);">
-    <section id="hero" class="shadow" style="overflow:hidden;">
-        <nav class="navbar navbar-light navbar-expand-lg" data-aos="fade-down" data-aos-duration="400" data-aos-once="true" id="main-nav" style="width:100%;">
+    <section id="hero" class="shadow">
+        <nav class="navbar navbar-light navbar-expand-lg" id="main-nav" style="width:100%;">
             <div class="container-fluid"><a class="navbar-brand" href="#" style="background-image:url(&quot;assets/img/output-onlinepngtools.png&quot;);background-position:center;background-size:cover;width:50px;height:80px;margin-bottom:-20px;"></a><button class="navbar-toggler" data-toggle="collapse"
                     data-target="#navcol-1" id="nav-tog-btn"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navcol-1">
@@ -40,12 +43,47 @@
             </div>
         </nav>
         <div class="d-flex align-items-end" id="hero-content-div">
-            <div class="hcd">
+            <div class="hcd" style="position:relative;">
                 <h1 data-aos="fade-right" data-aos-duration="400" data-aos-once="true">Find your Space</h1>
-                <p class="text-light" data-aos="fade-right" data-aos-duration="400" data-aos-delay="400" data-aos-once="true">Looking for a gallery, a rehersal studio, a meeting&nbsp;room&nbsp;or ...<br></p><input class="form-control-lg" type="search" name="search" required="" placeholder="I want a..." autofocus="" autocomplete="on" data-aos="fade" data-aos-duration="400"
-                    data-aos-delay="800" data-aos-once="true" id="hero-search"></div>
+                <p class="text-light" data-aos="fade-right" data-aos-duration="400" data-aos-delay="400" data-aos-once="true">Looking for a gallery, a rehersal studio, a meeting&nbsp;room&nbsp;or ...<br></p><input class="form-control-lg" type="search" name="search" required="" placeholder="I want a..." autocomplete="off" data-aos="fade" data-aos-duration="400"
+                    data-aos-delay="800" data-aos-once="true" id="hero-search">
+                <div id="search-input-suggestion-div" class="shadow pl-4 pr-4 pt-5 pb-5" style="color:#022d41;">
+                    <h5 class="mb-4" style="color:#022d41;">Explore Spaces</h5>
+                    <div class="dropdown"><button class="btn btn-primary dropdown-toggle shadow-sm p-2 mb-4" data-toggle="dropdown" aria-expanded="false" type="button" style="width:100%;background:white;color:#022d41;border-radius:12px;border:none;">Venue Type &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</button>
+                        <div
+                            class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
+                </div>
+                <h5 class="mb-4" style="color:#022d41;">Location</h5>
+                <div class="dropdown"><button class="btn btn-primary dropdown-toggle shadow-sm p-2 mb-4" data-toggle="dropdown" aria-expanded="false" type="button" style="display:block;width:100%;background:white;color:#022d41;border-radius:12px;border:none;">Select Location &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</button>
+                    <div
+                        class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
+            </div>
+            <h5 class="mb-4 d-flex align-items-center justify-content-between" style="color:#022d41;">Availability<span></span></h5>
+            <div class="d-flex align-items-center mb-4">
+                <p class="m-0" style="font-size:16px !important;">From</p>
+                <div class="dropdown mr-4"><button class="btn btn-primary dropdown-toggle shadow-sm p-2" data-toggle="dropdown" aria-expanded="false" type="button" style="display:block;width:100%;background:white;color:#022d41;border-radius:12px;border:none;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</button>
+                    <div
+                        class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
+            </div>
+            <p class="m-0 ml-4" style="font-size:16px !important;">To</p>
+            <div class="dropdown mr-4"><button class="btn btn-primary dropdown-toggle shadow-sm p-2" data-toggle="dropdown" aria-expanded="false" type="button" style="display:block;width:100%;background:white;color:#022d41;border-radius:12px;border:none;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</button>
+                <div
+                    class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
         </div>
-        <div id="slider-container"><div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        </div>
+        <h5 class="mb-4 d-flex align-items-center justify-content-between" style="color:#022d41;">Recent Searches<br></h5>
+        <ul class="list-unstyled">
+            <li class="d-flex align-items-center mb-3"><img src="assets/img/index-page-search-image.png" class="ml-4" style="width:38px;"><span class="ml-3" style="line-height:15px;">Search Item<br><span style="font-size:12px;color:#777;">01/01 - 04/01</span></span>
+            </li>
+            <li class="d-flex align-items-center mb-3"><img src="assets/img/index-page-search-image.png" class="ml-4" style="width:38px;"><span class="ml-3" style="line-height:15px;">Search Item<br><span style="font-size:12px;color:#777;">01/01 - 04/01</span></span>
+            </li>
+            <li class="d-flex align-items-center mb-3"><img src="assets/img/index-page-search-image.png" class="ml-4" style="width:38px;"><span class="ml-3" style="line-height:15px;">Search Item<br><span style="font-size:12px;color:#777;">01/01 - 04/01</span></span>
+            </li>
+        </ul>
+        </div>
+        </div>
+        </div>
+        <div id="slider-container" style="overflow:hidden;"><div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -256,7 +294,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.bundle.min.js"></script>
     <script src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/js/ion.rangeSlider.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
     <script src="https://unpkg.com/@bootstrapstudio/bootstrap-better-nav/dist/bootstrap-better-nav.min.js"></script>
     <script src="assets/js/script.min.js"></script>
