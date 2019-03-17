@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/css/ion.rangeSlider.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+    <link rel="stylesheet" href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css">
     <link rel="stylesheet" href="https://unpkg.com/@bootstrapstudio/bootstrap-better-nav/dist/bootstrap-better-nav.min.css">
     <link rel="stylesheet" href="assets/css/styles.min.css">
 </head>
@@ -25,7 +26,7 @@
 <body>
     <section id="hero">
         <nav class="navbar navbar-light navbar-expand-lg" id="main-nav" style="width:100%;">
-            <div class="container-fluid"><a class="navbar-brand" href="#" style="background-image:url(&quot;assets/img/output-onlinepngtools.png&quot;);background-position:center;background-size:cover;width:50px;height:80px;margin-bottom:-20px;"></a><button class="navbar-toggler" data-toggle="collapse"
+            <div class="container-fluid"><a class="navbar-brand" href="#" style="background-image:url(&quot;assets/img/Spaacis Logo transparent.png&quot;);background-position:center;background-size:cover;width:127px;height:58px;margin-bottom:-20px;"></a><button class="navbar-toggler" data-toggle="collapse"
                     data-target="#navcol-1" id="nav-tog-btn"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navcol-1">
                     <ul class="nav navbar-nav">
@@ -36,31 +37,46 @@
                     </ul>
                     <ul class="nav navbar-nav ml-auto">
                         <li class="nav-item" role="presentation"><a class="nav-link" href="#">SIGN UP</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">LOG IN</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">LOGIN</a></li>
                         <li class="nav-item" role="presentation"><a class="nav-link" href="#"><button class="btn btn-primary" type="button" id="list-a-space-btn">List a Space</button></a></li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <div class="d-flex align-items-center" id="hero-content-div" style="background-image:url(&quot;assets/img/alexander-dummer-124674-unsplash.jpg&quot;);background-position:center;background-size:cover;background-repeat:no-repeat;">
+        <div class="d-flex align-items-center" id="hero-content-div" style="background-image:url(&quot;assets/img/alexander-dummer-124674-unsplash.jpg&quot;);background-position:center;background-size:cover;background-repeat:no-repeat;transition-property:all;transition-duration:0.3s;">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
                         <div id="login-content-container" class="p-5 rounded shadow" style="font-family:Comfortaa, cursive;background-color:rgba(255,255,255,0.9);">
-                            <h3 style="color:rgb(0,0,0);font-family:Comfortaa, cursive;font-weight:600;">Log In</h3>
-                            <form class="pt-5"><label for="email" style="font-size:14px;font-weight:600;">E-mail</label><input class="form-control form-control-lg shadow-sm mb-4" type="email" name="email" placeholder="someone@mail.com"><label for="password" style="font-size:14px;">Password</label>
+                            <h3 style="color:rgb(0,0,0);font-family:Comfortaa, cursive;font-weight:600;">Login</h3>
+                            <form class="pt-5"><label for="email" style="font-size:14px;font-weight:600;">Email</label><input class="form-control form-control-lg shadow-sm mb-4" type="email" name="email" placeholder="someone@mail.com"><label for="password" style="font-size:14px;">Password</label>
                                 <input
-                                    class="form-control form-control-lg rounded shadow-sm mb-5" type="password" name="password" placeholder="Password"><button class="btn btn-outline-dark" type="button">Log In</button></form>
-                            <p class="mt-2 mb-2" style="font-size:16px !important">Or</p>
-                            <div class="mb-5"><button class="btn btn-primary mr-2 mb-2" type="button" style="background-color:#3b5998;border-color:transparent;">Log In with Facebook</button><button class="btn btn-primary mb-2" type="button" style="background-color:#d34836;border-color:transparent;">Log In with Google</button></div>
+                                    class="form-control form-control-lg rounded shadow-sm mb-5" type="password" name="password" placeholder="Password"><button class="btn btn-primary" type="button" style="width:203.188px;background-color:rgb(25,166,181);border:none;">Login</button></form>
+                            <p class="mt-2 mb-2" style="font-size:16px !important">or</p>
+                            <div class="mb-5"><button class="btn btn-primary mr-2 mb-2 pb-2 pt-2" type="button" style="background-color:#022d41;border-color:transparent;">Log In with Facebook</button><button class="btn btn-primary mb-2 pb-2 pt-2" type="button" style="background-color:#022d41;border-color:transparent;width:203.188px;">Log In with Google</button></div>
                             <a
                                 href="#">Not a member, yet? Sign In</a>
                         </div>
                     </div>
                     <div class="col"></div>
                 </div>
-            </div>
-        </div>
+            </div><script>
+
+    window.onload = function(){
+        console.log('hello');
+        var DIV = $('#hero-content-div');
+        var currentIndex = 0;
+        setInterval(function(){
+            if(currentIndex > 2){
+                currentIndex = 0;
+            }
+            
+            DIV.css('background-image', 'url(assets/img/login/bg-'+ (currentIndex++) +'.jpg)');
+            
+        },5000);
+    }
+
+</script></div>
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.bundle.min.js"></script>
@@ -70,6 +86,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/js/ion.rangeSlider.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
     <script src="https://unpkg.com/@bootstrapstudio/bootstrap-better-nav/dist/bootstrap-better-nav.min.js"></script>
     <script src="assets/js/script.min.js"></script>
 </body>
