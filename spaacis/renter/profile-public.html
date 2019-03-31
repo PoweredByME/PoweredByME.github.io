@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700">
     <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/css/ion.rangeSlider.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
@@ -29,10 +30,11 @@
                 data-toggle="collapse" data-target="#navcol-1" id="nav-tog-btn"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav" id="nav-black-content">
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">EXPLORE</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">INBOX</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">EXPLORE SPACES</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="#">HOW IT WORKS</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="#">ABOUT US</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">CONTACT US</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">HELP CENTER</a></li>
                 </ul>
                 <ul class="nav navbar-nav ml-auto" id="nav-black-content">
                     <li class="nav-item" role="presentation"><a class="nav-link" href="#" style="margin-top:6px;"><i class="fa fa-bell" style="font-size:21px;color:#022d41;"></i></a></li>
@@ -65,13 +67,34 @@
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-5 col-xl-5">
-                    <div id="listings" class="rounded p-5 shadow mb-5" style="height:329px;">
+                    <div id="listings" class="rounded p-5 shadow mb-5">
                         <h4 class="dark" style="color:rgb(0,0,0);">Listings</h4>
-                        <ul>
-                            <li class="pb-1 pt-2">Venue Name<span class="text-secondary" style="display:block;">Location</span></li>
-                            <li class="pb-1 pt-2">Venue Name<span class="text-secondary" style="display:block;">Location</span></li>
-                            <li class="pb-1 pt-2">Venue Name<span class="text-secondary" style="display:block;">Location</span></li>
-                        </ul>
+                        <div id="slick-listing-slider" style="position:relative;">
+                            <div>
+                                <ul>
+                                    <li class="pb-1 pt-2">Venue Name<span class="text-secondary" style="display:block;">Location</span></li>
+                                    <li class="pb-1 pt-2">Venue Name<span class="text-secondary" style="display:block;">Location</span></li>
+                                    <li class="pb-1 pt-2">Venue Name<span class="text-secondary" style="display:block;">Location</span></li>
+                                    <li class="pb-1 pt-2">Venue Name<span class="text-secondary" style="display:block;">Location</span></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <ul>
+                                    <li class="pb-1 pt-2">Venue Name<span class="text-secondary" style="display:block;">Location</span></li>
+                                    <li class="pb-1 pt-2">Venue Name<span class="text-secondary" style="display:block;">Location</span></li>
+                                    <li class="pb-1 pt-2">Venue Name<span class="text-secondary" style="display:block;">Location</span></li>
+                                    <li class="pb-1 pt-2">Venue Name<span class="text-secondary" style="display:block;">Location</span></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <ul>
+                                    <li class="pb-1 pt-2">Venue Name<span class="text-secondary" style="display:block;">Location</span></li>
+                                    <li class="pb-1 pt-2">Venue Name<span class="text-secondary" style="display:block;">Location</span></li>
+                                    <li class="pb-1 pt-2">Venue Name<span class="text-secondary" style="display:block;">Location</span></li>
+                                    <li class="pb-1 pt-2">Venue Name<span class="text-secondary" style="display:block;">Location</span></li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
@@ -132,12 +155,27 @@
     </section>
     <section class="d-flex justify-content-center pb-5 pr-5 hidden" id="tphcm-container">
         <div><button class="btn btn-outline-dark shadow rounded" type="button" style="font-family:Comfortaa, cursive;padding:16px;border-color:white !important;font-size:14px;"><i class="fa fa-external-link" style="margin-right:12px;"></i><span>Terms, Privacy, Help Center &amp; More</span></button></div>
-    </section>
+    </section><script>
+
+    window.onload = function(){
+        $("#slick-listing-slider").slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false,
+            dots: true,
+        });
+        
+        $(".slick-dots li button").map(function(){$(this).html("")});
+        $('.slick-dots').addClass('public-profile-slick-dots');
+    }
+    
+</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.bundle.min.js"></script>
     <script src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/js/ion.rangeSlider.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>

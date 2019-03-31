@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700">
     <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/css/ion.rangeSlider.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
@@ -66,8 +67,11 @@
                         </h4><span class="d-lg-none d-xl-none" style="font-size:16px;margin-right:0px;margin-left:auto;"><span class="text-info d-inline-block mr-2">Calendar</span>|<span class="text-info d-inline ml-2">Inbox</span></span>
                         <div class="d-flex align-items-center"
                             id="reverations-content-div">
-                            <div style="width:100%;">
-                                <p class="text-center" style="font-size:14px;">You have no new reservations</p>
+                            <div class="d-flex justify-content-center" style="width:100%;">
+                                <div>
+                                    <p class="text-center" style="font-size:14px;">You have no new reservations</p>
+                                    <div class="ml-4 mr-4" style="height:1px;background:#212121;"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -78,10 +82,8 @@
                                 <div class="col-sm-12 col-md-12 col-lg-3 col-xl-3 d-flex align-items-center pb-5"><img src="../assets/img/alexander-dummer-124674-unsplash.jpg" class="shadow" style="margin:0px auto;border-radius:100px;height:100px;width:100px;"></div>
                                 <div class="col-sm-12 col-md-12 col-lg-9 col-xl-9">
                                     <h6 class="text-secondary">Username</h6>
-                                    <p><i class="fa fa-star" style="color:rgb(219,238,0);"></i><i class="fa fa-star" style="color:rgb(219,238,0);"></i><i class="fa fa-star" style="color:rgb(219,238,0);"></i><i class="fa fa-star" style="color:rgb(219,238,0);"></i>
-                                        <i
-                                            class="fa fa-star" style="color:rgb(219,238,0);margin-left:-5px;"></i>
-                                    </p>
+                                    <p><i class="fa fa-star rating-star" style="color:rgb(219,238,0);"></i><i class="fa fa-star rating-star" style="color:rgb(219,238,0);"></i><i class="fa fa-star rating-star" style="color:rgb(219,238,0);"></i><i class="fa fa-star rating-star"
+                                            style="color:rgb(219,238,0);"></i></p>
                                     <p class="text-secondary" style="font-size:14px;">You have a new offer Update listing photos Payment Received Update your contact number New booking request<br></p>
                                     <div style="width:70%;height:1px;background:rgba(0,0,0,0.4);"></div>
                                 </div>
@@ -90,10 +92,8 @@
                                 <div class="col-sm-12 col-md-12 col-lg-3 col-xl-3 d-flex align-items-center pb-5"><img src="../assets/img/alexander-dummer-124674-unsplash.jpg" class="shadow" style="margin:0px auto;border-radius:100px;height:100px;width:100px;"></div>
                                 <div class="col-sm-12 col-md-12 col-lg-9 col-xl-9">
                                     <h6 class="text-secondary">Username</h6>
-                                    <p><i class="fa fa-star" style="color:rgb(219,238,0);"></i><i class="fa fa-star" style="color:rgb(219,238,0);"></i><i class="fa fa-star" style="color:rgb(219,238,0);"></i><i class="fa fa-star" style="color:rgb(219,238,0);"></i>
-                                        <i
-                                            class="fa fa-star" style="color:rgb(219,238,0);margin-left:-5px;"></i>
-                                    </p>
+                                    <p><i class="fa fa-star rating-star" style="color:rgb(219,238,0);"></i><i class="fa fa-star rating-star" style="color:rgb(219,238,0);"></i><i class="fa fa-star rating-star" style="color:rgb(219,238,0);"></i><i class="fa fa-star rating-star"
+                                            style="color:rgb(219,238,0);"></i></p>
                                     <p class="text-secondary" style="font-size:14px;">You have a new offer Update listing photos Payment Received Update your contact number New booking request<br></p>
                                     <div style="width:70%;height:1px;background:rgba(0,0,0,0.4);"></div>
                                 </div>
@@ -108,7 +108,7 @@
                         <p id="hs-p" style="font-size:14px;">30-days views<span class="text-info float-right" id="30-days-views">24</span></p>
                         <div class="mb-4 mt-3" style="width:100%;height:1px;background:rgba(0,0,0,0.58);"></div>
                         <p id="hs-p" style="font-size:14px;"><span class="text-info float-right" id="price"></span></p>
-                        <p id="hs-p" style="font-size:14px;">Overall rating<span class="text-info float-right" id="overall-rating">4.7</span></p>
+                        <p id="hs-p" style="font-size:14px;">Overall rating<span class="text-info float-right" id="overall-rating">4.7<i class="fa fa-star ml-1"></i></span></p>
                         <p id="hs-p" style="font-size:14px;">Total Reviews<span class="text-info float-right" id="total-reviews">10</span></p>
                         <p id="hs-p" style="font-size:14px;">5-star reviews<span class="text-info float-right" id="5-star-reviews">90%</span></p>
                         <div class="mb-4 mt-3" style="width:100%;height:1px;background:rgba(0,0,0,0.58);"></div>
@@ -135,6 +135,7 @@
     <script src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/js/ion.rangeSlider.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
