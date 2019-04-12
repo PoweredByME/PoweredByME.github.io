@@ -49,7 +49,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-6 col-lg-7 col-xl-7">
-                    <div id="notifications" class="rounded p-5 shadow mb-5">
+                    <div id="notifications" class="rounded p-5 shadow mb-5" style="height:403px;">
                         <h4 style="color:rgb(0,0,0);">Notifications</h4>
                         <ul>
                             <li class="pb-3 pt-3">You have a new offer</li>
@@ -59,14 +59,29 @@
                             <li class="pb-3 pt-3">New booking request</li>
                         </ul>
                     </div>
-                    <div id="Reservations" class="rounded p-5 shadow mb-5">
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-5 col-xl-5">
+                    <div id="hosting-summary" class="rounded p-5 shadow mb-5" style="height:403px;">
+                        <h4 class="mb-4" style="color:rgb(0,0,0);">Hosting Summary</h4>
+                        <p id="hs-p" style="font-size:14px;">August Earnings<span class="text-info float-right" id="price">USD325</span></p>
+                        <p id="hs-p" style="font-size:14px;">30-days views<span class="text-info float-right" id="30-days-views">24</span></p>
+                        <div class="mb-4 mt-3" style="width:100%;height:1px;background:rgba(0,0,0,0.58);"></div>
+                        <p id="hs-p" style="font-size:14px;"><span class="text-info float-right" id="price"></span></p>
+                        <p id="hs-p" style="font-size:14px;">Overall rating<span class="text-info float-right" id="overall-rating">4.7<i class="fa fa-star ml-1"></i></span></p>
+                        <p id="hs-p" style="font-size:14px;">Total Reviews<span class="text-info float-right" id="total-reviews">10</span></p>
+                        <p id="hs-p" style="font-size:14px;">5-star reviews<span class="text-info float-right" id="5-star-reviews">90%</span></p>
+                        <div class="mb-4 mt-3" style="width:100%;height:1px;background:rgba(0,0,0,0.58);"></div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-7 col-xl-7">
+                    <div id="Reservations" class="rounded p-5 shadow mb-5" style="height:450px;">
                         <h4 class="d-flex align-items-center dark" style="color:rgb(0,0,0);"><span class="d-inline-block">Reservations</span><span class="d-none d-lg-inline-block d-xl-inline-block" style="font-size:16px;margin-right:0px;margin-left:auto;"><span class="text-info d-inline-block mr-2">Calendar</span>|
                             <span
                                 class="text-info d-inline ml-2">Inbox</span>
                                 </span>
                         </h4><span class="d-lg-none d-xl-none" style="font-size:16px;margin-right:0px;margin-left:auto;"><span class="text-info d-inline-block mr-2">Calendar</span>|<span class="text-info d-inline ml-2">Inbox</span></span>
                         <div class="d-flex align-items-center"
-                            id="reverations-content-div">
+                            id="reverations-content-div" style="height:317px;">
                             <div class="d-flex justify-content-center" style="width:100%;">
                                 <div>
                                     <p class="text-center" style="font-size:14px;">You have no new reservations</p>
@@ -75,6 +90,20 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-5 col-xl-5">
+                    <div id="listings" class="rounded p-5 shadow mb-5" style="height:450px;">
+                        <h4 class="dark" style="color:rgb(0,0,0);">Listings</h4>
+                        <ul>
+                            <li class="pb-1 pt-2">Venue Name<span class="text-secondary" style="display:block;">Location</span></li>
+                            <li class="pb-1 pt-2">Venue Name<span class="text-secondary" style="display:block;">Location</span></li>
+                            <li class="pb-1 pt-2">Venue Name<span class="text-secondary" style="display:block;">Location</span></li>
+                            <li class="pb-1 pt-2">Venue Name<span class="text-secondary" style="display:block;">Location</span></li>
+                            <li class="pb-1 pt-2">Venue Name<span class="text-secondary" style="display:block;">Location</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-7 col-xl-7">
                     <div id="reviews" class="rounded p-5 shadow mb-5">
                         <h4 class="mb-5" style="color:rgb(0,0,0);">Reviews</h4>
                         <div>
@@ -101,34 +130,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-12 col-md-6 col-lg-5 col-xl-5">
-                    <div id="hosting-summary" class="rounded p-5 shadow mb-5">
-                        <h4 class="mb-4" style="color:rgb(0,0,0);">Hosting Summary</h4>
-                        <p id="hs-p" style="font-size:14px;">August Earnings<span class="text-info float-right" id="price">USD325</span></p>
-                        <p id="hs-p" style="font-size:14px;">30-days views<span class="text-info float-right" id="30-days-views">24</span></p>
-                        <div class="mb-4 mt-3" style="width:100%;height:1px;background:rgba(0,0,0,0.58);"></div>
-                        <p id="hs-p" style="font-size:14px;"><span class="text-info float-right" id="price"></span></p>
-                        <p id="hs-p" style="font-size:14px;">Overall rating<span class="text-info float-right" id="overall-rating">4.7<i class="fa fa-star ml-1"></i></span></p>
-                        <p id="hs-p" style="font-size:14px;">Total Reviews<span class="text-info float-right" id="total-reviews">10</span></p>
-                        <p id="hs-p" style="font-size:14px;">5-star reviews<span class="text-info float-right" id="5-star-reviews">90%</span></p>
-                        <div class="mb-4 mt-3" style="width:100%;height:1px;background:rgba(0,0,0,0.58);"></div>
-                    </div>
-                    <div id="listings" class="rounded p-5 shadow mb-5">
-                        <h4 class="dark" style="color:rgb(0,0,0);">Listings</h4>
-                        <ul>
-                            <li class="pb-1 pt-2">Venue Name<span class="text-secondary" style="display:block;">Location</span></li>
-                            <li class="pb-1 pt-2">Venue Name<span class="text-secondary" style="display:block;">Location</span></li>
-                            <li class="pb-1 pt-2">Venue Name<span class="text-secondary" style="display:block;">Location</span></li>
-                            <li class="pb-1 pt-2">Venue Name<span class="text-secondary" style="display:block;">Location</span></li>
-                            <li class="pb-1 pt-2">Venue Name<span class="text-secondary" style="display:block;">Location</span></li>
-                        </ul>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
     <section class="d-flex justify-content-center pb-5 pr-5 hidden" id="tphcm-container">
-        <div><button class="btn btn-outline-dark shadow rounded" type="button" style="font-family:Comfortaa, cursive;padding:16px;border-color:white !important;font-size:14px;"><i class="fa fa-external-link" style="margin-right:12px;"></i><span>Terms, Privacy, Help Center &amp; More</span></button></div>
+        <div><button class="btn btn-outline-dark shadow rounded" type="button" style="font-family:Comfortaa, cursive;padding:16px;border-color:white !important;font-size:14px;position:fixed;z-index:100;background-color:white;bottom:0;right:0;margin:47px;color:#022d41;"><i class="fa fa-external-link" style="margin-right:12px;"></i><span>Terms, Privacy, Help Center &amp; More</span></button></div>
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.bundle.min.js"></script>
