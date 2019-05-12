@@ -13,6 +13,13 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comfortaa:300,400,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700">
+    <link rel="stylesheet" href="../assets/css/Background-Image-Slider.css">
+    <link rel="stylesheet" href="../assets/css/Background-Image-Slider.css">
+    <link rel="stylesheet" href="../assets/css/Carousel_Image_Slider.css">
+    <link rel="stylesheet" href="../assets/css/Carousel_Image_Slider.css">
+    <link rel="stylesheet" href="../assets/css/checkbox-style.css">
+    <link rel="stylesheet" href="../assets/css/datepicker.min.css">
+    <link rel="stylesheet" href="../assets/css/Footer-Dark.css">
     <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
@@ -21,7 +28,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
     <link rel="stylesheet" href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css">
     <link rel="stylesheet" href="https://unpkg.com/@bootstrapstudio/bootstrap-better-nav/dist/bootstrap-better-nav.min.css">
-    <link rel="stylesheet" href="../assets/css/styles.min.css">
+    <link rel="stylesheet" href="../assets/css/modal-video.min.css">
+    <link rel="stylesheet" href="../assets/css/Navigation-Menu.css">
+    <link rel="stylesheet" href="../assets/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="../assets/css/Simple-Slider.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/Toggle-Switch.css">
+    <link rel="stylesheet" href="../assets/css/Toggle-Switch.css">
 </head>
 
 <body style="color:#022d41;">
@@ -32,16 +45,16 @@
         <div class="modal-dialog modal-dialog-centered" role="document" style="max-width:800px;">
             <div class="modal-content" style="border-radius:16px;width:800px !important;">
                 <div class="modal-header" style="border:none;display:none;"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
-                <div class="modal-body d-flex align-items-center justify-content-center" style="padding:60px 100px;">
+                <div class="modal-body d-flex align-items-center justify-content-center" style="padding-top:60px;padding-bottom:60px" >
                     <div style="color:#022d41;">
                         <h1 class="mb-5" style="text-align:center;color:#022d41;">Sign Up<br></h1>
                         <form>
                             <div class="mb-4">
-                                <p class="mb-2" style="font-weight:400;opacity:0.7;font-family:Comfortaa, cursive;font-size:14px;color:#022d41;">Name</p><input class="form-control shadow-sm p-2 pl-3 pr-3" type="text" placeholder="John Doe" style="width:320px;border-radius:12px;border:none;"></div>
+                                <p class="mb-2" style="font-weight:400;opacity:0.7;font-family:Comfortaa, cursive;font-size:14px;color:#022d41;">Name</p><input class="form-control shadow-sm p-2 pl-3 pr-3" type="text" placeholder="John Doe" style="width:100%;max-width:320px;border-radius:12px;border:none;"></div>
                             <div class="mb-4">
-                                <p class="mb-2" style="font-weight:400;opacity:0.7;font-family:Comfortaa, cursive;font-size:14px;color:#022d41;">Email</p><input class="form-control shadow-sm p-2 pl-3 pr-3" type="text" placeholder="john@doe.com" style="width:320px;border-radius:12px;border:none;"></div>
+                                <p class="mb-2" style="font-weight:400;opacity:0.7;font-family:Comfortaa, cursive;font-size:14px;color:#022d41;">Email</p><input class="form-control shadow-sm p-2 pl-3 pr-3" type="text" placeholder="john@doe.com" style="width:100%;max-width:320px;border-radius:12px;border:none;"></div>
                             <div class="mb-5">
-                                <p class="mb-2" style="font-weight:400;opacity:0.7;font-family:Comfortaa, cursive;font-size:14px;color:#022d41;">Password</p><input class="form-control shadow-sm p-2 pl-3 pr-3" type="password" placeholder="password" style="width:320px;border-radius:12px;border:none;"></div>
+                                <p class="mb-2" style="font-weight:400;opacity:0.7;font-family:Comfortaa, cursive;font-size:14px;color:#022d41;">Password</p><input class="form-control shadow-sm p-2 pl-3 pr-3" type="password" placeholder="password" style="width:100%;max-width:320px;border-radius:12px;border:none;"></div>
                             <div><button class="btn btn-primary p-2" type="button" style="width:320px;background:#022d41;border:none;border-radius:12px;">Connect</button></div>
                             <div>
                                 <p class="mb-4 mt-4" style="font-weight:400;opacity:0.7;font-family:Comfortaa, cursive;font-size:14px;color:#022d41;text-align:center;">or</p>
@@ -535,6 +548,7 @@
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.bundle.min.js"></script>
+        <script src="../assets/js/bs-animation.js"></script>
         <script src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
         <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
@@ -544,7 +558,9 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
         <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
         <script src="https://unpkg.com/@bootstrapstudio/bootstrap-better-nav/dist/bootstrap-better-nav.min.js"></script>
-        <script src="../assets/js/script.min.js"></script>
+        <script src="../assets/js/image-card-materialize.js"></script>
+        <script src="../assets/js/jquery-modal-video.js"></script>
+        <script src="../assets/js/zzz.js"></script>
 </body>
 
 </html>

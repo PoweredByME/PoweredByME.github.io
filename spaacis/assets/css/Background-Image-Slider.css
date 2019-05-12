@@ -1,0 +1,239 @@
+* {
+  margin:0;
+  padding:0;
+}
+
+h1 {
+  color:#fff;
+}
+
+#mp-img-3 {
+  height:848px;
+  width:100%;
+  background-image:url("../../assets/img/krys-alex-477303-unsplash.jpg");
+  background-position:center;
+  background-size:cover;
+  background-repeat:no-repeat;
+  border-radius:8px;
+}
+
+@media (min-width: 992px) {
+  #mp-img-1 {
+    height:400px !important;
+  }
+}
+
+#mp-img-1 {
+  height:300px;
+  width:100%;
+  background-image:url("../../assets/img/fredy-martinez-348701-unsplash.jpg");
+  background-position:center;
+  background-size:cover;
+  background-repeat:no-repeat;
+}
+
+@media (min-width: 992px) {
+  #mp-img-2 {
+    height:400px !important;
+  }
+}
+
+#mp-img-2 {
+  height:300px;
+  width:100%;
+  background-image:url("../../assets/img/alexander-dummer-124674-unsplash.jpg");
+  background-position:center;
+  background-size:cover;
+  background-repeat:no-repeat;
+}
+
+@media (max-width: 992px) {
+  #mp-img-3 {
+    height:650px;
+  }
+}
+
+@media (max-width: 767px) {
+  #mp-img-3 {
+    height:300px;
+  }
+}
+
+@media (max-width: 320px) {
+  #mp-img-3 {
+    height:200px;
+  }
+}
+
+@media (max-width: 320px) {
+  #mp-img-2 {
+    height:200px;
+  }
+}
+
+@media (max-width: 320px) {
+  #mp-img-1 {
+    height:200px;
+  }
+}
+
+#exhibit-in-spotlight {
+  padding:0px;
+  width:100%;
+  height:auto;
+  margin-top:22px;
+}
+
+#exhibit-in-spotlight .container h1 {
+  color:black;
+  font-family:Comfortaa, cursive;
+  font-weight:600;
+  margin-bottom:64px;
+}
+
+#es-card-img {
+  width:100%;
+  padding:0px;
+}
+
+.es-card-title {
+  font-family:Comfortaa, cursive;
+  font-weight:600;
+  font-size:18px;
+}
+
+.fa.fa-heart {
+}
+
+#rating {
+  font-size:16px;
+  color:rgba(255,0,0,0.71);
+}
+
+.es-card-text {
+  font-family:Comfortaa, cursive;
+  font-weight:300;
+  font-size:14px;
+}
+
+.footer-dark {
+  border-top:1px solid #f5eeee;
+}
+
+.icon.ion-social-instagram {
+  margin-left:6px;
+}
+
+#social-bl {
+  margin-left:6px;
+}
+
+.copyright.left-text {
+  text-align:left !important;
+}
+
+#login-content-container {
+  background:white;
+}
+
+@media (max-width: 576px) {
+  #login-content-container {
+    margin-top:150px !important;
+    margin-bottom:175px;
+  }
+}
+
+#login-content-container {
+  margin-top:250px !important;
+  margin-bottom:175px;
+}
+
+#hero-content-div .hcd {
+  margin:84px;
+  margin-bottom:200px;
+}
+
+@media (max-width: 768px) {
+  #hero-content-div .hcd {
+    margin:56px;
+    margin-bottom:112px;
+  }
+}
+
+#nav-black-content li a {
+  color:black;
+  font-weight:400;
+}
+
+.lsb-nav-black {
+  color:black !important;
+  border-color:black !important;
+}
+
+#dashboard-content-container {
+  font-family:Comfortaa, cursive;
+}
+
+#main-nav-black {
+  padding:16px;
+  padding-right:32px;
+  padding-left:32px;
+  font-size:14px;
+  color:#ffffff;
+  z-index:10;
+}
+
+#notifications ul {
+  list-style:none;
+}
+
+#notifications ul li {
+  display:block;
+  border-bottom:1px solid #999;
+  font-size:12px;
+}
+
+#listings ul li {
+  display:block;
+  border-bottom:1px solid #999;
+  font-size:14px;
+}
+
+#hs-p {
+  margin:0px;
+  margin-bottom:6px;
+}
+
+#reverations-content-div {
+  height:300px;
+}
+
+.rating-star {
+  display:inline-block;
+  margin-right:4px;
+  color:rgb(251,209,80);
+}
+
+.hidden {
+  display:none;
+}
+
+#tphcm-container div {
+  margin:0px auto;
+  margin-right:0px;
+}
+
+#dv-hero {
+  width:100%;
+}
+
+.c-dv-cal-active {
+  background:rgba(255,0,0,0.1);
+  border-radius:100px;
+}
+
+body {
+  height:100%;
+  font-family:Comfortaa, cursive;
+}
+
