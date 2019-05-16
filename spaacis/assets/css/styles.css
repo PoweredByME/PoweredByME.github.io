@@ -614,3 +614,39 @@ span.thumb {
   }
 }
 
+.listing-hero-vid-play-box{
+  position:absolute;
+  top:40%;
+  width:50vw;
+  opacity:0.8;
+}
+
+@media (max-width: 992px){
+  .listing-hero-vid-play-box{
+    width:100vw;
+    top: 28%;
+  }
+}
+
+#spm-btn{
+  background: white;
+  color: #022d41;
+  width:196px;
+}
+
+#spm-btn:hover{
+  background: rgb(25,166, 181) !important;
+  color : white !important
+}
+
+#spm-btn:focus{
+  background: rgb(25,166, 181) !important;
+  color : white !important
+}
+
+#search-menu{
+  display:flex;
+  align-items: center;
+  overflow-x:auto;
+}
+
