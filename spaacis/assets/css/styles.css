@@ -671,7 +671,26 @@ span.thumb {
 #search-menu{
   display:flex;
   align-items: center;
-  overflow-x:auto;
 }
 
 .slick-dots{list-style:none;display:flex;align-items:center;justify-content:center;position:absolute;bottom:0;left:45%;opacity:0}.slick-div{position:relative}.slick-dots li button{margin:2px;background:#ddd;opacity:.6;height:8px;width:8px;border-radius:100px;border:none}.slick-div:hover .slick-arrow{opacity:1}.slick-arrow{opacity:0;transition-property:all;transition-duration:.2s}.slick-div:hover .slick-dots{opacity:1}.public-profile-slick-dots{opacity:1!important;bottom:-20px}.public-profile-slick-dots li button{background:#022d41!important;opacity:.6!important}#mp-img-1,#mp-img-2,#mp-img-3{background-position:center;background-size:cover;background-repeat:no-repeat;width:100%}.public-profile-slick-dots li{border:none!important}.public-profile-slick-dots li.slick-active button{opacity:1!important}*{margin:0;padding:0}
+
+
+.desktop-search-menu-container{
+  display: flex
+}
+
+.non-desktop-search-menu-container{
+  display: none !important;
+}
+
+@media(max-width:1145px){
+  .desktop-search-menu-container{
+    display: none !important;
+  }
+  
+  .non-desktop-search-menu-container{
+    display: block !important;
+  }
+}
+

@@ -1,5 +1,6 @@
 $("#search-menu-toggle-btn").on('click', function(){
     $("#search-menu").toggleClass('hidden');
+    $("#search-menu-small").toggleClass('hidden');
 });
 
 
