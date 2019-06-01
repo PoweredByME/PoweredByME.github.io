@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>1-to-1 Video Chat</title> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/styles.css"/>
+    </head>
+    <body>
+
+        <div class="banner my-id">
+            <p>My Id: <span class="my-id-span">sdsa</span></p>
+            <div class="remote-connect-form-container">
+                <form action="#" onsubmit="connectVideoChat(); return false;">
+                    <input id="remoteID-field" type="text" name="remoteID" placeholder="Enter a Remote ID"/>
+                    <br>
+                    <input type="submit"/>
+                </form>
+            </div>
+        </div>
+
+        <div class="vid-container remote-vid-container">
+            <video id="remoteVideo" autoplay></video>
+        </div>
+        <div class="vid-container local-vid-container" title="local-video-div">
+            <video id="localVideo" autoplay></video>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="js/settings.js"></script>
+        <script src="js/webrtc.js"></script>
+        <!-- Include Paho JavaScript MQTT Client from CDN -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript"></script>
+        <script src="js/mqtt.js"></script>
+        <script src="js/messaging.js"></script>
+        <script src="js/index.js"></script>
+    </body>
+</html>
